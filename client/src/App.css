@@ -1,0 +1,102 @@
+/*RESET CSS*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*RESET CSS*/
+
+/*CSS GLOBAL*/
+
+:root {
+  /*COLORS*/
+  --main-blue: #00c3e3;
+  --second-blue: #a0dae4;
+  --grey: #f7f7f7;
+
+  /*FONTS*/
+  --font: "Arial, Helvetica", sans-serif;
+
+  /*SIZES*/
+  --base-font-size: 1rem;
+}
+
+h1 {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 4rem;
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 2rem;
+  overflow-wrap: break-word;
+}
+
+p {
+  font-family: var(--font);
+  overflow-wrap: break-word;
+}
+
+.blue-text {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--main-blue);
+}
+
+.button {
+  background-color: var(--main-blue);
+  padding: 15px 30px 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0px 2px 0px 2px rgb(214, 214, 214);
+  border: none;
+}
+
+.button:hover {
+  border: 1px solid var(--main-blue);
+  background-color: white;
+  color: var(--main-blue);
+}
+
+/*CSS GLOBAL*/
