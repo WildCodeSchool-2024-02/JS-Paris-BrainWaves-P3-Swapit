@@ -35,6 +35,17 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
+const edit = async (req,res,next) => {
+  try {
+    const {id} = req.params;
+    const itemData = req.body;
+    const [result] = await tables.item.update(itemData, id );
+    if (result.affectedRows > 0) res.sendStatus(204)
+      else res.sendStatus(404)
+  }catch (error){
+    next(error) 
+  }
+} 
 // This operation is not yet implemented
 
 // The A of BREAD - Add (Create) operation
@@ -55,14 +66,25 @@ const add = async (req, res, next) => {
   }
 };
 
+
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    const [result] = await tables.item.delete(id);
+    if (result.affectedRows > 0) res.sendStatus(204)
+    else res.sendStatus(404);
+
+  } catch (e) {
+    next(e);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };

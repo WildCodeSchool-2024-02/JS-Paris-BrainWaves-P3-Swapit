@@ -25,13 +25,22 @@ class ItemRepository extends AbstractRepository {
   // TODO: Implement the update operation to modify an existing item
 
   // async update(item, id) {}
-
+  async update(item, id) {
+    return this.database.query(`UPDATE ${this.table}  SET ? WHERE ${this.table}_id = ?`, [item, id]);
+  }
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an item by its ID
+
+  
+  async delete(id) {
+    return this.database.query(`DELETE FROM ${this.table} WHERE ${this.table}_id = ?`, [id]);
+  }
+  
+}
 
   // async delete(id) {
   //   ...
   // }
-}
+
 
 module.exports = ItemRepository;
