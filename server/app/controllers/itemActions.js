@@ -1,4 +1,4 @@
-// Import access to database tables 
+// Import access to database tables
 const tables = require("../../database/tables");
 
 // The B of BREAD - Browse (Read All) operation
@@ -40,14 +40,15 @@ const read = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const item = req.body;
 
   try {
-    // Insert the item into the database
-    const insertId = await tables.item.create(item);
-
+    // Insert the item into the 
+    const itemData = req.body;
+    const result= await tables.item.create(itemData);
+    // const resultData = await tables.item.read(result)
+    
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.status(201).json(result);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
