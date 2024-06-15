@@ -47,11 +47,35 @@ const browse = async (req, res, next) => {
       next(err);
     }
   };
+
+  const edit = async (req,res,next) => {
+    try {
+      const {id} = req.params;
+      const userData = req.body;
+      const [result] = await tables.user.update(userData, id );
+      if (result.affectedRows > 0) res.sendStatus(204)
+        else res.sendStatus(404)
+    }catch (error){
+      next(error) 
+    }
+  } ;
+
+  const destroy = async (req, res, next) => {
+    try {
+      const {id} = req.params;
+      const [result] = await tables.user.delete(id);
+      if (result.affectedRows > 0) res.sendStatus(204)
+      else res.sendStatus(404);
+  
+    } catch (e) {
+      next(e);
+    }
+  };
   module.exports = {
     browse,
     read,
-    // edit,
+    edit,
     add,
-    // destroy,
+    destroy,
   };
   

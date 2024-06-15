@@ -16,6 +16,14 @@ class UserRepository extends AbstractRepository {
     // Return the ID of the newly inserted item
     return result.insertId;
   }
+
+  async update(user, id) {
+    return this.database.query(`UPDATE ${this.table}  SET ? WHERE ${this.table}_id = ?`, [user, id]);
+  }
+
+  async delete(id) {
+    return this.database.query(`DELETE FROM ${this.table} WHERE ${this.table}_id = ?`, [id]);
+  }
 }
 
 module.exports = UserRepository;

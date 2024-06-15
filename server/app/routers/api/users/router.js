@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { browse, read , add} = require("../../../controllers/userActions");
+const { browse, read , add, edit, destroy} = require("../../../controllers/userActions");
 
 router.get("/", browse);
 
@@ -13,9 +13,9 @@ router.get("/:id", read);
 router.post("/", add);
 
 // Route to edit a specific item by ID
-// router.put("/:id", edit); 
+router.put("/:id", edit); 
 
-// router.delete("/:id", destroy)
+router.delete("/:id", destroy)
 /* ************************************************************************* */
 
 module.exports = router;
