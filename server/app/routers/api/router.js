@@ -10,6 +10,9 @@ const itemsRouter = require("./items/router");
 
 router.use("/items", itemsRouter);
 
+const usersRouter = require("./users/router");
+
+router.use("/users", usersRouter); 
 /* ************************************************************************* */
 
 module.exports = router;

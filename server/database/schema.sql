@@ -54,11 +54,11 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`user` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `pseudo` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
-  `e-mail` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
-  UNIQUE INDEX `e-mail_UNIQUE` (`e-mail` ASC) VISIBLE)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
