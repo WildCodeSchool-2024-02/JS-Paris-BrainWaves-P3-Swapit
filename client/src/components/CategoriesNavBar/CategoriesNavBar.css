@@ -1,0 +1,43 @@
+.categoriesContainerNavBar {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 1vh;
+  padding-left: 2vh;
+  border-top: black 1px solid;
+  border-bottom: black 1px solid;
+  box-shadow: 0px 4px 4px gray;
+  overflow-x: scroll;
+  scroll-snap-align: x mandatory;
+}
+
+.categoriesContainerNavBar::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.allProduct {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.categoriesNavBar {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 769px) {
+  .categoriesContainerNavBar {
+    display: flex;
+    gap: 3vh;
+    align-items: center;
+  }
+
+  .categoriesNavBar {
+    display: flex;
+    gap: 3vh;
+    align-items: center;
+  }
+
+  .href {
+    text-decoration: none;
+    color: black;
+  }
+}
