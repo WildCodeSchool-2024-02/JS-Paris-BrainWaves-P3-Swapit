@@ -7,8 +7,8 @@ class ItemRepository extends AbstractRepository {
 
   async create(item) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, description, conditions, date_added) values (?, ?, ?, ?)`,
-      [item.name, item.description, item.conditions, item.date_added]
+      `insert into ${this.table} (name, description, conditions, date_added, image_url ) values (?, ?, ?, ?, ?)`,
+      [item.name, item.description, item.conditions, item.date_added, item.image_url]
     );
 
     return result.insertId;
