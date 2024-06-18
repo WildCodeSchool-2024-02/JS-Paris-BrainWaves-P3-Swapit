@@ -1,0 +1,75 @@
+.containerNavBar {
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.logo {
+  width: 12vh;
+  margin-left: 5vh;
+}
+
+.user {
+  width: 4vh;
+  height: 4vh;
+  align-self: center;
+}
+
+.instruction-presentation {
+  display: none;
+}
+.instruction {
+  display: none;
+}
+
+.presentation {
+  display: none;
+}
+
+.searchBarMobile {
+  display: block;
+}
+
+.searchBarDesktop {
+  display: none;
+}
+@media only screen and (min-width: 769px) {
+  .containerNavBar {
+    padding-bottom: 2vh;
+  }
+
+  .instruction {
+    display: inline;
+    justify-content: space-between;
+    text-shadow: 2px 3px #c0c1c1;
+    margin-right: 2vh;
+  }
+
+  .instruction-presentation {
+    display: flex;
+    align-self: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .presentation {
+    display: inline;
+    align-self: center;
+    color: #00c3e3;
+  }
+
+  .import {
+    display: none;
+  }
+
+  .searchBarMobile {
+    display: none;
+  }
+
+  .searchBarDesktop {
+    display: inline;
+  }
+}
