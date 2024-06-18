@@ -8,7 +8,7 @@ const {
   add,
   edit,
   destroy,
-} = require("../../../controllers/itemActions");
+} = require("../../../controllers/userActions");
 
 router.get("/", browse);
 
@@ -19,5 +19,6 @@ router.post("/", add);
 router.put("/:id", edit);
 
 router.delete("/:id", destroy);
+
 
 module.exports = router;
