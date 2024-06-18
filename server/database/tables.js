@@ -3,6 +3,8 @@ const ItemRepository = require("./models/ItemRepository");
 
 const UserRepository = require("./models/UserRepository");
 
+const CategoryRepository = require("./models/CategoryRepository");
+
 // Create an empty object to hold data repositories for different tables
 const tables = {};
 
@@ -14,6 +16,8 @@ const tables = {};
 tables.item = new ItemRepository();
 
 tables.user = new UserRepository();
+
+tables.category = new CategoryRepository();
 /* ************************************************************************* */
 
 // Use a Proxy to customize error messages when trying to access a non-existing table

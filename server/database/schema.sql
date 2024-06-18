@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`category` (
   `name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`category_id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
