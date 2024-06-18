@@ -10,8 +10,8 @@ const usersRouter = require("./users/router");
 
 router.use("/users", usersRouter);
 
-const categoryRouter = require("./category/router");
+const categoriesRouter = require("./categories/router");
 
-router.use("/category", categoryRouter);
+router.use("/categories", categoriesRouter);
 
 module.exports = router;
