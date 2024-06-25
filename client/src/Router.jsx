@@ -7,10 +7,6 @@ import Category from "./pages/Category/Category";
 import Product from "./pages/Product/Product";
 import Profile from "./pages/Profile/Profile";
 
-
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +31,12 @@ const router = createBrowserRouter([
         path: "/category",
         element: <Category />,
       },
+      {
+        path: "/category/:id",
+        element: <Category />,
+        loader: ({params}) => fetch(`http://localhost:3310/api/categories/${params.id}/items`)
+      },
+
       {
         path: "/product",
         element: <Product />,

@@ -7,8 +7,16 @@ class ItemRepository extends AbstractRepository {
 
   async create(item) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, description, conditions, date_added, image_url ) values (?, ?, ?, ?, ?)`,
-      [item.name, item.description, item.conditions, item.date_added, item.image_url]
+      `insert into ${this.table} (name, description, conditions, date_added, image_url, user_id, category_id ) values (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        item.name,
+        item.description,
+        item.conditions,
+        item.date_added,
+        item.image_url,
+        item.user_id,
+        item.category_id,
+      ]
     );
 
     return result.insertId;
@@ -26,6 +34,20 @@ class ItemRepository extends AbstractRepository {
       `DELETE FROM ${this.table} WHERE ${this.table}_id = ?`,
       [id]
     );
+  }
+
+  async readUserByItem(id) {
+    const result = await this.database.query(
+      `SELECT u.user_id, u.pseudo, u.email, u.phone,
+      i.item_id
+      FROM ${this.table} as i
+      JOIN user u 
+      ON i.user_id = u.user_id 
+      WHERE i.item_id =?`,
+      [id]
+    );
+
+    return result;
   }
 }
 

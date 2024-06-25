@@ -1,22 +1,44 @@
 import "./CategoriesNavBar.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CategoriesNavBar() {
+  const [dataCategories, setDataCategories] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryId) => {
+    navigate(`/category/${categoryId}`);
+  };
+
+  useEffect(() => {
+    const fetchDataCategories = async () => {
+      try {
+        const response = await fetch("http://localhost:3310/api/categories/");
+        const receptionData = await response.json();
+        setDataCategories(receptionData);
+      } catch (error) {
+        console.error("Error fetching dataCategories", error);
+      }
+    };
+    fetchDataCategories();
+  }, []);
+
   return (
     <div>
       <div className="categoriesContainerNavBar">
         <div className="allProduct">Tous&nbsp;les&nbsp;produits</div>
         <div className="categoriesNavBar">
-          <a href="Smartphones" className="href">Smartphones</a>
-          <a href="Ordinateurs" className="href">Ordinateurs</a>
-          <a href="Tablettes" className="href">Tablettes</a>
-          <a href="Vidéo" className="href">Son&nbsp;&&nbsp;Vidéo</a>
-          <a href="Consoles" className="href">Consoles</a>
-          <a href="Accessoires" className="href">Accessoires</a>
-          <a href="Drônes" className="href">Drônes</a>
-          <a href="Sécurité" className="href">Sécurité</a>
-          <a href="Composants" className="href">Composants</a>
-          <a href="Réseaux" className="href">Réseaux&nbsp;&&nbsp;Connectivité</a>
-          <a href="Appareil-ménagers" className="href">Appareils&nbsp;ménagers</a>
+          {dataCategories.map((dataCategory) => (
+            <p
+              key={dataCategory.category_id}
+              className="href"
+              role="presentation"
+              onClick={() => handleCategoryClick(dataCategory.category_id)}
+            >
+              {dataCategory.name}
+            </p>
+          ))}
         </div>
       </div>
     </div>

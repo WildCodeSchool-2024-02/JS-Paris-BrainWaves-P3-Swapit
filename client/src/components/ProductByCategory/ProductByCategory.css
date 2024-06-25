@@ -1,0 +1,52 @@
+.pictureProduct {
+  display: none;
+}
+
+@media only screen and (min-width: 729px) {
+  .productContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .blocProduct {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    height: 50vh;
+    margin-bottom: 5vh;
+  }
+
+  .imgContainer {
+    position: relative;
+    width: 30vh;
+    height: 30vh;
+    overflow: hidden;
+  }
+
+  .pictureProduct {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .productName {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-top: 2vh;
+  }
+
+  .conditionProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .pseudo {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 2vh;
+  }
+}
