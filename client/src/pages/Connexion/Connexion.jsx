@@ -28,12 +28,16 @@ function Connexion() {
         navigate("/");
       } else toast.warn("identifiant incorrect");
     } catch (error) {
-      toast.error("Un probleme est survenue.")
+      toast.error("Un probleme est survenue.");
     }
-  }
+  };
   return (
     <section className="sectionFormConnect">
-      <h2 className="titleConnect"> Se connecter </h2>
+      <h2 className="titleConnect"> Bonjour ! </h2>
+      <h3 className="messageConnect">
+        {" "}
+        Connectez-vous pour accéder à notre réseau de swapper !{" "}
+      </h3>
       <div className="formConnect">
         <div>
           <input
@@ -61,6 +65,16 @@ function Connexion() {
         >
           Connexion
         </button>
+        <p className="messageRegister">
+          Envie de nous rejoindre ? <br className="up" />{" "}
+          <button
+            type="button"
+            className="createAccount"
+            onClick={() => navigate("/inscription")}
+          >
+            créer un compte
+          </button>{" "}
+        </p>
       </div>
     </section>
   );
