@@ -17,6 +17,7 @@ class UserSeeder extends AbstractSeeder {
         password: "sqdklfjqsklkf",
         email: "ludovic.scelles@gmail.com",
         phone: "06 12 34 56 78",
+        picture: "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         refName: "user1"
       },
       {
@@ -24,6 +25,7 @@ class UserSeeder extends AbstractSeeder {
         password: "fsjdkflmqfk",
         email: "mary.fake.email@example.com",
         phone: "06 98 76 54 32",
+        picture: "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         refName: "user2"
       },
       {
@@ -31,6 +33,7 @@ class UserSeeder extends AbstractSeeder {
         password: "pwd12345",
         email: "john.doe@example.com",
         phone: "06 11 22 33 44",
+        picture: "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         refName: "user3"
 
       },
@@ -40,6 +43,7 @@ class UserSeeder extends AbstractSeeder {
         password: "alicepwd",
         email: "alice.wonder@example.com",
         phone: "06 55 66 77 88",
+        picture: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         refName: "user4"
 
       },
@@ -49,6 +53,7 @@ class UserSeeder extends AbstractSeeder {
         password: "bobssecret",
         email: "bob.builder@example.com",
         phone: "06 44 55 66 77",
+        picture: "https://images.pexels.com/photos/2340978/pexels-photo-2340978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         refName: "user5"
 
       },
