@@ -1,11 +1,14 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Inscription.css";
 
 function Inscription() {
   const pseudo = useRef();
   const email = useRef();
   const password = useRef();
+  const confirmPassword = useRef();
   const phone = useRef();
 
   const navigate = useNavigate();
@@ -21,17 +24,22 @@ function Inscription() {
           pseudo: pseudo.current.value,
           email: email.current.value,
           password: password.current.value,
+          confirmPassword: confirmPassword.current.value,
           phone: phone.current.value,
         })
       });
       
       if (response.ok) {
+        toast.success("Votre inscription à bien été prise en compte !");
         navigate("/connexion");
       } else {
-        console.error("Erreur client.");
+        const errors = await response.json();
+        errors.details.forEach(error => {
+          toast.warn(error.message);
+        });
       }
     } catch (error) {
-      console.error(error);
+      toast.error('Une erreur est survenue..')
     }
   };
 
@@ -48,12 +56,23 @@ function Inscription() {
       </div>
       <div>
         <input className="inputForm" 
+        id="password"
           placeholder="Mot de Passe"
           type="password"
           ref={password}
           required
         />
       </div>
+      <div>
+        <input className="inputForm" 
+        id="confirmPassword"
+          placeholder="Confirmer Mot de Passe"
+          type="password"
+          ref={confirmPassword}
+          required
+        />
+      </div>
+    
       <div>
         <input className="inputForm" 
           placeholder="Numero de téléphone"
