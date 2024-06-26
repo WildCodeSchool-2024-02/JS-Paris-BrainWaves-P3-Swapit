@@ -1,5 +1,6 @@
 .categoriesContainerNavBar {
   display: none;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 1vh;
   padding-left: 2vh;

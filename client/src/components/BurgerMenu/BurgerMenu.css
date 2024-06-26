@@ -1,5 +1,6 @@
 .containerMenuBurger {
   display: block;
+  margin-top: 1.4rem;
 }
 
 @media only screen and (min-width: 769px) {
