@@ -1,5 +1,10 @@
 .categoryName {
-  display: none;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  justify-content: center;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
 }
 
 @media only screen and (min-width: 769px) {
@@ -9,5 +14,6 @@
     margin-top: 10vh;
     margin-bottom: 10vh;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 4rem;
   }
 }
