@@ -2,7 +2,7 @@
   background-color: #f7f7f7;
   display: flex;
   justify-content: space-between;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: (Arial, Helvetica, sans-serif);
   padding-top: 10px;
   padding-right: 10px;
 }
@@ -35,6 +35,20 @@
 .searchBarDesktop {
   display: none;
 }
+
+.user-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.user-button img {
+  display: block;
+}
+
 @media only screen and (min-width: 769px) {
   .containerNavBar {
     padding-bottom: 2vh;
