@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
 import logo from "../../assets/navbar/logo2.svg";
-import user from "../../assets/navbar/user.png";
+import user from "../../assets/navbar/user2.svg";
 import SearchBar from "../SearchBar/SearchBar";
 import CategoriesNavBar from "../CategoriesNavBar/CategoriesNavBar";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";

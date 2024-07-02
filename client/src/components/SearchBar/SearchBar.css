@@ -2,7 +2,7 @@
   background-color: #f7f7f7;
   padding-left: 20%;
   padding-right: 20%;
-  padding-top: 2vh;
+  padding-top: 2.5vh;
   padding-bottom: 2vh;
 }
 
@@ -14,7 +14,6 @@
 .searchTerm {
   width: 100%;
   border: 2px solid black;
-  border-right: none;
   padding: 5px;
   height: 5vh;
   border-radius: 20px;
@@ -41,19 +40,31 @@ input::placeholder {
 
 @media only screen and (min-width: 769px) {
   .SearchBarContainer {
-    padding-left: 5%;
-    padding-right: 10%;
-    width: 100vh;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2.5vh;
+    padding-bottom: 2vh;
+    width: 30vh;
   }
 
   .searchTerm {
     width: 100%;
     border: 2px solid black;
-    border-right: none;
     padding: 5px;
     height: 5vh;
     border-radius: 20px;
-    color: #00c3e3;
+    color: black;
     box-shadow: 1px 2px 2px 2px rgba(54, 54, 54, 0.2);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .SearchBarContainer {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2.5vh;
+    padding-bottom: 2vh;
+    width: 50vh;
+    max-width: 150vh;
   }
 }
