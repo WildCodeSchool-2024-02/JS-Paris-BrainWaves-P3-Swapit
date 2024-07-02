@@ -1,0 +1,146 @@
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vh;
+  margin: 0 auto 5vh auto;
+  padding: 0 4vh;
+}
+
+.blocProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.pictureProduct {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  margin-top: 2vh;
+  font-weight: bold;
+}
+
+.conditionProduct {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.5rem;
+}
+
+.pseudo {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: 2vh;
+  align-items: center;
+  height: 100%;
+}
+
+.blocProfile {
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.pictureProfileContainer {
+  position: relative;
+  width: 5vh;
+  height: 5vh;
+  overflow: hidden;
+}
+
+.pictureProfile {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 769px) {
+  .productContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    flex-wrap: wrap;
+  }
+  .blocProduct {
+    display: inline-block;
+    flex-direction: column;
+    width: 40vh;
+    height: 50vh;
+    margin-bottom: 5vh;
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+
+  .imgContainer {
+    position: relative;
+    width: 30vh;
+    height: 30vh;
+    overflow: hidden;
+  }
+
+  .pictureProduct {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .productName {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-top: 2vh;
+  }
+
+  .conditionProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .pseudo {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    height: 100%;
+  }
+
+  .blocProfile {
+    display: flex;
+    gap: 2vh;
+    align-items: flex-start;
+    height: 5vh;
+  }
+
+  .pictureProfileContainer {
+    position: relative;
+    width: 5vh;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .pictureProfile {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

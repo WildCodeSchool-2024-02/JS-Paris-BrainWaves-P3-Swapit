@@ -8,9 +8,32 @@ import Typography from "@mui/joy/Typography";
 import ModalClose from "@mui/joy/ModalClose";
 import Menu from "@mui/icons-material/Menu";
 import "./BurgerMenu.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BurgerMenu() {
   const [open, setOpen] = React.useState(false);
+
+  const [dataCategories, setDataCategories] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryId) => {
+    navigate(`/category/${categoryId}`);
+  };
+
+  useEffect(() => {
+    const fetchDataCategories = async () => {
+      try {
+        const response = await fetch("http://localhost:3310/api/categories/");
+        const receptionData = await response.json();
+        setDataCategories(receptionData);
+      } catch (error) {
+        console.error("Error fetching dataCategories", error);
+      }
+    };
+    fetchDataCategories();
+  }, []);
 
   return (
     <div className="containerMenuBurger">
@@ -56,18 +79,16 @@ export default function BurgerMenu() {
           <ListItemButton sx={{ fontWeight: "lg" }}>
             Toutes les catégories
           </ListItemButton>
-          <ListItemButton>Smartphones</ListItemButton>
-          <ListItemButton>Ordinateurs</ListItemButton>
-          <ListItemButton>Tablettes</ListItemButton>
-          <ListItemButton>Son & Vidéo</ListItemButton>
-          <ListItemButton>Drônes</ListItemButton>
-          <ListItemButton>Consoles</ListItemButton>
-          <ListItemButton>Accesoires</ListItemButton>
-          <ListItemButton>Réseaux & Connectivités</ListItemButton>
-          <ListItemButton>Sécurités</ListItemButton>
-          <ListItemButton>Composants internes</ListItemButton>
-          <ListItemButton>Appareils ménagers</ListItemButton>
-          <ListItemButton />
+          {dataCategories.map((dataCategory) => (
+            <ListItemButton
+              key={dataCategory.category_id}
+              className="href"
+              role="presentation"
+              onClick={() => handleCategoryClick(dataCategory.category_id)}
+            >
+              {dataCategory.name}
+            </ListItemButton>
+          ))}
 
           <ListItemButton sx={{ color: "#00C3E3" }}>
             Qui sommes-nous{" "}

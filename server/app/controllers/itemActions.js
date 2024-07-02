@@ -1,4 +1,3 @@
-
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -58,6 +57,8 @@ const destroy = async (req, res, next) => {
     next(e);
   }
 };
+
+
 
 module.exports = {
   browse,

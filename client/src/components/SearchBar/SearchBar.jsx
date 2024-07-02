@@ -2,7 +2,7 @@ import "./SearchBar.css";
 
 function SearchBar() {
   return (
-    <div>
+   
       <div className="SearchBarContainer">
         <div className="wrap">
           <div className="search">
@@ -26,7 +26,6 @@ function SearchBar() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

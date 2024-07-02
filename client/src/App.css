@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 input,
 button,
 textarea,
@@ -20,6 +24,7 @@ select {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  display: flex;
 }
 
 img,
