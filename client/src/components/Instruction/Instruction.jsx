@@ -25,17 +25,17 @@ export default function Instruction() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="UpText">
+          <div className="upText">
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
-          <div className="DownTextImg">
-            <img className="ImagesSlide" alt="image1" src={modedemploi1} />
-            <div className="DownText">
+          <div className="downTextImg">
+            <img className="imagesSlide" alt="image1" src={modedemploi1} />
+            <div className="downText">
               <div>
-                <p className="Question">
-                  <span className="Color">Explorez</span> les trésors{" "}
+                <p className="question">
+                  <span className="color">Explorez</span> les trésors{" "}
                 </p>
-                <p className="Response">
+                <p className="response">
                   Commencez par explorer les produits que vous souhaitez
                   échanger en utilisant des filtres de recherche ou des
                   mots-clés pertinents pour découvrir des correspondances
@@ -47,17 +47,17 @@ export default function Instruction() {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="UpText">
-            <p id="How">Mode d&rsquo;emploi</p>
+          <div className="upText">
+            <p id="how">Mode d&rsquo;emploi</p>
           </div>
-          <div className="DownTextImg">
-            <img className="ImagesSlide" alt="image2" src={modedemploi2} />
-            <div className="DownText">
+          <div className="downTextImg">
+            <img className="imagesSlide" alt="image2" src={modedemploi2} />
+            <div className="downText">
               <div>
-                <p className="Question">
-                  <span className="Color">Sélectionnez</span> avec soin
+                <p className="question">
+                  <span className="color">Sélectionnez</span> avec soin
                 </p>
-                <p className="Response">
+                <p className="response">
                   Après avoir identifié un objet d'intérêt, prenez le temps
                   d'examiner les détails, les images et les informations
                   associées pour déterminer si vous souhaitez engager l'échange.{" "}
@@ -68,17 +68,17 @@ export default function Instruction() {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="UpText">
-            <p id="How">Mode d&rsquo;emploi</p>
+          <div className="upText">
+            <p id="how">Mode d&rsquo;emploi</p>
           </div>
-          <div className="DownTextImg">
-            <img className="ImagesSlide" alt="image3" src={modedemploi3} />
-            <div className="DownText">
+          <div className="downTextImg">
+            <img className="imagesSlide" alt="image3" src={modedemploi3} />
+            <div className="downText">
               <div>
-                <p className="Question">
-                  <span className="Color">Finalisez</span> la transaction
+                <p className="question">
+                  <span className="color">Finalisez</span> la transaction
                 </p>
-                <p className="Response">
+                <p className="response">
                   Enfin, déclenchez le processus d'échange en proposant votre
                   objet à la contrepartie et en discutant des modalités telles
                   que la date et le lieu de rencontre.{" "}

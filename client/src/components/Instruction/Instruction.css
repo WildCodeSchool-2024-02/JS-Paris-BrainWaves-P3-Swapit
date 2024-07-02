@@ -1,20 +1,20 @@
-Input,
-Button,
-Textarea,
-Select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-Body {
+body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-Img,
-Picture,
-Video,
-Canvas,
-Svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -24,12 +24,12 @@ Svg {
   isolation: isolate;
 }
 
-.Swiper {
+.swiper {
   width: 700px;
   padding: 50px;
 }
 
-.Swiper-slide {
+.swiper-slide {
   background-position: center;
   background-size: cover;
   width: 90vh;
@@ -38,7 +38,7 @@ Svg {
   border-radius: 20px;
 }
 
-.ImagesSlide {
+.imagesSlide {
   width: 12rem;
   height: 8rem;
   border-radius: 25px;
@@ -46,14 +46,14 @@ Svg {
   margin-top: 4rem;
 }
 
-#How {
+#how {
   font-family: var(--font);
   font-weight: 900;
   font-style: normal;
   font-size: 22px;
 }
 
-.UpText {
+.upText {
   display: flex;
   justify-content: space-between;
   font-family: var(--font);
@@ -62,14 +62,14 @@ Svg {
   margin-top: 1rem;
 }
 
-.DownTextImg {
+.downTextImg {
   display: flex;
   font-family: var(--font);
   justify-content: space-around;
   flex-direction: row-reverse;
 }
 
-.DownText {
+.downText {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +79,7 @@ Svg {
   margin-top: 3rem;
 }
 
-.Question {
+.question {
   font-family: var(--font);
   font-weight: 700;
   font-style: normal;
@@ -87,21 +87,21 @@ Svg {
   margin: 0;
 }
 
-.Response {
+.response {
   margin: 0;
   font-size: 1.1rem;
 }
 
-.Color {
+.color {
   color: #00c3e3;
 }
 
-.Swiper-button-next,
-.Swiper-button-prev {
-  color: #00c3e3;
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--main-blue);
 }
 
-.Swiper-pagination-bullet {
+.swiper-pagination-bullet {
   background: var(--main-blue);
 }
 
@@ -110,7 +110,7 @@ Svg {
     margin-bottom: 20px;
   }
 
-  .DownTextImg {
+  .downTextImg {
     display: flex;
     flex-direction: column-reverse;
     margin-top: 0;
@@ -118,60 +118,60 @@ Svg {
     margin-bottom: 25px;
   }
 
-  .Swiper-slide {
+  .swiper-slide {
     width: auto;
     height: auto;
   }
 
-  .UpText {
+  .upText {
     display: flex;
     align-items: flex-start;
   }
 
-  .Question {
+  .question {
     font-size: 1rem;
   }
 
-  .Response {
+  .response {
     font-size: 0.8rem;
   }
 
-  .DownText {
+  .downText {
     width: 80%;
     margin-bottom: 20px;
   }
 
-  .Swiper {
+  .swiper {
     width: auto;
     height: auto;
     margin: 3rem;
     padding: 0;
   }
 
-  .ImgStep {
+  .imgStep {
     width: auto;
     margin: 2% 0;
     border: none;
   }
 
-  #How {
+  #how {
     font-size: 1.5rem;
   }
 
-  .Swiper-horizontal > .Swiper-pagination-bullets,
-  .Swiper-pagination-bullets.swiper-pagination-horizontal {
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: var(--swiper-pagination-bottom, -22px);
     top: var(--swiper-pagination-top, auto);
     left: 0;
     width: 100%;
   }
 
-  .Swiper-button-next {
+  .swiper-button-next {
     right: var(--swiper-navigation-sides-offset, -38px);
     left: auto;
   }
 
-  .Swiper-button-prev {
+  .swiper-button-prev {
     left: var(--swiper-navigation-sides-offset, -38px);
     right: auto;
   }
