@@ -1,24 +1,3 @@
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
 #root,
 #__next {
   isolation: isolate;
