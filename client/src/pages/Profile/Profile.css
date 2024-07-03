@@ -76,12 +76,9 @@ button {
   background-color: #0056b3;
 }
 
-.ProfilDetails {
+.profilDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.ProfilContainer {
-  display: flex;
+  width: 22rem;
 }

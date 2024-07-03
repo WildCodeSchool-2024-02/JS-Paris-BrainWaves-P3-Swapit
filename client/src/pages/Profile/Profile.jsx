@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import ProfileImg from '../../assets/images/Antoine-Durand.png';
+import profileImg from '../../assets/images/Antoine-Durand.png';
 
-import './Profile-Desktop.css';
+import './Profile.css';
 
-export default function ColorToggleButton() {
+export default function Profile() {
   const [alignment, setAlignment] = useState('Vitrine');
 
   const handleChange = useCallback((event, newAlignment) => {
@@ -18,11 +18,11 @@ export default function ColorToggleButton() {
   };
 
   return (
-    <div>
-      <div className="ProfilContainer">
-        <div className="ProfilHeader">
-          <img src={ProfileImg} alt="Profil" className="Profil-Image" />
-          <div className="ProfilDetails">
+    <><div>
+      <div className="profilContainer">
+        <div className="profilHeader">
+          <img src={profileImg} alt="Profil" className="Profil-Image" />
+          <div className="profilDetails">
             <h2>Antoine Durand</h2>
             <div className="Five-Rate-Active Larger">
               <p className="screenReaders">Noté 1.3 sur 5</p>
@@ -39,24 +39,27 @@ export default function ColorToggleButton() {
             <p className='Location'>Paris, France</p>
             <p className='Subcribe'>Membre depuis janvier 2024</p>
             <div className='Button'>
-            {/* New button with onclick event */}
-            <button type="button" onClick={handleClick}>Modifications Profil</button>
+              {/* New button with onclick event */}
+              <button type="button" onClick={handleClick}>Modifications Profil</button>
             </div>
           </div>
         </div>
       </div>
-      <ToggleButtonGroup
-        color="primary"
-        value={alignment}
-        exclusive
-        onChange={handleChange}
-        aria-label="Platform"
-      >
-        <ToggleButton value="Vitrine">Vitrine</ToggleButton>
-        <ToggleButton value="Evaluations">Evaluations</ToggleButton>
-        <ToggleButton value="Propositions">Propositions</ToggleButton>
-      </ToggleButtonGroup>
-
     </div>
+    <div>
+        <ToggleButtonGroup
+          color="primary"
+          value={alignment}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+        >
+          <ToggleButton value="Vitrine">Vitrine</ToggleButton>
+          <section />
+          <ToggleButton value="Evaluations">Evaluations</ToggleButton>
+          <ToggleButton value="Propositions">Propositions</ToggleButton>
+        </ToggleButtonGroup>
+      </div>
+  </>
   );
 }
