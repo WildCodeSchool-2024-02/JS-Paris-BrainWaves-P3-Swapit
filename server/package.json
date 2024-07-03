@@ -13,10 +13,17 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+<<<<<<< HEAD
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.10.1",
     "swiper": "^11.1.4"
+=======
+    "swiper": "^11.1.4"
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.10.1"
+>>>>>>> 9b85195a3d649df5bd2b9b66c903396ff75cdd49
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
