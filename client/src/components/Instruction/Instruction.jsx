@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import modedemploi1 from "../../assets/images/ModeDemploi-1.png";
-import modedemploi2 from "../../assets/images/ModeDemploi-2.png";
-import modedemploi3 from "../../assets/images/ModeDemploi-3.png";
+import Picture1 from "../../assets/images/Picture1.png";
+import Picture2 from "../../assets/images/Picture2.png";
+import Picture3 from "../../assets/images/Picture3.png";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -29,7 +29,7 @@ export default function Instruction() {
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
           <div className="downTextImg">
-            <img className="imagesSlide" alt="image1" src={modedemploi1} />
+            <img className="imagesSlide" alt="image1" src={Picture1} />
             <div className="downText">
               <div>
                 <p className="question">
@@ -51,7 +51,7 @@ export default function Instruction() {
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
           <div className="downTextImg">
-            <img className="imagesSlide" alt="image2" src={modedemploi2} />
+            <img className="imagesSlide" alt="image2" src={Picture2} />
             <div className="downText">
               <div>
                 <p className="question">
@@ -72,7 +72,7 @@ export default function Instruction() {
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
           <div className="downTextImg">
-            <img className="imagesSlide" alt="image3" src={modedemploi3} />
+            <img className="imagesSlide" alt="image3" src={Picture3} />
             <div className="downText">
               <div>
                 <p className="question">
