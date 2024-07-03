@@ -9,7 +9,7 @@
   font-size: 1.5rem;
 }
 
-.ScreenReaders {
+.screenReaders {
   position: absolute;
   left: -10000px;
   top: auto;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-Button {
+button {
   background: none;
   border: none;
   cursor: pointer;

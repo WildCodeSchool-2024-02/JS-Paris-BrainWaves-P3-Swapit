@@ -25,7 +25,7 @@ export default function ColorToggleButton() {
           <div className="ProfilDetails">
             <h2>Antoine Durand</h2>
             <div className="Five-Rate-Active Larger">
-              <p className="ScreenReaders">Noté 1.3 sur 5</p>
+              <p className="screenReaders">Noté 1.3 sur 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
                 <button
                   key={rate}
@@ -40,9 +40,7 @@ export default function ColorToggleButton() {
             <p className='Subcribe'>Membre depuis janvier 2024</p>
             <div className='Button'>
             {/* New button with onclick event */}
-            <button type="button" onClick={handleClick}>
-              Modifications profil
-            </button>
+            <button type="button" onClick={handleClick}>Modifications Profil</button>
             </div>
           </div>
         </div>
