@@ -27,6 +27,15 @@ class UserRepository extends AbstractRepository {
       [id]
     );
   }
-}
+
+  async readItemByUser (id) {
+    return this.database.query(
+      `SELECT *
+      FROM ${this.table} as u
+      JOIN item as i ON i.user_id = u.user_id
+      WHERE u.user_id =?`,
+      [id]
+    );
+}}
 
 module.exports = UserRepository;

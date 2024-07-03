@@ -8,11 +8,14 @@ const {
   add,
   edit,
   destroy,
+  getItemByUser
 } = require("../../../controllers/userActions");
 
 router.get("/", browse);
 
 router.get("/:id", read);
+
+router.get("/:id/items", getItemByUser)
 
 router.post("/", add);
 
