@@ -21,7 +21,7 @@ export default function Profile() {
     <><div>
       <div className="profilContainer">
         <div className="profilHeader">
-          <img src={profileImg} alt="Profil" className="Profil-Image" />
+          <img src={profileImg} alt="Profil" className="ProfilImg" />
           <div className="profilDetails">
             <h2>Antoine Durand</h2>
             <div className="Five-Rate-Active Larger">
@@ -40,7 +40,7 @@ export default function Profile() {
             <p className='Subcribe'>Membre depuis janvier 2024</p>
             <div className='Button'>
               {/* New button with onclick event */}
-              <button type="button" onClick={handleClick}>Modifications Profil</button>
+              <button type="button" onClick={handleClick}>Modifications profil</button>
             </div>
           </div>
         </div>
