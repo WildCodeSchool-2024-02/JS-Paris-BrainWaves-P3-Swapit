@@ -17,9 +17,12 @@
   padding: 5px;
   height: 5vh;
   border-radius: 20px;
-  color: #00c3e3;
   box-shadow: 1px 2px 2px 2px rgba(54, 54, 54, 0.2);
   font-size: 1rem;
+}
+
+.searchTerm:focus {
+  outline: none;
 }
 
 input::placeholder {
