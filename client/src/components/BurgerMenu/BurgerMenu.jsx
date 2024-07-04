@@ -19,7 +19,11 @@ export default function BurgerMenu() {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryId) => {
-    navigate(`/category/${categoryId}`);
+    navigate(`/categorie/${categoryId}`);
+  };
+
+  const handleAllProductsClick = () => {
+    navigate("/categorie/produits");
   };
 
   useEffect(() => {
@@ -76,8 +80,11 @@ export default function BurgerMenu() {
             "& > div": { justifyContent: "left" },
           }}
         >
-          <ListItemButton sx={{ fontWeight: "lg" }}>
-            Toutes les catégories
+          <ListItemButton
+            sx={{ fontWeight: "lg" }}
+            onClick={handleAllProductsClick}
+          >
+            Toutes les produits
           </ListItemButton>
           {dataCategories.map((dataCategory) => (
             <ListItemButton
