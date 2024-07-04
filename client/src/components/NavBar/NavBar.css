@@ -48,7 +48,12 @@
 .user-button img {
   display: block;
 }
-
+.pictureProfileConnected {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+}
 @media only screen and (min-width: 769px) {
   .containerNavBar {
     padding-bottom: 2vh;
@@ -84,5 +89,12 @@
 
   .searchBarDesktop {
     display: inline;
+  }
+
+  .pictureProfileConnected {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
   }
 }
