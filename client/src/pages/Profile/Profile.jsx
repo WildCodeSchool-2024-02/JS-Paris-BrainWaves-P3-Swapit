@@ -1,9 +1,8 @@
-import "./Profile.css"; 
-
+import "./Profile.css";
 
 function Profile () {
 
-  
+ 
 }
 
-export default Profile; 
+export default Profile 

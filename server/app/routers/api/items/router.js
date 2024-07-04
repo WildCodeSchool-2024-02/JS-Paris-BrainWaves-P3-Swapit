@@ -9,6 +9,7 @@ const {
   edit,
   destroy,
   getItemWithUser,
+  getUserByItem,
 } = require("../../../controllers/itemActions");
 
 router.get("/all", getItemWithUser);
@@ -16,6 +17,8 @@ router.get("/all", getItemWithUser);
 router.get("/", browse);
 
 router.get("/:id", read);
+
+router.get("/:id/user", getUserByItem)
 
 router.post("/", add);
 
