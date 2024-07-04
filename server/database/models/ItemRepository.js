@@ -35,6 +35,23 @@ class ItemRepository extends AbstractRepository {
       [id]
     );
   }
+
+  async readUserByItem(id) {
+    const result = await this.database.query(
+      `SELECT u.*, i.*, c.category_name
+      FROM ${this.table} as i
+      JOIN category as c
+      ON i.category_id = c.category_id
+      JOIN user as u
+      ON i.user_id = u.user_id
+      WHERE i.item_id =?`,
+      [id]
+    );
+
+    
+    
+    return result;
+  }
 }
 
 module.exports = ItemRepository;

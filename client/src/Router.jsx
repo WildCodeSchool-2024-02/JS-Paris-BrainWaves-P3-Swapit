@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Connexion from "./pages/Connexion/Connexion";
 import Inscription from "./pages/Inscription/Inscription";
 import Category from "./pages/Category/Category";
-import Product from "./pages/Product/Product";
+import Product from "./pages/Product/ProductPage";
 import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/product",
+        path: "/produit",
         element: <Product />,
       },
       {
