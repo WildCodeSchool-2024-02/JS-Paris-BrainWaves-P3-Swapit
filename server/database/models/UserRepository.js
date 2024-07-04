@@ -5,10 +5,20 @@ class UserRepository extends AbstractRepository {
     super({ table: "user" });
   }
 
+  async readByEmailWithPassword(email) {
+
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+
+    return rows[0];
+  }
+
   async create(user) {
     const [result] = await this.database.query(
       `insert into ${this.table} (pseudo, password, email, phone) values (?, ?, ?, ?)`,
-      [user.pseudo, user.password, user.email, user.phone]
+      [user.pseudo, user.hashedPassword, user.email, user.phone]
     );
 
     return result.insertId;
@@ -27,6 +37,15 @@ class UserRepository extends AbstractRepository {
       [id]
     );
   }
-}
+
+  async readItemByUser (id) {
+    return this.database.query(
+      `SELECT *
+      FROM ${this.table} as u
+      JOIN item as i ON i.user_id = u.user_id
+      WHERE u.user_id =?`,
+      [id]
+    );
+}}
 
 module.exports = UserRepository;

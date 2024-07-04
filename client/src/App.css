@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 input,
 button,
 textarea,
@@ -20,6 +24,7 @@ select {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  display: flex;
 }
 
 img,
@@ -44,6 +49,7 @@ svg {
   /*COLORS*/
   --main-blue: #00c3e3;
   --second-blue: #a0dae4;
+  --hover-blue: #00a4be;
   --grey: #f7f7f7;
 
   /*FONTS*/

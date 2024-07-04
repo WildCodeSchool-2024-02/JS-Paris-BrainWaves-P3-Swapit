@@ -24,7 +24,22 @@ const read = async (req, res, next) => {
   }
 };
 
+const readItemByCategory = async (req, res, next) => {
+  try {
+    const [category] = await tables.category.readItemByCategory(req.params.id);
+    if (category) {
+      res.json(category);
+    } else {
+      res.sendStatus(404).json({ message: "Category not found" });
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   read,
+  readItemByCategory,
 };

@@ -9,11 +9,18 @@
     "test": "jest"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@mui/material": "^5.15.21",
+=======
+    "argon2": "^0.40.3",
+>>>>>>> 87d712abd2569e277c3ab98a68a0a007c9e87abf
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mysql2": "^3.10.1"
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.10.1",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

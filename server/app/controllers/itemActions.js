@@ -1,4 +1,3 @@
-
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -58,6 +57,21 @@ const destroy = async (req, res, next) => {
     next(e);
   }
 };
+  const getUserByItem = async (req, res, next) => {
+    try {
+      const [result] = await tables.item.readUserByItem(req.params.id);
+      if (result) {
+        res.json(result);
+      } else {
+        res.status(404).json({ message: "Item not found" });
+      }
+    } catch (err) {
+      next(err);
+    }
+  };
+
+
+
 
 module.exports = {
   browse,
@@ -65,4 +79,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  getUserByItem,
 };
