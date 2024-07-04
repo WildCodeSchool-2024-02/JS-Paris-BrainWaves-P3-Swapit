@@ -29,17 +29,17 @@ const router = createBrowserRouter([
         element: <Inscription />,
       },
       {
-        path: "/category",
+        path: "/categorie",
         element: <Category />,
       },
       {
-        path: "/category/:id",
+        path: "/categorie/:id",
         element: <Category />,
         loader: ({ params }) =>
           fetch(`http://localhost:3310/api/categories/${params.id}/items`),
       },
       {
-        path: "/category/all-products",
+        path: "/categorie/produits",
         element: <CategoryAllProducts />,
         loader: () =>
           fetch(`http://localhost:3310/api/items/all`),

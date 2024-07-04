@@ -10,7 +10,7 @@ function Category() {
   ];
 
   return (
-    <div>
+    <>
       {uniqueCategories.map((categoryName) => (
         <div key={categoryName}>
           <h1 className="categoryName">{categoryName}</h1>
@@ -21,7 +21,7 @@ function Category() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

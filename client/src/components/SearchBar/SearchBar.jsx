@@ -32,7 +32,7 @@ function SearchBar() {
         dataItem.name.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
         dataItem.CategoryName.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
-    navigate("/category/all-products", { state: { filteredDataItems } });
+    navigate("/categorie/produits", { state: { filteredDataItems } });
   };
 
   const handleKeyDown = (event) => {

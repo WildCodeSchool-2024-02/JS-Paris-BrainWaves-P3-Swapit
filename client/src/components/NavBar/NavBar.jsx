@@ -26,7 +26,7 @@ function NavBar() {
   };
 
   return (
-    <div>
+    <>
       <div className="containerNavBar">
         <BurgerMenu />
         <img
@@ -45,7 +45,7 @@ function NavBar() {
       </div>
       {!isDesktop && <SearchBar />}
       <CategoriesNavBar />
-    </div>
+    </>
   );
 }
 

@@ -8,11 +8,11 @@ function CategoriesNavBar() {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryId) => {
-    navigate(`/category/${categoryId}`);
+    navigate(`/categorie/${categoryId}`);
   };
 
   const handleAllProductsClick = () => {
-    navigate("/category/all-products");
+    navigate("/categorie/produits");
   };
 
   useEffect(() => {
@@ -29,27 +29,25 @@ function CategoriesNavBar() {
   }, []);
 
   return (
-    <div>
-      <div className="categoriesContainerNavBar">
-        <div
-          className="allProduct"
-          onClick={handleAllProductsClick}
-          role="presentation"
-        >
-          Tous&nbsp;les&nbsp;produits
-        </div>
-        <div className="categoriesNavBar">
-          {dataCategories.map((dataCategory) => (
-            <p
-              key={dataCategory.category_id}
-              className="href"
-              role="presentation"
-              onClick={() => handleCategoryClick(dataCategory.category_id)}
-            >
-              {dataCategory.name}
-            </p>
-          ))}
-        </div>
+    <div className="categoriesContainerNavBar">
+      <div
+        className="allProduct"
+        onClick={handleAllProductsClick}
+        role="presentation"
+      >
+        Tous&nbsp;les&nbsp;produits
+      </div>
+      <div className="categoriesNavBar">
+        {dataCategories.map((dataCategory) => (
+          <p
+            key={dataCategory.category_id}
+            className="href"
+            role="presentation"
+            onClick={() => handleCategoryClick(dataCategory.category_id)}
+          >
+            {dataCategory.name}
+          </p>
+        ))}
       </div>
     </div>
   );
