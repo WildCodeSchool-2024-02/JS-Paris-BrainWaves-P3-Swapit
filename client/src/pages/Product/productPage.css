@@ -61,7 +61,7 @@
   font-family: var(--font);
 }
 
-.pseudo {
+#pseudo {
   cursor: pointer;
 }
 
@@ -114,12 +114,12 @@
   display: none;
 }
 
-h4 {
+.details {
   padding: 20px 20px 20px 0px;
   font-family: var(--font);
 }
 
-h2 {
+.topDetails {
   font-size: medium;
   font-family: var(--font);
 }

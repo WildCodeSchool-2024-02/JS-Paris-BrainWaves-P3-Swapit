@@ -7,10 +7,6 @@ import Category from "./pages/Category/Category";
 import Product from "./pages/Product/ProductPage";
 import Profile from "./pages/Profile/Profile";
 
-
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",

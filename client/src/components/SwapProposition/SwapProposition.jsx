@@ -44,7 +44,7 @@ function SwapProposition({ closeProposition, setBlur }) {
           </button>
         </div>
 
-        <div className="PropositionProducts">
+        <div className="propositionProducts">
           {productList.map((product, index) => (
             <div key={product.id} className="pProduct">
               <label htmlFor={`checkBox${index}`}>

@@ -1,15 +1,13 @@
-
 /* eslint-disable import/no-unresolved */
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./ProductPage.css";
+import "./productPage.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-
+import SwapProposition from "../../components/SwapProposition/SwapProposition";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SwapProposition from "../../components/swapProposition/swapProposition";
 
 export default function ProductPage() {
   const [product, setProduct] = useState([]);
@@ -26,9 +24,6 @@ export default function ProductPage() {
       .then((response) => response.json())
       .then((json) => setProduct(json[0]));
   }, []);
-
-  // eslint-disable-next-line no-console
-  console.log(product);
 
   const handleSwapRequest = () => {
     setBlur(true);
@@ -125,7 +120,8 @@ export default function ProductPage() {
               />
               <div className="profileInfo">
                 <h2
-                  className="pseudo"
+                  className="topDetails"
+                  id="pseudo"
                   onClick={handleSwapClick}
                   role="presentation"
                 >
@@ -137,28 +133,30 @@ export default function ProductPage() {
             </div>
 
             <div className="name">
-              <h2 id="title">{product.name}</h2>
+              <h2 className="topDetails" id="title">
+                {product.name}
+              </h2>
             </div>
             <hr />
 
             <div className="description">
-              <h4>Description</h4>
+              <h4 className="details">Description</h4>
               <p>{product.description}</p>
             </div>
             <hr />
             <div className="condition">
-              <h4>État</h4>
+              <h4 className="details">État</h4>
               <p>{product.condition}</p>
             </div>
             <hr />
 
             <div className="category">
-              <h4>Catégorie</h4>
+              <h4 className="details">Catégorie</h4>
               <p>{product.category_name}</p>
             </div>
             <hr />
             <div className="swapRequest">
-              <h4>Échange souhaité</h4>
+              <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
 
