@@ -9,7 +9,6 @@
 
 .logo {
   width: 12vh;
-  margin-left: 5vh;
 }
 
 .user {
@@ -39,12 +38,12 @@
 @media only screen and (min-width: 769px) {
   .containerNavBar {
     padding-bottom: 2vh;
+    padding-left: 1vh;
   }
 
   .instruction {
     display: inline;
     justify-content: space-between;
-    text-shadow: 2px 3px #c0c1c1;
     margin-right: 2vh;
   }
 

@@ -11,13 +11,23 @@ const {
   getItemByUser
 } = require("../../../controllers/userActions");
 
+const { hashPassword } = require("../../../services/auth");
+const validateData = require("../../../services/dataValidator");
+const userSchema = require("../../../services/validatorSchemas/user")
+
 router.get("/", browse);
 
 router.get("/:id", read);
 
 router.get("/:id/items", getItemByUser)
 
-router.post("/", add);
+
+router.post("/", validateData(userSchema),hashPassword, add);
+
+const authActions = require("../../../controllers/authActions");
+
+
+router.post("/login", authActions.login,);
 
 router.put("/:id", edit);
 

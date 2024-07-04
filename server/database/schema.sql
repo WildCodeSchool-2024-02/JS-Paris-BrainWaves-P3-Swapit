@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`user` (
   `email` VARCHAR(50) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
   `picture` TEXT NOT NULL,
+  `is_admin` TINYINT NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
   UNIQUE INDEX `e-mail_UNIQUE` (`email` ASC) VISIBLE)
