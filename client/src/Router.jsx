@@ -5,7 +5,7 @@ import Connexion from "./pages/Connexion/Connexion";
 import Inscription from "./pages/Inscription/Inscription";
 import Category from "./pages/Category/Category";
 import Product from "./pages/Product/Product";
-import Profile from "./pages/Profile/Profile";
+import Profil from "./pages/Profile/Profil";
 
 
 
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <Profil />,
       },
     ],
   },

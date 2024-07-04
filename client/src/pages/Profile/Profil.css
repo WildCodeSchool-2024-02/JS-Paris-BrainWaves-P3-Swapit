@@ -25,11 +25,12 @@ button {
   padding: 0;
   margin: 0 5px;
   font-size: 2rem;
+  color: white;
 }
 
-.Rate-value-full::before,
-.Rate-value-half::before,
-.Rate-value-empty::before {
+.rate-value-full::before,
+.rate-value-half::before,
+.rate-value-empty::before {
   content: "★";
   color: gold;
 }
@@ -46,6 +47,7 @@ button {
   Button {
     margin: 0 2px;
     font-size: 1.5rem;
+    color: white;
   }
 }
 
@@ -63,17 +65,14 @@ button {
 .Button {
   font-family: var(--font);
   background-color: #00c3e3;
-  color: white;
   padding: 10px 20px;
-  font-size: 16px;
-  border: none;
   border-radius: 17px;
   cursor: pointer;
   margin-top: 10px;
 }
 
 .Custom-button:hover {
-  background-color: #0056b3;
+  background-color: #00c3e3;
 }
 
 .profilDetails {
@@ -82,3 +81,7 @@ button {
   align-items: center;
   width: 22rem;
 }
+
+/* .profilHeader {
+  display: flex;
+} */
