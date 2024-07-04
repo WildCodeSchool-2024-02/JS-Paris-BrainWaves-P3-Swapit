@@ -41,8 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/categorie/produits",
         element: <CategoryAllProducts />,
-        loader: () =>
-          fetch(`http://localhost:3310/api/items/all`),
+        loader: () => fetch(`http://localhost:3310/api/items/all`),
       },
 
       {
