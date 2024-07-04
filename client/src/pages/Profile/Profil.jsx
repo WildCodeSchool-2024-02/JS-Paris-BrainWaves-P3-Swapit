@@ -1,4 +1,4 @@
-import {  useState, useCallback } from 'react';
+import {  useState, useCallback, } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import profilImg from '../../assets/images/Antoine-Durand.png';
 
@@ -13,9 +13,7 @@ export default function Profil() {
     }
   }, []);
 
-  const handleClick = () => {
-  
-  };
+
 
   const rating = 1.3;
 
@@ -54,7 +52,7 @@ export default function Profil() {
             <p className='Location'>Paris, France</p>
             <p className='Subscribe'>Member since January 2024</p>
             <div className='Button'>
-              <button type="button" onClick={handleClick}>Modifications profil</button>
+              <button type="button" onClick={null}>Modifications profil</button>
             </div>
           </div>
         </div>
