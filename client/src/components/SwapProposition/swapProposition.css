@@ -17,7 +17,7 @@
   right: 10px;
 }
 
-h3 {
+.box {
   font-family: var(--font);
   font-size: small;
 }
@@ -141,7 +141,7 @@ body.active {
     left: 10px;
   }
 
-  h3 {
+  .box {
     font-size: medium;
   }
 
