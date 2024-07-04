@@ -3,32 +3,19 @@ import PropTypes from "prop-types";
 
 function AllProducts({ data }) {
   return (
-    <div>
-      <p>
-        <div className="blocProduct">
-          <div className="blocProfile">
-            <div className="pictureProfileContainer">
-              <img
-                src={data.picture}
-                className="pictureProfile"
-                alt="profile"
-              />
-            </div>
-            <p className="pseudo">{data.pseudo}</p>
-          </div>
-          <div className="imgContainer">
-            <img
-              src={data.image_url}
-              className="pictureProduct"
-              alt="product"
-            />
-          </div>
-          <p className="productName">{data.name}</p>
-          <p className="category">{data.CategoryName}</p>
-
-          <p className="conditionProduct">{data.conditions}</p>
+    <div className="blocProduct">
+      <div className="blocProfile">
+        <div className="pictureProfileContainer">
+          <img src={data.picture} className="pictureProfile" alt="profile" />
         </div>
-      </p>
+        <p className="pseudo">{data.pseudo}</p>
+      </div>
+      <div className="imgContainer">
+        <img src={data.image_url} className="pictureProduct" alt="product" />
+      </div>
+      <p className="productName">{data.name}</p>
+      <p className="category">{data.CategoryName}</p>
+      <p className="conditionProduct">{data.conditions}</p>
     </div>
   );
 }

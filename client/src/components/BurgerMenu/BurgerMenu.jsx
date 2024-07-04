@@ -23,7 +23,7 @@ export default function BurgerMenu() {
   };
 
   const handleAllProductsClick = () => {
-    navigate("/category/tous-les-produits");
+    navigate("/category/all-products");
   };
 
   useEffect(() => {
