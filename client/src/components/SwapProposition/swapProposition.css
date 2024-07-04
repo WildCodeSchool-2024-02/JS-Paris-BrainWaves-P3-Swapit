@@ -17,7 +17,7 @@
   right: 10px;
 }
 
-.box {
+.nameBox {
   font-family: var(--font);
   font-size: small;
 }
@@ -141,7 +141,7 @@ body.active {
     left: 10px;
   }
 
-  .box {
+  .nameBox {
     font-size: medium;
   }
 

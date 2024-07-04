@@ -60,7 +60,7 @@ function SwapProposition({ closeProposition, setBlur }) {
                     onChange={handleChange(index)}
                     inputProps={{ "aria-label": "controlled" }}
                   />
-                  <h3 className="box">{product.name}</h3>
+                  <h3 className="nameBox">{product.name}</h3>
                 </div>
                 <div className="imgContainer">
                   <img
