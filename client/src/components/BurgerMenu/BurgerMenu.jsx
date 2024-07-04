@@ -19,11 +19,11 @@ export default function BurgerMenu() {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryId) => {
-    navigate(`/category/${categoryId}`);
+    navigate(`/categorie/${categoryId}`);
   };
 
   const handleAllProductsClick = () => {
-    navigate("/category/all-products");
+    navigate("/categorie/produits");
   };
 
   useEffect(() => {
