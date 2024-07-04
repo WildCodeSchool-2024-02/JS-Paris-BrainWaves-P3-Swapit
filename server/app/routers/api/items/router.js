@@ -8,8 +8,10 @@ const {
   add,
   edit,
   destroy,
-
+  getItemWithUser,
 } = require("../../../controllers/itemActions");
+
+router.get("/all", getItemWithUser);
 
 router.get("/", browse);
 

@@ -22,6 +22,10 @@ export default function BurgerMenu() {
     navigate(`/category/${categoryId}`);
   };
 
+  const handleAllProductsClick = () => {
+    navigate("/category/tous-les-produits");
+  };
+
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
@@ -76,8 +80,11 @@ export default function BurgerMenu() {
             "& > div": { justifyContent: "left" },
           }}
         >
-          <ListItemButton sx={{ fontWeight: "lg" }}>
-            Toutes les catégories
+          <ListItemButton
+            sx={{ fontWeight: "lg" }}
+            onClick={handleAllProductsClick}
+          >
+            Toutes les produits
           </ListItemButton>
           {dataCategories.map((dataCategory) => (
             <ListItemButton

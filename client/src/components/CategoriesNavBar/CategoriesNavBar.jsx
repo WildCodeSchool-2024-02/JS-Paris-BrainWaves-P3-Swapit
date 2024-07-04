@@ -11,6 +11,10 @@ function CategoriesNavBar() {
     navigate(`/category/${categoryId}`);
   };
 
+  const handleAllProductsClick = () => {
+    navigate("/category/tous-les-produits");
+  };
+
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
@@ -27,7 +31,13 @@ function CategoriesNavBar() {
   return (
     <div>
       <div className="categoriesContainerNavBar">
-        <div className="allProduct">Tous&nbsp;les&nbsp;produits</div>
+        <div
+          className="allProduct"
+          onClick={handleAllProductsClick}
+          role="presentation"
+        >
+          Tous&nbsp;les&nbsp;produits
+        </div>
         <div className="categoriesNavBar">
           {dataCategories.map((dataCategory) => (
             <p
