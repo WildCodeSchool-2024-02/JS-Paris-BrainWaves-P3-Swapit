@@ -56,7 +56,7 @@ export default function ProductPage() {
             mousewheel
             keyboard
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-            className="mySwiper"
+            className="swiperProduct"
           >
             <SwiperSlide>
               <img
