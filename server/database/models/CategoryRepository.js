@@ -7,7 +7,7 @@ class CategoryRepository extends AbstractRepository {
 
   async readItemByCategory(id) {
     const result = await this.database.query(
-      `SELECT ${this.table}.name as categoryName, item.*, user.*
+      `SELECT ${this.table}.category_name, item.*, user.*
       FROM ${this.table}
       JOIN item ON ${this.table}.category_id = item.category_id
       JOIN user ON item.user_id = user.user_id

@@ -6,7 +6,7 @@ function Category() {
   const products = useLoaderData();
 
   const uniqueCategories = [
-    ...new Set(products.map((product) => product.categoryName)),
+    ...new Set(products.map((product) => product.category_name)),
   ];
 
   return (
