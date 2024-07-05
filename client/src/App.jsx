@@ -25,7 +25,7 @@ function App() {
         theme="light"
       />
 
-      <NavBar auth={auth}/>
+      <NavBar auth={auth} setAuth={setAuth}/>
 
       <Outlet context={{auth, setAuth}} />
       

@@ -1,4 +1,6 @@
 import * as React from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import Drawer from "@mui/joy/Drawer";
@@ -9,9 +11,13 @@ import ModalClose from "@mui/joy/ModalClose";
 import Menu from "@mui/icons-material/Menu";
 import "./BurgerMenu.css";
 
-export default function BurgerMenu() {
+export default function BurgerMenu({auth, setAuth}) {
   const [open, setOpen] = React.useState(false);
-
+  const navigate = useNavigate();
+  const logout = () => {
+    setAuth({isLogged: false, user: null, token: null });
+    navigate("/");
+  }
   return (
     <div className="containerMenuBurger">
       <IconButton
@@ -68,7 +74,11 @@ export default function BurgerMenu() {
           <ListItemButton>Composants internes</ListItemButton>
           <ListItemButton>Appareils ménagers</ListItemButton>
           <ListItemButton />
-
+          {auth.isLogged &&
+          <ListItemButton sx={{ color: "#E32D00" }} onClick={logout} >
+            Se deconnecter{" "}
+          </ListItemButton>
+          }     
           <ListItemButton sx={{ color: "#00C3E3" }}>
             Qui sommes-nous{" "}
           </ListItemButton>
@@ -79,4 +89,17 @@ export default function BurgerMenu() {
       </Drawer>
     </div>
   );
-}
+};
+
+BurgerMenu.propTypes = {
+  
+  auth: PropTypes.shape({
+    isLogged: PropTypes.bool,
+    user: PropTypes.shape({
+      picture: PropTypes.string,
+    }),
+  }).isRequired,
+  setAuth: PropTypes.func.isRequired,
+  
+};
+
