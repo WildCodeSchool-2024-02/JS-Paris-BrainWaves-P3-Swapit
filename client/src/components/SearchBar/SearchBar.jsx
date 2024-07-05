@@ -30,7 +30,7 @@ function SearchBar() {
     const filteredDataItems = dataItems.filter(
       (dataItem) =>
         dataItem.name.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
-        dataItem.CategoryName.toLowerCase().startsWith(searchTerm.toLowerCase())
+        dataItem.category_name.toLowerCase().startsWith(searchTerm.toLowerCase())
     );
     navigate("/categorie/produits", { state: { filteredDataItems } });
   };

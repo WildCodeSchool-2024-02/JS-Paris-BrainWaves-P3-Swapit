@@ -45,7 +45,7 @@ function CategoriesNavBar() {
             role="presentation"
             onClick={() => handleCategoryClick(dataCategory.category_id)}
           >
-            {dataCategory.name}
+            {dataCategory.category_name}
           </p>
         ))}
       </div>

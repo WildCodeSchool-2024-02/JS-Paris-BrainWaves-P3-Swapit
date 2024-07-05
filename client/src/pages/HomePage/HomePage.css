@@ -1,0 +1,9 @@
+.operation {
+  width: 40vh;
+}
+
+@media only screen and (min-width: 769px) {
+  .operation {
+    width: 100vh;
+  }
+}
