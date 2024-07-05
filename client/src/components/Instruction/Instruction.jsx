@@ -22,9 +22,9 @@ export default function Instruction() {
         pagination
         navigation
         modules={[EffectFlip, Pagination, Navigation]}
-        className="mySwiper"
+        className="swiperInstruction"
       >
-        <SwiperSlide>
+        <SwiperSlide className="slideInstruction">
           <div className="upText">
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
@@ -46,7 +46,7 @@ export default function Instruction() {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide>
+        <SwiperSlide className="slideInstruction">
           <div className="upText">
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
@@ -67,7 +67,7 @@ export default function Instruction() {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide>
+        <SwiperSlide className="slideInstruction">
           <div className="upText">
             <p id="how">Mode d&rsquo;emploi</p>
           </div>
