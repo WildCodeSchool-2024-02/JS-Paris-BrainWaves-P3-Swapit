@@ -17,6 +17,7 @@ export default function BurgerMenu({auth, setAuth}) {
   const logout = () => {
     setAuth({isLogged: false, user: null, token: null });
     navigate("/");
+    setOpen(false);
   }
   return (
     <div className="containerMenuBurger">
