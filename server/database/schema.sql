@@ -25,7 +25,7 @@ USE `swapit_db` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swapit_db`.`category` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NOT NULL,
+  `category_name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`category_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 23
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`item` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   `description` TEXT NOT NULL,
-  `condition` VARCHAR(50) NOT NULL,
+  `conditions` VARCHAR(50) NOT NULL,
   `date_added` DATETIME NOT NULL,
   `image_url` TEXT NOT NULL,
   `location` VARCHAR(100) NOT NULL,

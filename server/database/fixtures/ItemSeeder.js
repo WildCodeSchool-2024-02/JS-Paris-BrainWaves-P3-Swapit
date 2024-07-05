@@ -25,8 +25,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-04-28",
         image_url:
           "https://images.pexels.com/photos/6608247/pexels-photo-6608247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Saint-Cyr",
         user_id: this.getRef("user1").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
       {
         name: "iphone 11",
@@ -36,8 +37,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-05-22",
         image_url:
           "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Paris",
         user_id: this.getRef("user2").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -48,8 +50,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-15",
         image_url:
           "https://images.pexels.com/photos/17944743/pexels-photo-17944743/free-photo-of-homme-main-smartphone-connexion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2https://images.pexels.com/photos/4042802/pexels-photo-4042802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Marseille",
         user_id: this.getRef("user3").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -60,8 +63,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-18",
         image_url:
           "https://images.pexels.com/photos/163065/mobile-phone-android-apps-phone-163065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Caen",
         user_id: this.getRef("user4").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -72,8 +76,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-20",
         image_url:
           "https://images.pexels.com/photos/9403824/pexels-photo-9403824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Lille",
         user_id: this.getRef("user5").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -84,8 +89,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-25",
         image_url:
           "https://images.pexels.com/photos/3987020/pexels-photo-3987020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Deauville",
         user_id: this.getRef("user1").insertId,
-        category_id: 2,
+        category_id: this.getRef("category02").insertId,
       },
 
       {
@@ -96,8 +102,9 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-22",
         image_url:
           "https://images.pexels.com/photos/3987066/pexels-photo-3987066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Lyon",
         user_id: this.getRef("user2").insertId,
-        category_id: 2,
+        category_id: this.getRef("category02").insertId,
       },
 
       {
@@ -108,10 +115,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-23",
         image_url:
           "https://images.pexels.com/photos/5243611/pexels-photo-5243611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Bordeaux",
         user_id: this.getRef("user3").insertId,
-        category_id: 2,
-      }
-
+        category_id: this.getRef("category02").insertId,
+      },
     ];
 
     // Insert the fakeItem data into the 'item' table

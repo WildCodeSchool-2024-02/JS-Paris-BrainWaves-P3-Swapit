@@ -93,7 +93,7 @@ export default function BurgerMenu() {
               role="presentation"
               onClick={() => handleCategoryClick(dataCategory.category_id)}
             >
-              {dataCategory.name}
+              {dataCategory.category_name}
             </ListItemButton>
           ))}
 
