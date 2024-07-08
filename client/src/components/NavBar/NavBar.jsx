@@ -10,7 +10,6 @@ import SearchBar from "../SearchBar/SearchBar";
 import CategoriesNavBar from "../CategoriesNavBar/CategoriesNavBar";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
-
 function NavBar({ auth, setAuth }) {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 769);
   const navigate = useNavigate();
@@ -33,6 +32,10 @@ function NavBar({ auth, setAuth }) {
     navigate("/connexion");
   };
 
+  const homePageDirection = () => {
+    navigate("/");
+  };
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -49,10 +52,16 @@ function NavBar({ auth, setAuth }) {
  
 
   return (
-    <div>
+    <>
       <div className="containerNavBar">
         <BurgerMenu auth={auth} setAuth={setAuth} />
-        <img src={logo} className="logo" alt="logo" />
+        <img
+          src={logo}
+          className="logo"
+          alt="logo"
+          onClick={homePageDirection}
+          role="presentation"
+        />
         <div className="instruction-presentation">
           <p className="instruction">Mode&nbsp;d&rsquo;Emploi</p>
           <p className="presentation">Qui&nbsp;sommes&#8209;nous&nbsp;?</p>
@@ -95,7 +104,7 @@ function NavBar({ auth, setAuth }) {
       </div>
       {!isDesktop && <SearchBar />}
       <CategoriesNavBar />
-    </div>
+    </>
   );
 }
 

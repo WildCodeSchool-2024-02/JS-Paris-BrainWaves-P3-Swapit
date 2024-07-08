@@ -1,4 +1,4 @@
-import "./ProductByCategory.css";
+import "./ProductsByCategory.css";
 import PropTypes from "prop-types";
 
 function ProductByCategory({ data }) {

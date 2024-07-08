@@ -10,15 +10,39 @@ import Typography from "@mui/joy/Typography";
 import ModalClose from "@mui/joy/ModalClose";
 import Menu from "@mui/icons-material/Menu";
 import "./BurgerMenu.css";
+import { useState, useEffect } from "react";
 
-export default function BurgerMenu({auth, setAuth}) {
+export default function BurgerMenu({ auth, setAuth }) {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const logout = () => {
-    setAuth({isLogged: false, user: null, token: null });
+    setAuth({ isLogged: false, user: null, token: null });
     navigate("/");
     setOpen(false);
-  }
+  };
+  const [dataCategories, setDataCategories] = useState([]);
+
+  const handleCategoryClick = (categoryId) => {
+    navigate(`/categorie/${categoryId}`);
+  };
+
+  const handleAllProductsClick = () => {
+    navigate("/categorie/produits");
+  };
+
+  useEffect(() => {
+    const fetchDataCategories = async () => {
+      try {
+        const response = await fetch("http://localhost:3310/api/categories/");
+        const receptionData = await response.json();
+        setDataCategories(receptionData);
+      } catch (error) {
+        console.error("Error fetching dataCategories", error);
+      }
+    };
+    fetchDataCategories();
+  }, []);
+
   return (
     <div className="containerMenuBurger">
       <IconButton
@@ -60,26 +84,27 @@ export default function BurgerMenu({auth, setAuth}) {
             "& > div": { justifyContent: "left" },
           }}
         >
-          <ListItemButton sx={{ fontWeight: "lg" }}>
-            Toutes les catégories
+          <ListItemButton
+            sx={{ fontWeight: "lg" }}
+            onClick={handleAllProductsClick}
+          >
+            Toutes les produits
           </ListItemButton>
-          <ListItemButton>Smartphones</ListItemButton>
-          <ListItemButton>Ordinateurs</ListItemButton>
-          <ListItemButton>Tablettes</ListItemButton>
-          <ListItemButton>Son & Vidéo</ListItemButton>
-          <ListItemButton>Drônes</ListItemButton>
-          <ListItemButton>Consoles</ListItemButton>
-          <ListItemButton>Accesoires</ListItemButton>
-          <ListItemButton>Réseaux & Connectivités</ListItemButton>
-          <ListItemButton>Sécurités</ListItemButton>
-          <ListItemButton>Composants internes</ListItemButton>
-          <ListItemButton>Appareils ménagers</ListItemButton>
-          <ListItemButton />
-          {auth.isLogged &&
-          <ListItemButton sx={{ color: "#E32D00" }} onClick={logout} >
-            Se deconnecter{" "}
-          </ListItemButton>
-          }     
+          {dataCategories.map((dataCategory) => (
+            <ListItemButton
+              key={dataCategory.category_id}
+              className="href"
+              role="presentation"
+              onClick={() => handleCategoryClick(dataCategory.category_id)}
+            >
+              {dataCategory.category_name}
+            </ListItemButton>
+          ))}
+          {auth.isLogged && (
+            <ListItemButton sx={{ color: "#E32D00" }} onClick={logout}>
+              Se deconnecter{" "}
+            </ListItemButton>
+          )}
           <ListItemButton sx={{ color: "#00C3E3" }}>
             Qui sommes-nous{" "}
           </ListItemButton>
@@ -90,10 +115,9 @@ export default function BurgerMenu({auth, setAuth}) {
       </Drawer>
     </div>
   );
-};
+}
 
 BurgerMenu.propTypes = {
-  
   auth: PropTypes.shape({
     isLogged: PropTypes.bool,
     user: PropTypes.shape({
@@ -101,6 +125,4 @@ BurgerMenu.propTypes = {
     }),
   }).isRequired,
   setAuth: PropTypes.func.isRequired,
-  
 };
-

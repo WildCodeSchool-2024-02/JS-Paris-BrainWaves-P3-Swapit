@@ -1,27 +1,27 @@
 import { useLoaderData } from "react-router-dom";
 import "./Category.css";
-import ProductByCategory from "../../components/ProductByCategory/ProductByCategory";
+import ProductsByCategory from "../../components/ProductByCategory/ProductsByCategory";
 
 function Category() {
   const products = useLoaderData();
 
   const uniqueCategories = [
-    ...new Set(products.map((product) => product.categoryName)),
+    ...new Set(products.map((product) => product.category_name)),
   ];
 
   return (
-    <div>
+    <>
       {uniqueCategories.map((categoryName) => (
         <div key={categoryName}>
           <h1 className="categoryName">{categoryName}</h1>
           <div className="productContainer">
             {products.map((product) => (
-              <ProductByCategory key={product} data={product} />
+              <ProductsByCategory key={product} data={product} />
             ))}
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

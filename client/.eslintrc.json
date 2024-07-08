@@ -16,6 +16,7 @@
   },
   "plugins": ["react-refresh"],
   "rules": {
+    "react/import/no-unresolved": "off",
     "no-console": ["error", { "allow": ["error", "info", "warn"] }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",

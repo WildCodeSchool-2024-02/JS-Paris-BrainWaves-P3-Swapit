@@ -18,6 +18,7 @@
 .allProduct {
   font-size: 1.2rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .categoriesNavBar {
@@ -40,5 +41,6 @@
   .href {
     text-decoration: none;
     color: black;
+    cursor: pointer;
   }
 }

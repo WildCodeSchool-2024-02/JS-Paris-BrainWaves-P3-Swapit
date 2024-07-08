@@ -8,6 +8,7 @@ const {
   add,
   edit,
   destroy,
+  getItemByUser
 } = require("../../../controllers/userActions");
 
 const { hashPassword } = require("../../../services/auth");
@@ -18,7 +19,10 @@ router.get("/", browse);
 
 router.get("/:id", read);
 
-router.post("/", validateData(userSchema),hashPassword,   add);
+router.get("/:id/items", getItemByUser)
+
+
+router.post("/", validateData(userSchema),hashPassword, add);
 
 const authActions = require("../../../controllers/authActions");
 

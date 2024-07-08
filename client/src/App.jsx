@@ -10,7 +10,9 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   const [auth, setAuth] = useState({isLogged: false, user: null, token: null});
 
+
   return (
+
     <>
       <ToastContainer
         position="top-right"

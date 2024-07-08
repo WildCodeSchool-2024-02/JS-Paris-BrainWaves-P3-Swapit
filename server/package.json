@@ -16,7 +16,8 @@
     "joi": "^17.13.3",
     "joi-password-complexity": "^5.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.10.1"
+    "mysql2": "^3.10.1",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
