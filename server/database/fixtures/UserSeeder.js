@@ -22,7 +22,7 @@ async run() {
     const users = [
       {
         pseudo: "Ludo",
-        password: await this.hash("salut"),
+        password: await UserSeeder.hash("salut"),
         email: "ludovic.scelles@gmail.com",
         phone: "06 12 34 56 78",
         picture: "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -30,7 +30,7 @@ async run() {
       },
       {
         pseudo: "Mary",
-        password: await this.hash("salut"),
+        password: await UserSeeder.hash("salut"),
         email: "mary.fake.email@example.com",
         phone: "06 98 76 54 32",
         picture: "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -38,7 +38,7 @@ async run() {
       },
       {
         pseudo: "John",
-        password: await this.hash("salut"),
+        password: await UserSeeder.hash("salut"),
         email: "john.doe@example.com",
         phone: "06 11 22 33 44",
         picture: "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -48,7 +48,7 @@ async run() {
 
       {
         pseudo: "Alice",
-        password: await this.hash("salut"),
+        password: await UserSeeder.hash("salut"),
         email: "alice.wonder@example.com",
         phone: "06 55 66 77 88",
         picture: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -58,7 +58,7 @@ async run() {
 
       {
         pseudo: "Bob",
-        password: await this.hash("salut"),
+        password: await UserSeeder.hash("salut"),
         email: "bob.builder@example.com",
         phone: "06 44 55 66 77",
         picture: "https://images.pexels.com/photos/2340978/pexels-photo-2340978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
