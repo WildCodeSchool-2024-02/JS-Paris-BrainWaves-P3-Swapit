@@ -1,11 +1,11 @@
-import {  useState, useCallback, } from 'react';
+import {  useState, useCallback } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import profilImg from '../../assets/images/Antoine-Durand.png';
 
-import './Profil.css';
+import './profil.css';
 
 export default function Profil() {
-  const [alignment, setAlignment] = useState('Showcase');
+  const [alignment, setAlignment] = useState('');
 
   const handleChange = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
@@ -13,9 +13,6 @@ export default function Profil() {
     }
   }, []);
 
-
-
-  const rating = 1.3;
 
   const renderSection = () => {
     switch (alignment) {
@@ -38,12 +35,12 @@ export default function Profil() {
           <div className="profilDetails">
             <h2>Antoine Durand</h2>
             <div className="Five-Rate-Active Larger">
-              <p className="screenReaders">Rated {rating} out of 5</p>
+              <p className="screenReaders">Rated {} out of 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
                 <button
                   key={rate}
                   type="button"
-                  className={rate <= rating ? 'rate-value-full' : 'rate-value-empty'}
+
                   aria-label={`Rate ${rate} out of 5`}>
                   <span aria-hidden="true" />
                 </button>

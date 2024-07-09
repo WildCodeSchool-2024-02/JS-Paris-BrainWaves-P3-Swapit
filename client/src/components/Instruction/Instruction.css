@@ -1,10 +1,10 @@
-#root,
+/* #root,
 #__next {
   isolation: isolate;
 }
 
 .swiper {
-  width: 700px;
+  width: 90vh;
   padding: 50px;
 }
 
@@ -142,7 +142,6 @@
     bottom: var(--swiper-pagination-bottom, -22px);
     top: var(--swiper-pagination-top, auto);
     left: 0;
-    width: 100%;
   }
 
   .swiper-button-next {
@@ -161,4 +160,4 @@
     width: auto;
     margin-bottom: 2rem;
   }
-}
+} */
