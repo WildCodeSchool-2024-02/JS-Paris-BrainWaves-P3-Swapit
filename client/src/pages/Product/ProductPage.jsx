@@ -24,9 +24,7 @@ export default function ProductPage() {
       .then((response) => response.json())
       .then((json) => setProduct(json[0]));
   }, []);
-  // eslint-disable-next-line no-console
-  console.log(product);
-  
+
   const handleSwapRequest = () => {
     setBlur(true);
     setOpenSwapRequest(true);
@@ -44,8 +42,6 @@ export default function ProductPage() {
   }
 
   const formattedDate = new Date(product.date_added).toLocaleDateString();
-
-
 
   return (
     <>
