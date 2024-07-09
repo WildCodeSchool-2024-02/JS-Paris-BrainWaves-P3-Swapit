@@ -38,7 +38,7 @@ class ItemRepository extends AbstractRepository {
 
   async readItemWithUser() {
     const result = await this.database.query(
-      `SELECT u.*, i.*, c.name as CategoryName
+      `SELECT u.*, i.*, c.category_name 
     FROM ${this.table} as i
     JOIN category as c
     ON i.category_id = c.category_id
@@ -58,6 +58,20 @@ class ItemRepository extends AbstractRepository {
       ON i.user_id = u.user_id
       WHERE i.item_id =?`,
       [id]
+    );
+    return result;
+  }
+
+  async readItemOrderByDate() {
+    const result = await this.database.query(
+      `SELECT u.*, i.*, c.category_name 
+    FROM ${this.table} as i
+    JOIN category as c
+    ON i.category_id = c.category_id
+    JOIN user as u
+    ON i.user_id = u.user_id
+    ORDER BY i.date_added DESC`
+    
     );
     return result;
   }

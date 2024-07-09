@@ -25,8 +25,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-04-28",
         image_url:
           "https://images.pexels.com/photos/6608247/pexels-photo-6608247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Saint-Cyr",
+        swap_request: "Google Pixel 5",
         user_id: this.getRef("user1").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
       {
         name: "iphone 11",
@@ -36,8 +38,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-05-22",
         image_url:
           "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Paris",
+        swap_request: "Samsung Galaxy S20",
         user_id: this.getRef("user2").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -48,20 +52,24 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-15",
         image_url:
           "https://images.pexels.com/photos/17944743/pexels-photo-17944743/free-photo-of-homme-main-smartphone-connexion.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2https://images.pexels.com/photos/4042802/pexels-photo-4042802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Marseille",
+        swap_request: "OnePlus 9",
         user_id: this.getRef("user3").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
-        name: "Google Pixel 6",
+        name: "iPhone 13",
         description:
           "Google Pixel 6 à échanger Écran OLED de 6,4 pouces, processeur Google Tensor, double caméra avec Night Sight, compatible 5G. Très bon état avec accessoires inclus.",
         conditions: "Très bon état",
         date_added: "2024-06-18",
         image_url:
           "https://images.pexels.com/photos/163065/mobile-phone-android-apps-phone-163065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Caen",
+        swap_request: "OnePlus 9",
         user_id: this.getRef("user4").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -72,8 +80,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-20",
         image_url:
           "https://images.pexels.com/photos/9403824/pexels-photo-9403824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Lille",
+        swap_request: "iPhone 12 Pro Max",
         user_id: this.getRef("user5").insertId,
-        category_id: 1,
+        category_id: this.getRef("category01").insertId,
       },
 
       {
@@ -84,8 +94,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-25",
         image_url:
           "https://images.pexels.com/photos/3987020/pexels-photo-3987020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Deauville",
+        swap_request: "Dell XPS 15",
         user_id: this.getRef("user1").insertId,
-        category_id: 2,
+        category_id: this.getRef("category02").insertId,
       },
 
       {
@@ -96,8 +108,10 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-22",
         image_url:
           "https://images.pexels.com/photos/3987066/pexels-photo-3987066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Lyon",
+        swap_request: "HP Spectre x360 13",
         user_id: this.getRef("user2").insertId,
-        category_id: 2,
+        category_id: this.getRef("category02").insertId,
       },
 
       {
@@ -108,10 +122,11 @@ class ItemSeeder extends AbstractSeeder {
         date_added: "2024-06-23",
         image_url:
           "https://images.pexels.com/photos/5243611/pexels-photo-5243611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        location: "Bordeaux",
+        swap_request: "Dell XPS 13 2-en-1",
         user_id: this.getRef("user3").insertId,
-        category_id: 2,
-      }
-
+        category_id: this.getRef("category02").insertId,
+      },
     ];
 
     // Insert the fakeItem data into the 'item' table

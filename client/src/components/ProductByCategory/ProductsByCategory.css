@@ -1,11 +1,3 @@
-.productContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4vh;
-  margin: 0 auto 5vh auto;
-  padding: 0 4vh;
-}
-
 .blocProduct {
   display: flex;
   flex-direction: column;
@@ -72,14 +64,6 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .productContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-    flex-wrap: wrap;
-  }
   .blocProduct {
     display: inline-block;
     flex-direction: column;

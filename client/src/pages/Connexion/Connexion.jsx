@@ -1,13 +1,13 @@
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Connexion.css";
 
 function Connexion() {
+  const navigate = useNavigate();
   const email = useRef();
   const password = useRef();
-
-  const navigate = useNavigate();
+  const { setAuth } = useOutletContext();
 
   const handleSubmitConnect = async () => {
     try {
@@ -24,7 +24,9 @@ function Connexion() {
           }),
         }
       );
-      if (response.status === 200) {
+      if (response.ok) {
+        const { user, token } = await response.json();
+        setAuth({ isLogged: true, user, token });
         navigate("/");
       } else toast.warn("identifiant incorrect");
     } catch (error) {
