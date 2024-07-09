@@ -1,6 +1,5 @@
 .swiperProduct {
-  width: 100%;
-  border-radius: 25px;
+  width: 24rem;
 }
 
 .allSwiper {
@@ -142,7 +141,8 @@
     text-align: -webkit-center;
   }
 
-  .mySwiper {
+  .swiperProduct {
+    width: 100%;
     margin-top: 50px;
     border-radius: 25px;
   }
