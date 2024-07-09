@@ -5,7 +5,7 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
-import Profil from "./pages/Profile/Profil";
+
 
 
 function App() {
@@ -31,8 +31,6 @@ function App() {
 
 
       <NavBar auth={auth} setAuth={setAuth}/>
-
-      <Profil />
       
       <Outlet context={{auth, setAuth}} />
       
