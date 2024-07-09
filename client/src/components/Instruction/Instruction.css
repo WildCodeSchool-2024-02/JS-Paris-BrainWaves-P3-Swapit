@@ -3,12 +3,13 @@
   isolation: isolate;
 }
 
-.swiper {
-  width: 700px;
+.swiperInstruction {
+  width: 100%;
+  height: 100%;
   padding: 50px;
 }
 
-.swiper-slide {
+.slideInstruction {
   background-position: center;
   background-size: cover;
   width: 90vh;
@@ -97,7 +98,7 @@
     margin-bottom: 25px;
   }
 
-  .swiper-slide {
+  .slideInstruction {
     width: auto;
     height: auto;
   }
@@ -120,8 +121,8 @@
     margin-bottom: 20px;
   }
 
-  .swiper {
-    width: auto;
+  .swiperInstruction {
+    width: 50vh;
     height: auto;
     margin: 3rem;
     padding: 0;
@@ -142,7 +143,6 @@
     bottom: var(--swiper-pagination-bottom, -22px);
     top: var(--swiper-pagination-top, auto);
     left: 0;
-    width: 100%;
   }
 
   .swiper-button-next {
@@ -157,7 +157,7 @@
 }
 
 @media screen and (min-width: 744px) and (max-width: 1124px) {
-  .swiper {
+  .swiperInstruction {
     width: auto;
     margin-bottom: 2rem;
   }
