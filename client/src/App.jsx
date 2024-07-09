@@ -29,10 +29,11 @@ function App() {
       />
 
 
-      <Profil />
 
       <NavBar auth={auth} setAuth={setAuth}/>
 
+      <Profil />
+      
       <Outlet context={{auth, setAuth}} />
       
       <Footer />
