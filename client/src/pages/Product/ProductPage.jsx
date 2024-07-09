@@ -56,7 +56,7 @@ export default function ProductPage() {
             mousewheel
             keyboard
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-            className="mySwiper"
+            className="swiperProduct"
           >
             <SwiperSlide>
               <img
@@ -146,7 +146,7 @@ export default function ProductPage() {
             <hr />
             <div className="condition">
               <h4 className="details">État</h4>
-              <p>{product.condition}</p>
+              <p>{product.conditions}</p>
             </div>
             <hr />
 
