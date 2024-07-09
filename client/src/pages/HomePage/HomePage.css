@@ -1,9 +1,49 @@
+.latestProductContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vh;
+  margin: 0 auto 5vh auto;
+  padding: 0 4vh;
+}
+
 .operation {
-  width: 40vh;
+  width: 30vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.latestTitle {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-left: 4vh;
+  margin-top: 7vh;
 }
 
 @media only screen and (min-width: 769px) {
+  .latestProductContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    margin-left: 5vh;
+    gap: 10vh;
+  }
+
   .operation {
-    width: 100vh;
+    display: block;
+    width: 120vh;
+    margin: 0 auto;
+  }
+
+  .banner {
+    width: 100%;
+  }
+
+  .latestTitle {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-left: 6vh;
+    margin-top: 7vh;
   }
 }

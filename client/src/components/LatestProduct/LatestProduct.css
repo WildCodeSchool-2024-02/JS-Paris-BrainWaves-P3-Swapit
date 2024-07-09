@@ -65,13 +65,12 @@
 
 @media only screen and (min-width: 769px) {
   .blocProduct {
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     width: 40vh;
     height: 50vh;
     margin-bottom: 5vh;
     white-space: normal;
-    flex-wrap: wrap;
   }
 
   .imgContainer {
@@ -95,6 +94,11 @@
   }
 
   .conditionProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .location {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }

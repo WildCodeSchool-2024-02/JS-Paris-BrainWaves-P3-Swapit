@@ -29,8 +29,8 @@ function SearchBar() {
   const handleSearch = () => {
     const filteredDataItems = dataItems.filter(
       (dataItem) =>
-        dataItem.name.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
-        dataItem.category_name.toLowerCase().startsWith(searchTerm.toLowerCase())
+        dataItem.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        dataItem.category_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     navigate("/categorie/produits", { state: { filteredDataItems } });
   };
@@ -49,7 +49,7 @@ function SearchBar() {
             type="text"
             className="searchTerm"
             id="searchTerm"
-            placeholder="Taper votre recherche ....  "
+            placeholder="Trouvez votre tech ici !"
             value={searchTerm}
             onChange={handlechange}
             onKeyDown={handleKeyDown}
