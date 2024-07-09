@@ -17,6 +17,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
         index: true,
+        loader: () => fetch(`http://localhost:3310/api/items/latest`),
       },
 
       {

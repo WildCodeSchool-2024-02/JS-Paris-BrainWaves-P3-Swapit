@@ -85,6 +85,19 @@ const getItemWithUser = async (req, res, next) => {
   }
 };
 
+const getItemByDate = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemOrderByDate();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 
 module.exports = {
   browse,
@@ -93,5 +106,6 @@ module.exports = {
   add,
   destroy,
   getUserByItem,
-  getItemWithUser
+  getItemWithUser,
+  getItemByDate
 };

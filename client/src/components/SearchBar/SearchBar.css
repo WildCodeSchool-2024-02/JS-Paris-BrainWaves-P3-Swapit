@@ -26,7 +26,9 @@
 }
 
 input::placeholder {
-  color: #a0dae4;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: rgb(163, 163, 163);
+  padding-left: 4vh;
 }
 
 .wrap {
@@ -36,7 +38,7 @@ input::placeholder {
 }
 
 .searchButton {
-  margin-left: 1vh;
+  margin-left: 2vh;
   border: none;
   background-color: #f7f7f7;
 }

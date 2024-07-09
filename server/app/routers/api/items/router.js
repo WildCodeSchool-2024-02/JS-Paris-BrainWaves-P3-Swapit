@@ -10,9 +10,13 @@ const {
   destroy,
   getItemWithUser,
   getUserByItem,
+  getItemByDate
 } = require("../../../controllers/itemActions");
 
 router.get("/all", getItemWithUser);
+
+router.get("/latest", getItemByDate);
+
 
 router.get("/", browse);
 
