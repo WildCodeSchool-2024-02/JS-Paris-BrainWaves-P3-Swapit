@@ -71,13 +71,13 @@ function NavBar({ auth, setAuth }) {
           <button
             type="button"
             onClick={handleUserClick}
-            className="user-button"
+            className="userButton"
           >
             <img src={user} className="user" alt="user" />
           </button>
         ) : (
           <>
-            <button type="button" className="user-button" aria-describedby={id} onClick={handleClick} >
+            <button type="button" className="userButton" aria-describedby={id} onClick={handleClick} >
               <img
                 src={auth.user.picture}
                 className="pictureProfileConnected"
