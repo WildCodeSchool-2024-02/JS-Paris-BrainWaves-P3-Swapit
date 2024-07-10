@@ -12,16 +12,16 @@ function HomePage() {
       <img
         src={banner}
         alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
-        className="banner"
+        className="bannerForHomePage"
       />
-      <h1 className="latestTitle">Ajouts récents</h1>
+      <h1 className="latestTitleForHomePage">Ajouts récents</h1>
 
-      <div className="latestProductContainer">
+      <div className="latestProductContainerForHomePage">
         {latestitems.slice(0,6).map((item) => (
           <LatestProduct key={item.id} data={item} />
         ))}
       </div>
-      <div className="operation">
+      <div className="operationForHomePage">
         <Instruction />
       </div>
     </>

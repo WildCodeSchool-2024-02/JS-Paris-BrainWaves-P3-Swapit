@@ -9,6 +9,7 @@
 
 .logo {
   width: 12vh;
+  cursor: pointer;
 }
 
 .user {

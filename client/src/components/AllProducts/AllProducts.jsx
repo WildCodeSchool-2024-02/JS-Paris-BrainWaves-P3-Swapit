@@ -1,23 +1,34 @@
 import "./AllProducts.css";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function AllProducts({ data }) {
   return (
-    <div className="blocProduct">
+    <div className="blocProductForAllProducts">
       <div className="blocProfile">
         <div className="pictureProfileContainer">
           <img src={data.picture} className="pictureProfile" alt="profile" />
         </div>
-        <p className="pseudo">{data.pseudo}</p>
+        <p className="pseudoForAllProducts">{data.pseudo}</p>
       </div>
-      <div className="imgContainer">
-        <img src={data.image_url} className="pictureProduct" alt="product" />
-      </div>
-      <div className="productInformation">
-      <p className="productName">{data.name}</p>
-      <p className="categoryProduct">{data.category_name}</p>
-      <p className="conditionProduct">{data.conditions}</p>
-      </div>
+      <Link
+        to={`/produits/${data.item_id}`}
+        className="linkAllProducts"
+        key={data.id}
+      >
+        <div className="imgContainerForAllProducts">
+          <img
+            src={data.image_url}
+            className="pictureProductForAllProducts"
+            alt="product"
+          />
+        </div>
+        <div className="productInformationForAllProducts">
+          <p className="productNameForAllProducts">{data.name}</p>
+          <p className="categoryProductForAllProducts">{data.category_name}</p>
+          <p className="conditionProductForAllProducts">{data.conditions}</p>
+        </div>
+      </Link>
     </div>
   );
 }
@@ -30,6 +41,9 @@ AllProducts.propTypes = {
     pseudo: PropTypes.string,
     conditions: PropTypes.string,
     picture: PropTypes.string,
+    item: PropTypes.string,
+    id: PropTypes.string,
+    item_id: PropTypes.string,
   }).isRequired,
 };
 
