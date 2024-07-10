@@ -1,20 +1,27 @@
-import {  useState, useCallback, } from 'react';
+import {  useState, useCallback, useEffect } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import profilImg from '../../assets/images/Antoine-Durand.png';
+import { useParams } from 'react-router-dom';
 
-import './Profil.css';
 
-export default function Profil() {
-  const [alignment, setAlignment] = useState('Showcase');
+import './Profile.css';
+
+export default function Profile() {
+  const [alignment, setAlignment] = useState('');
 
   const handleChange = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
       setAlignment(newAlignment);
     }
   }, []);
-
   
+  const { id } = useParams();
+  const [user, setUser] = useState([]);
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/users/${id}`)
+    .then(response => response.json())
+    .then(data => setUser(data));
+  }, [id]);
 
   const rating = 1.3;
 
@@ -33,15 +40,16 @@ export default function Profil() {
 
   return (
     <>
-      <div className="profilContainer">
-        <div className="profilHeader">
-          <img src={profilImg} alt="Profil" className="Profil-Image" />
-          <div className="profilDetails">
-            <h2>Antoine Durand</h2>
+      <div className="profileContainer">
+        <div className="profileHeader">
+          <img src={user.picture} alt="Profile" className="profileImg" />
+          <div className="profileDetails">
+            <h2>{user.pseudo}</h2>
             <div className="Five-Rate-Active Larger">
               <p className="screenReaders">Rated {rating} out of 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
                 <button
+                id="buttonStar"
                   key={rate}
                   type="button"
                   className={rate <= rating ? 'rate-value-full' : 'rate-value-empty'}
@@ -52,8 +60,10 @@ export default function Profil() {
             </div>
             <p className='Location'>Paris, France</p>
             <p className='Subscribe'>Member since January 2024</p>
-            <div className='Button'>
-              <button type="button" onClick={null}>Modifications profil</button>
+            <div>
+              <button id="buttonModif"
+              type="button" 
+              onClick={null}>Modifications profil</button>
             </div>
           </div>
         </div>

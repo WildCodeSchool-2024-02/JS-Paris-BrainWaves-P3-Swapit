@@ -31,7 +31,7 @@ function App() {
 
 
       <NavBar auth={auth} setAuth={setAuth}/>
-      
+    
       <Outlet context={{auth, setAuth}} />
       
       <Footer />
