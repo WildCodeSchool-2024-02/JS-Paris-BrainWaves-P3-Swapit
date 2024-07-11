@@ -1,9 +1,10 @@
 @media (max-width: 600px) {
+  /* react library */
   .Larger {
     font-size: 1.2rem;
   }
 
-  #ButtonStar {
+  #buttonStar {
     margin: 0 2px;
     font-size: 1.5rem;
     color: white;
@@ -11,16 +12,18 @@
 }
 
 @media (max-width: 400px) {
+  /* react library */
   .Larger {
     font-size: 1rem;
   }
 
-  #ButtonStar {
+  #buttonStar {
     margin: 0 1px;
     font-size: 1.2rem;
   }
 }
 
+/* react library */
 .Five-Rate-Active {
   display: flex;
   align-items: center;
@@ -28,6 +31,7 @@
   flex-wrap: wrap;
 }
 
+/* react library */
 .Larger {
   font-size: 1.5rem;
 }
@@ -62,13 +66,11 @@
   color: lightgray;
 }
 
-#ButtonStar {
+#buttonStar {
   font-family: var(--font);
-  background-color: #00c3e3;
-  padding: 10px 20px;
   border-radius: 17px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .Custom-button:hover {
