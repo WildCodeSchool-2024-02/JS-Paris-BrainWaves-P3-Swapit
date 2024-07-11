@@ -29,6 +29,7 @@ input::placeholder {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: rgb(163, 163, 163);
   padding-left: 1vh;
+  font-style: italic;
 }
 
 .wrap {

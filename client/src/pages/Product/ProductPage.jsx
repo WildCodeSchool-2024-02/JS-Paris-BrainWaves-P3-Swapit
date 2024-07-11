@@ -16,9 +16,13 @@ export default function ProductPage() {
   const [openSwapRequest, setOpenSwapRequest] = useState(false);
   const navigate = useNavigate();
   const [blur, setBlur] = useState(false);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleProfile = () => {
-    navigate(`/profile/${product.pseudo}/${product.user_id}`);
+    navigate(`/profile/${product.user_id}`);
   };
 
   const { id } = useParams();

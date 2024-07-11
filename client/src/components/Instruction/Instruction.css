@@ -3,21 +3,18 @@
   isolation: isolate;
 }
 
-.swiper {
-  width: 90vh;
-}
 .swiperInstruction {
   width: 100%;
   height: 100%;
-
   padding: 50px;
+  margin-bottom: 100px;
 }
 
 .slideInstruction {
   background-position: center;
   background-size: cover;
-  width: 90vh;
-  height: 35vh;
+
+  height: 40vh;
   border: 2px solid;
   border-radius: 20px;
 }
@@ -126,7 +123,7 @@
   }
 
   .swiperInstruction {
-    width: 50vh;
+    width: 40vh;
     height: auto;
     margin: 3rem;
     padding: 0;

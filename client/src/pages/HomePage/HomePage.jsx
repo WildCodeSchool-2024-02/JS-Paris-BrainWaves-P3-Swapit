@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./HomePage.css";
 import { useLoaderData } from "react-router-dom";
 import Instruction from "../../components/Instruction/Instruction";
@@ -6,6 +7,9 @@ import LatestProduct from "../../components/LatestProduct/LatestProduct";
 
 function HomePage() {
   const latestitems = useLoaderData();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -17,7 +21,7 @@ function HomePage() {
       <h1 className="latestTitleForHomePage">Ajouts récents</h1>
 
       <div className="latestProductContainerForHomePage">
-        {latestitems.slice(0,6).map((item) => (
+        {latestitems.slice(0, 6).map((item) => (
           <LatestProduct key={item.id} data={item} />
         ))}
       </div>

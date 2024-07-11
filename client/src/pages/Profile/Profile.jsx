@@ -6,6 +6,11 @@ import { useParams } from 'react-router-dom';
 import './Profile.css';
 
 export default function Profile() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [alignment, setAlignment] = useState('');
 
   const handleChange = useCallback((event, newAlignment) => {

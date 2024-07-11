@@ -1,8 +1,13 @@
 import "./ProductsByCategory.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ProductByCategory({ data }) {
+  const navigate = useNavigate();
+
+  const profilPagesDirection = () => {
+    navigate(`/profile/${data.user_id}`);
+  };
   return (
     <div className="blocProductByCategory">
       <div className="blocProfileByCategory">
@@ -11,12 +16,20 @@ function ProductByCategory({ data }) {
             src={data.picture}
             className="pictureProfileByCategory"
             alt="profile"
+            onClick={profilPagesDirection}
+            role="presentation"
           />
         </div>
-        <p className="pseudoByCategory">{data.pseudo}</p>
+        <p
+          className="pseudoByCategory"
+          onClick={profilPagesDirection}
+          role="presentation"
+        >
+          {data.pseudo}
+        </p>
       </div>
       <Link
-        to={`/produits/${data.item_id}`}
+        to={`/produit/${data.item_id}`}
         className="linkAllProducts"
         key={data.id}
       >
@@ -43,6 +56,7 @@ ProductByCategory.propTypes = {
     picture: PropTypes.string,
     item_id: PropTypes.string,
     id: PropTypes.string,
+    user_id: PropTypes.number,
   }).isRequired,
 };
 

@@ -30,6 +30,7 @@
     display: flex;
     gap: 3vh;
     align-items: center;
+    padding-top: 15px;
   }
 
   .categoriesNavBar {
