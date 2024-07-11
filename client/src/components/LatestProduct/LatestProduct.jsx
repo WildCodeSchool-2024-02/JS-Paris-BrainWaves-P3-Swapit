@@ -8,7 +8,7 @@ function LatestProduct({ data }) {
   const navigate = useNavigate();
 
   const profilPagesDirection = () => {
-    navigate(`/profile/${data.pseudo}/${data.user_id}`);
+    navigate(`/profile/${data.user_id}`);
 
   }
   return (

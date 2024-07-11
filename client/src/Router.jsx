@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         element: <Product />,
       },
       {
-        path: "/profile/:name/:id",
+        path: "/profile/:id",
         element: <Profile />,
       },
     ],
