@@ -32,7 +32,7 @@ export default function Profile() {
 
   const renderSection = () => {
     switch (alignment) {
-      case 'Virtine':
+      case 'Vitrine':
         return <div>Vitrine section content</div>;
       case 'Evaluations':
         return <div>Evaluations section content</div>;
