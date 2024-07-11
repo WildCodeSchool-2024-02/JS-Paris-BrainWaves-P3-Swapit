@@ -6,7 +6,7 @@ import Inscription from "./pages/Inscription/Inscription";
 import Category from "./pages/Category/Category";
 import CategoryAllProducts from "./pages/Category/CategoryAllProducts";
 import Product from "./pages/Product/ProductPage";
-import Profil from "./pages/Profile/Profile";
+import Profile from "./pages/Profile/Profile";
 
 
 const router = createBrowserRouter([
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile/:name/:id",
-        element: <Profil />,
+        element: <Profile />,
       },
     ],
   },
