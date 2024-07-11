@@ -3,11 +3,14 @@ import PropTypes from "prop-types";
 
 
 function LatestProduct({data}) {
+
+
+
     return (
         <div className="blocProduct">
           <div className="blocProfile">
             <div className="pictureProfileContainer">
-              <img src={data.picture} className="pictureProfile" alt="profile" />
+              <img src={data.picture} className="pictureProfile" alt="profile" role = "presentation" />
             </div>
             <p className="pseudo">{data.pseudo}</p>
           </div>
