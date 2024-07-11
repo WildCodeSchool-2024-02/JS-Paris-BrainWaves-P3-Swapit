@@ -1,4 +1,4 @@
-.blocProduct {
+.blocProductByLatestProduct {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -6,33 +6,33 @@
   justify-content: space-between;
 }
 
-.imgContainer {
+.imgContainerByLatestProduct {
   position: relative;
   width: 100%;
   height: 20vh;
   overflow: hidden;
 }
 
-.pictureProduct {
+.pictureProductByLatestProduct {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.productName {
+.productNameByLatestProduct {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   margin-top: 2vh;
   font-weight: bold;
 }
 
-.conditionProduct {
+.conditionProductByLatestProduct {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.5rem;
 }
 
-.pseudo {
+.pseudoByLatestProduct {
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
@@ -41,21 +41,21 @@
   height: 100%;
 }
 
-.blocProfile {
+.blocProfileByLatestProduct {
   display: flex;
   margin-bottom: 2vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
 
-.pictureProfileContainer {
+.pictureProfileContainerByLatestProduct {
   position: relative;
   width: 5vh;
   height: 5vh;
   overflow: hidden;
 }
 
-.pictureProfile {
+.pictureProfileByLatestProduct {
   border-radius: 50%;
   display: block;
   width: 100%;
@@ -64,7 +64,7 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .blocProduct {
+  .blocProductByLatestProduct {
     display: flex;
     flex-direction: column;
     width: 40vh;
@@ -73,58 +73,58 @@
     white-space: normal;
   }
 
-  .imgContainer {
+  .imgContainerByLatestProduct {
     position: relative;
     width: 30vh;
     height: 30vh;
     overflow: hidden;
   }
 
-  .pictureProduct {
+  .pictureProductByLatestProduct {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .productName {
+  .productNameByLatestProduct {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     margin-top: 2vh;
   }
 
-  .conditionProduct {
+  .conditionProductByLatestProduct {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
 
-  .location {
+  .locationByLatestProduct {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
 
-  .pseudo {
+  .pseudoByLatestProduct {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     height: 100%;
   }
 
-  .blocProfile {
+  .blocProfileByLatestProduct {
     display: flex;
     gap: 2vh;
     align-items: flex-start;
     height: 5vh;
   }
 
-  .pictureProfileContainer {
+  .pictureProfileContainerByLatestProduct {
     position: relative;
     width: 5vh;
     height: 100%;
     overflow: hidden;
   }
 
-  .pictureProfile {
+  .pictureProfileByLatestProduct {
     border-radius: 50%;
     display: block;
     width: 100%;

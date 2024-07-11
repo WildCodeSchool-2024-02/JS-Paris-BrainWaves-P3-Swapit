@@ -1,5 +1,5 @@
-.mySwiper {
-  width: 100%;
+.swiperProduct {
+  width: 24rem;
 }
 
 .allSwiper {
@@ -141,7 +141,8 @@
     text-align: -webkit-center;
   }
 
-  .mySwiper {
+  .swiperProduct {
+    width: 100%;
     margin-top: 50px;
     border-radius: 25px;
   }
@@ -169,6 +170,7 @@
     display: flex;
     width: 60%;
     margin-top: 20px;
+    font-size: 1.5rem;
   }
 
   .swapBtnMobile {

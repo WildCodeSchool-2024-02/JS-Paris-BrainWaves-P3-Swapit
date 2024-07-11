@@ -1,13 +1,4 @@
-.productContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4vh;
-  margin: 0 auto 5vh auto;
-  margin-top: 5vh;
-  padding: 0 4vh;
-}
-
-.blocProduct {
+.blocProductForAllProducts {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,39 +6,39 @@
   justify-content: space-between;
 }
 
-.imgContainer {
+.imgContainerForAllProducts {
   position: relative;
   width: 100%;
   height: 20vh;
   overflow: hidden;
 }
 
-.pictureProduct {
+.pictureProductForAllProducts {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.categoryProduct {
+.categoryProductForAllProducts {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
   font-weight: bolder;
   margin-bottom: 1vh;
 }
 
-.productName {
+.productNameForAllProducts {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
 }
 
-.conditionProduct {
+.conditionProductForAllProducts {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
 }
 
-.pseudo {
+.pseudoForAllProducts {
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
@@ -79,15 +70,7 @@
 }
 
 @media only screen and (min-width: 769px) {
-  .productContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-    flex-wrap: wrap;
-  }
-  .blocProduct {
+  .blocProductForAllProducts {
     display: inline-block;
     flex-direction: column;
     width: 40vh;
@@ -98,43 +81,43 @@
     flex-wrap: wrap;
   }
 
-  .imgContainer {
+  .imgContainerForAllProducts {
     position: relative;
     width: 30vh;
     height: 30vh;
     overflow: hidden;
   }
 
-  .pictureProduct {
+  .pictureProductForAllProducts {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .categoryProduct {
+  .categoryProductForAllProducts {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 1vh;
   }
 
-  .productName {
+  .productNameForAllProducts {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     margin-top: 2vh;
     font-weight: 900;
   }
 
-  .conditionProduct {
+  .conditionProductForAllProducts {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
 
-  .pseudo {
+  .pseudoForAllProducts {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     height: 100%;
   }
 
