@@ -1,0 +1,28 @@
+.productContainerForAllProducts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vh;
+  margin: 0 auto 5vh auto;
+  padding: 0 4vh;
+}
+
+.linkAllProducts {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 769px) {
+  .productContainerForAllProducts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    flex-wrap: wrap;
+  }
+
+  .linkAllProducts {
+    color: inherit;
+    text-decoration: none;
+  }
+}

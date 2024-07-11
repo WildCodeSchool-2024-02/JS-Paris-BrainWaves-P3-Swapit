@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
         index: true,
-        loader: () => fetch(`http://localhost:3310/api/items/latest`),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/items/latest`),
       },
 
       {
@@ -37,12 +37,14 @@ const router = createBrowserRouter([
         path: "/categorie/:id",
         element: <Category />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3310/api/categories/${params.id}/items`),
+          fetch(
+            `${import.meta.env.VITE_API_URL}/categories/${params.id}/items`
+          ),
       },
       {
         path: "/categorie/produits",
         element: <CategoryAllProducts />,
-        loader: () => fetch(`http://localhost:3310/api/items/all`),
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/items/all`),
       },
 
       {

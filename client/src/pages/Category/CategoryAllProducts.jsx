@@ -1,7 +1,7 @@
 import { useLoaderData, useLocation } from "react-router-dom";
 import AllProducts from "../../components/AllProducts/AllProducts";
 
-import "./Category.css";
+import "./CategoryAllProducts.css";
 
 function CategoryAllProducts() {
   const location = useLocation();
@@ -10,7 +10,7 @@ function CategoryAllProducts() {
   const filteredProducts = location.state?.filteredDataItems || everyProduct;
 
   return (
-    <div className="productContainer">
+    <div className="productContainerForAllProducts">
       {filteredProducts.map((item) => (
         <AllProducts key={item.id} data={item} />
       ))}
