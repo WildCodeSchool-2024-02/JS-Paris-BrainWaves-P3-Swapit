@@ -62,7 +62,7 @@ function SwapProposition({ closeProposition, setBlur }) {
                   />
                   <h3 className="nameBox">{product.name}</h3>
                 </div>
-                <div className="imgContainer">
+                <div className="ProductImgContainer">
                   <img
                     src={product.image_url}
                     alt="Main product"

@@ -35,6 +35,9 @@
     width: 120vh;
     margin: 0 auto;
   }
+  .bannerContainer {
+    width: 80%;
+  }
 
   .banner {
     width: 100%;

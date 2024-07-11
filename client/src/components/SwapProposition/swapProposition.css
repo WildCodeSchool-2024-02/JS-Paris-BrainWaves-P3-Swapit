@@ -44,14 +44,16 @@
   display: none;
 }
 
-.imgContainer {
+.ProductImgContainer {
   width: 100%;
-  height: 100%;
+  height: 12rem;
 }
 
 .mainImgProposition {
   cursor: pointer;
   width: 100%;
+  height: -webkit-fill-available;
+  object-fit: cover;
 }
 
 .btnProposition {
@@ -142,11 +144,11 @@ body.active {
     scrollbar-width: thin;
   }
 
-  .imgContainer {
+  .ProductImgContainer {
     position: relative;
     right: 10px;
     width: 100%;
-    height: 14rem;
+    height: 15rem;
     padding: 20px;
     cursor: pointer;
   }

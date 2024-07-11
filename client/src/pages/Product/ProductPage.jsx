@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./productPage.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
@@ -9,21 +9,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function ProductPage() {
   const [product, setProduct] = useState([]);
   const [openSwapRequest, setOpenSwapRequest] = useState(false);
   const navigate = useNavigate();
   const [blur, setBlur] = useState(false);
 
-  const handleSwapClick = () => {
-    navigate(`/profile`);
+  const handleProfile = () => {
+    navigate(`/profile/${product.pseudo}/${product.user_id}`);
   };
 
+  const { id } = useParams();
+
   useEffect(() => {
-    fetch("http://localhost:3310/api/items/7/user")
+    fetch(`${apiUrl}/items/${id}/user`)
       .then((response) => response.json())
       .then((json) => setProduct(json[0]));
-  }, []);
+  }, [id]);
 
   const handleSwapRequest = () => {
     setBlur(true);
@@ -111,7 +115,7 @@ export default function ProductPage() {
           <div className="productDetails">
             <div className="profile">
               <img
-                onClick={handleSwapClick}
+                onClick={handleProfile}
                 type="image"
                 src={product.picture}
                 alt="ProfilePicture"
@@ -122,7 +126,7 @@ export default function ProductPage() {
                 <h2
                   className="topDetails"
                   id="pseudo"
-                  onClick={handleSwapClick}
+                  onClick={handleProfile}
                   role="presentation"
                 >
                   {product.pseudo}
