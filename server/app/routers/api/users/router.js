@@ -12,7 +12,7 @@ const {
 } = require("../../../controllers/userActions");
 
 const { hashPassword } = require("../../../services/auth");
-const validateData = require("../../../dataValidator");
+const validateData = require("../../../services/dataValidator");
 const userSchema = require("../../../services/validatorSchemas/user")
 
 router.get("/", browse);
