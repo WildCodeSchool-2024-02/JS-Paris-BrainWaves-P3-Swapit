@@ -1,4 +1,4 @@
-.blocProduct {
+.blocProductByCategory {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -6,33 +6,47 @@
   justify-content: space-between;
 }
 
-.imgContainer {
+.imgContainerByCategory {
   position: relative;
   width: 100%;
   height: 20vh;
   overflow: hidden;
 }
 
-.pictureProduct {
+.productPictureByCategory {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.productName {
+.imgContainerForAllProducts {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.pictureProductForAllProducts {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productNameByCategory {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   margin-top: 2vh;
   font-weight: bold;
 }
 
-.conditionProduct {
+.conditionProductByCategory {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.5rem;
 }
 
-.pseudo {
+.pseudoByCategory {
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
@@ -41,21 +55,21 @@
   height: 100%;
 }
 
-.blocProfile {
+.blocProfileByCategory {
   display: flex;
   margin-bottom: 2vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
 
-.pictureProfileContainer {
+.imageProfileContainerByCategory {
   position: relative;
   width: 5vh;
   height: 5vh;
   overflow: hidden;
 }
 
-.pictureProfile {
+.pictureProfileByCategory {
   border-radius: 50%;
   display: block;
   width: 100%;
@@ -63,8 +77,12 @@
   object-fit: cover;
 }
 
+.linkProdCategory {
+  color: inherit;
+}
+
 @media only screen and (min-width: 769px) {
-  .blocProduct {
+  .blocProductByCategory {
     display: inline-block;
     flex-direction: column;
     width: 40vh;
@@ -74,57 +92,61 @@
     flex-wrap: wrap;
   }
 
-  .imgContainer {
+  .imgContainerByCategory {
     position: relative;
     width: 30vh;
     height: 30vh;
     overflow: hidden;
   }
 
-  .pictureProduct {
+  .pictureProductByCategory {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .productName {
+  .productNameByCategory {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     margin-top: 2vh;
   }
 
-  .conditionProduct {
+  .conditionProductByCategory {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
 
-  .pseudo {
+  .pseudoByCategory {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     height: 100%;
   }
 
-  .blocProfile {
+  .blocProfileByCategory {
     display: flex;
     gap: 2vh;
     align-items: flex-start;
     height: 5vh;
   }
 
-  .pictureProfileContainer {
+  .imageProfileContainerByCategory {
     position: relative;
     width: 5vh;
     height: 100%;
     overflow: hidden;
   }
 
-  .pictureProfile {
+  .pictureProfileByCategory {
     border-radius: 50%;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .linkProdCategory {
+    color: inherit;
   }
 }
