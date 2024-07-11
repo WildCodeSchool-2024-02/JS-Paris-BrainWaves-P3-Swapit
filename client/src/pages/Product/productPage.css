@@ -33,7 +33,9 @@
 
 .mainImage {
   max-lines: 100%;
-  height: auto;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 .productDetails {
@@ -147,6 +149,13 @@
     border-radius: 25px;
   }
 
+  .mainImage {
+    max-lines: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .productDetails {
     width: 70%;
     padding: 0px;
@@ -155,6 +164,9 @@
 
   .productPage {
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 60px;
   }
 
   .details {
@@ -170,7 +182,10 @@
     display: flex;
     width: 60%;
     margin-top: 20px;
-    font-size: 1.5rem;
+  }
+
+  .swapButton {
+    font-size: 1.2rem;
   }
 
   .swapBtnMobile {
