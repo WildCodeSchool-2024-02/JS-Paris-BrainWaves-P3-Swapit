@@ -1,8 +1,16 @@
 import "./LatestProduct.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
 
 function LatestProduct({ data }) {
+
+  const navigate = useNavigate();
+
+  const profilPagesDirection = () => {
+    navigate(`/profile/${data.user_id}`);
+
+  }
   return (
     <div className="blocProductByLatestProduct">
       <div className="blocProfileByLatestProduct">
@@ -11,6 +19,8 @@ function LatestProduct({ data }) {
             src={data.picture}
             className="pictureProfileByLatestProduct"
             alt="profile"
+            role="presentation" 
+            onClick={profilPagesDirection}
           />
         </div>
         <p className="pseudoByLatestProduct">{data.pseudo}</p>
@@ -46,6 +56,7 @@ LatestProduct.propTypes = {
     location: PropTypes.string,
     item_id: PropTypes.string,
     id: PropTypes.string,
+    user_id: PropTypes.number,
   }).isRequired,
 };
 
