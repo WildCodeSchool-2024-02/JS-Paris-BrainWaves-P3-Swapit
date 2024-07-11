@@ -44,7 +44,7 @@
   display: none;
 }
 
-.ProductImgContainer {
+.productImgContainer {
   width: 100%;
   height: 12rem;
 }
@@ -144,7 +144,7 @@ body.active {
     scrollbar-width: thin;
   }
 
-  .ProductImgContainer {
+  .productImgContainer {
     position: relative;
     right: 10px;
     width: 100%;
