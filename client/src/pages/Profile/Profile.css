@@ -1,0 +1,113 @@
+@media (max-width: 600px) {
+  /* react library */
+  .Larger {
+    font-size: 1.2rem;
+  }
+
+  #buttonStar {
+    margin: 0 2px;
+    font-size: 1.5rem;
+    color: white;
+  }
+}
+
+@media (max-width: 400px) {
+  /* react library */
+  .Larger {
+    font-size: 1rem;
+  }
+
+  #buttonStar {
+    margin: 0 1px;
+    font-size: 1.2rem;
+  }
+}
+
+/* react library */
+.Five-Rate-Active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* react library */
+.Larger {
+  font-size: 1.5rem;
+}
+
+.screenReaders {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#buttonStar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 5px;
+  font-size: 2rem;
+  color: white;
+}
+
+.rate-value-full::before,
+.rate-value-half::before,
+.rate-value-empty::before {
+  content: "★";
+  color: gold;
+}
+
+.Cate-value-empty::before {
+  color: lightgray;
+}
+
+#buttonStar {
+  font-family: var(--font);
+  border-radius: 17px;
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.Custom-button:hover {
+  background-color: #00c3e3;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22rem;
+}
+
+.profileImg {
+  width: 17rem;
+  height: 17rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2.5rem;
+}
+
+#buttonModif {
+  background-color: #00c3e3;
+  font-family: var(--font);
+  padding: 10px 20px;
+  border-radius: 17px;
+  cursor: pointer;
+  margin-top: 3%;
+  font-size: 1.2rem;
+  color: white;
+  border-color: white;
+  width: 16rem;
+  height: 3.7rem;
+}

@@ -9,21 +9,19 @@ function HomePage() {
 
   return (
     <>
-      <div className="bannerContainer">
-        <img
-          src={banner}
-          alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
-          className="banner"
-        />
-      </div>
-      <h1 className="latestTitle">Ajouts récents</h1>
+      <img
+        src={banner}
+        alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
+        className="bannerForHomePage"
+      />
+      <h1 className="latestTitleForHomePage">Ajouts récents</h1>
 
-      <div className="latestProductContainer">
-        {latestitems.slice(0, 6).map((item) => (
+      <div className="latestProductContainerForHomePage">
+        {latestitems.slice(0,6).map((item) => (
           <LatestProduct key={item.id} data={item} />
         ))}
       </div>
-      <div className="operation">
+      <div className="operationForHomePage">
         <Instruction />
       </div>
     </>

@@ -18,7 +18,9 @@ function CategoriesNavBar() {
   useEffect(() => {
     const fetchDataCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3310/api/categories/");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/categories/`
+        );
         const receptionData = await response.json();
         setDataCategories(receptionData);
       } catch (error) {

@@ -10,18 +10,25 @@ function Category() {
   ];
 
   return (
-    <>
-      {uniqueCategories.map((categoryName) => (
-        <div key={categoryName}>
-          <h1 className="categoryName">{categoryName}</h1>
-          <div className="productContainer">
-            {products.map((product) => (
-              <ProductsByCategory key={product} data={product} />
-            ))}
+    <div>
+      {products.length === 0 ? (
+        <p className="excuseByCategory">
+          Désolé, il n'y a pas de produits actuellement pour cette catégorie.
+        </p>
+      ) : (
+        uniqueCategories.map((categoryName) => (
+          <div key={categoryName}>
+            <h1 className="categoryNameByCategory">{categoryName}</h1>
+
+            <div className="productContainerByCategory">
+              {products.map((product) => (
+                <ProductsByCategory key={product.id} data={product} />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </>
+        ))
+      )}
+    </div>
   );
 }
 

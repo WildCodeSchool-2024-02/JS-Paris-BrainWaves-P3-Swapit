@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 
 
+
 function App() {
   const [auth, setAuth] = useState({isLogged: false, user: null, token: null});
 
@@ -27,8 +28,10 @@ function App() {
         theme="light"
       />
 
-      <NavBar auth={auth} setAuth={setAuth}/>
 
+
+      <NavBar auth={auth} setAuth={setAuth}/>
+    
       <Outlet context={{auth, setAuth}} />
       
       <Footer />

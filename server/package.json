@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mui/material": "^5.15.21",
     "argon2": "^0.40.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
