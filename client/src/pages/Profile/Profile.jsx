@@ -42,7 +42,9 @@ export default function Profile() {
     <>
       <div className="profileContainer">
         <div className="profileHeader">
+          <div className='profileImgContainer'>
           <img src={user.picture} alt="Profile" className="profileImg" />
+          </div>
           <div className="profileDetails">
             <h2>{user.pseudo}</h2>
             <div className="Five-Rate-Active Larger">
@@ -75,10 +77,11 @@ export default function Profile() {
           exclusive
           onChange={handleChange}
           aria-label="Platform"
+        
         >
-          <ToggleButton value="Vitrine">Vitrine</ToggleButton>
-          <ToggleButton value="Evaluations">Evaluations</ToggleButton>
-          <ToggleButton value="Propositions">Propositons</ToggleButton>
+          <ToggleButton id='btn' value="Vitrine">Vitrine</ToggleButton>
+          <ToggleButton id='btn' value="Evaluations">Evaluations</ToggleButton>
+          <ToggleButton id='btn' value="Propositions">Propositons</ToggleButton>
         </ToggleButtonGroup>
       </div>
       <div className="section-content">

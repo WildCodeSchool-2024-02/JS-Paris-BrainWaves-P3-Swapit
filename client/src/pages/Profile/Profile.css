@@ -5,7 +5,6 @@
 
 .screenReaders {
   position: absolute;
-  left: -10000px;
   top: auto;
   width: 1px;
   height: 1px;
@@ -39,37 +38,54 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22.5rem;
+  margin-block: 10px 30px;
+  position: relative;
+  right: 10px;
+}
+
+.profileImgContainer {
+  width: 120px;
+  height: 120px;
 }
 
 .profileImg {
-  width: 23vh;
-  height: 23vh;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  top: 45px;
+  right: 10px;
 }
 
 .profileHeader {
   display: flex;
   font-family: var(--font);
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   margin: 2vh;
+  gap: 40px;
 }
 
 #buttonModif {
   background-color: #00c3e3;
   font-family: var(--font);
   padding: 9px;
-  border-radius: 20px;
+  border-radius: 50px;
   cursor: pointer;
   margin-top: 3%;
   font-size: 1.2rem;
   color: white;
-  border-color: white;
+  border: none;
   width: 12rem;
   height: 3.5rem;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+#buttonModif:hover {
+  background-color: var(--hover-blue);
 }
 
 @media only screen and (min-width: 769px) {
@@ -131,34 +147,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 22rem;
+  }
+
+  .profileImgContainer {
+    width: 200px;
+    height: 200px;
   }
 
   .profileImg {
-    width: 17rem;
-    height: 17rem;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
+    position: relative;
+    top: 0px;
   }
 
   .profileHeader {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin: 2.5rem;
+    gap: 60px;
   }
 
   #buttonModif {
     background-color: #00c3e3;
     font-family: var(--font);
     padding: 10px 20px;
-    border-radius: 17px;
+    border-radius: 50px;
     cursor: pointer;
-    margin-top: 3%;
+    margin-top: 20px;
     font-size: 1.2rem;
     color: white;
     border-color: white;
     width: 16rem;
     height: 3.7rem;
   }
+}
+
+#btn {
+  color: var(--main-blue);
 }
