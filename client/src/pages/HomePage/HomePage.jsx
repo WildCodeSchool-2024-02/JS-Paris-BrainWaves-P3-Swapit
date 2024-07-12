@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./HomePage.css";
 import { useLoaderData } from "react-router-dom";
 import Instruction from "../../components/Instruction/Instruction";
-import banner from "../../assets/images/banner.svg";
+import Swapit from "../../assets/images/Swapit.gif";
 import LatestProduct from "../../components/LatestProduct/LatestProduct";
 
 function HomePage() {
@@ -14,7 +14,7 @@ function HomePage() {
   return (
     <>
       <img
-        src={banner}
+        src={Swapit}
         alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
         className="bannerForHomePage"
       />

@@ -1,5 +1,5 @@
 .swiperProduct {
-  width: 24rem;
+  width: 24.5rem;
 }
 
 .allSwiper {
@@ -134,7 +134,7 @@
   }
 
   .allSwiper {
-    width: 700px;
+    width: 800px;
     height: 700px;
     margin-left: 60px;
     display: flex;

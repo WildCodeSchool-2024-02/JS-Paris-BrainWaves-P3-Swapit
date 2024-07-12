@@ -8,7 +8,7 @@ function SwapProposition({ closeProposition, setBlur }) {
   const [checked, setChecked] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/users/3/items")
+    fetch("http://localhost:3310/api/items")
       .then((response) => response.json())
       .then((json) => {
         setProductList(json);
