@@ -81,7 +81,7 @@ export default function Profile() {
         >
           <ToggleButton id='btn' value="Vitrine">Vitrine</ToggleButton>
           <ToggleButton id='btn' value="Evaluations">Evaluations</ToggleButton>
-          <ToggleButton id='btn' value="Propositions">Propositons</ToggleButton>
+          <ToggleButton id='btn' value="Propositions">Propositions</ToggleButton>
         </ToggleButtonGroup>
       </div>
       <div className="section-content">
