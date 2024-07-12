@@ -16,7 +16,7 @@ function ProductByCategory({ data }) {
         <p className="pseudoByCategory">{data.pseudo}</p>
       </div>
       <Link
-        to={`/produits/${data.item_id}`}
+        to={`/produit/${data.item_id}`}
         className="linkAllProducts"
         key={data.id}
       >

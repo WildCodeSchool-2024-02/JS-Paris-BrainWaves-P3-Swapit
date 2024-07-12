@@ -25,10 +25,46 @@ export default function Profile() {
 
   const rating = 1.3;
 
+  const [dataProduct, setDataProduct] = useState([]) ;
+
+  useEffect(() => {
+    if (alignment === 'Vitrine'){
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+      .then(response => response.json())
+      .then(facts=> setDataProduct(facts));
+    }
+
+  },[alignment,id])
+
   const renderSection = () => {
+
+    
     switch (alignment) {
-      case 'Virtine':
-        return <div>Vitrine section content</div>;
+      case 'Vitrine':
+        return dataProduct.length 
+        < 1 ? <div style={{ fontSize: '24px', textAlign: 'center', margin: '20px 0', fontFamily: 'Helvetica, Arial, sans-serif' }} > Pas de produit pour le moment... </div> 
+        : ( <div className="latestProductContainerForProfilePage">
+        {dataProduct.map((product ) => (
+          <div key={id} className="blocProductForProfilePage">
+          <div className="blocProfilePage">
+            
+            <div className="imgContainerForProfile">
+              <img
+                src={product.image_url}
+                className="pictureProductForProfilePage"
+                alt="product"
+              />
+            </div>
+            <div className="productInformationForProfilePage">
+              <p className="productNameForProfilePage">{product.name}</p>
+              <p className="categoryProductForProfilePage">{product.category_name}</p>
+              <p className="conditionProductForProfilePage">{product.conditions}</p>
+            </div>
+          </div>
+          </div>
+        ))}
+      </div>
+        );
       case 'Evaluations':
         return <div>Evaluations section content</div>;
       case 'Propositions':
@@ -37,6 +73,8 @@ export default function Profile() {
         return null;
     }
   };
+
+
 
   return (
     <>

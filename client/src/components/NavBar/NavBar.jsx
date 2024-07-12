@@ -18,7 +18,9 @@ function NavBar({ auth, setAuth }) {
     setAuth({isLogged: false, user: null, token: null });
     navigate("/");
   }
-
+  const profilDirection = () => {
+    navigate(`/profile/${auth.user.user_id}`)
+  }
   const updateMedia = () => {
     setIsDesktop(window.innerWidth >= 769);
   };
@@ -94,7 +96,9 @@ function NavBar({ auth, setAuth }) {
           horizontal: 'left',
         }}
       >
+        <Typography sx={{ p: 2}}><button type="button" className ="buttonLogout" onClick={profilDirection} >Profil</button></Typography>
         <Typography sx={{ p: 2}}><button type="button" className ="buttonLogout" onClick={logout} >Se deconnecter</button></Typography>
+        
         
       </Popover>
 
@@ -109,10 +113,11 @@ function NavBar({ auth, setAuth }) {
 }
 
 NavBar.propTypes = {
-  
+ 
   auth: PropTypes.shape({
     isLogged: PropTypes.bool,
     user: PropTypes.shape({
+      user_id: PropTypes.number,
       picture: PropTypes.string,
     }),
   }).isRequired,

@@ -18,7 +18,7 @@ export default function ProductPage() {
   const [blur, setBlur] = useState(false);
 
   const handleProfile = () => {
-    navigate(`/profile/${product.pseudo}/${product.user_id}`);
+    navigate(`/profile/${product.user_id}`);
   };
 
   const { id } = useParams();
