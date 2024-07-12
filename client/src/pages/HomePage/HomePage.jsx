@@ -18,6 +18,9 @@ function HomePage() {
         alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
         className="bannerForHomePage"
       />
+       <div className="operationForHomePage">
+        <Instruction />
+      </div>
       <h1 className="latestTitleForHomePage">Ajouts récents</h1>
 
       <div className="latestProductContainerForHomePage">
@@ -25,9 +28,7 @@ function HomePage() {
           <LatestProduct key={item.id} data={item} />
         ))}
       </div>
-      <div className="operationForHomePage">
-        <Instruction />
-      </div>
+     
     </>
   );
 }

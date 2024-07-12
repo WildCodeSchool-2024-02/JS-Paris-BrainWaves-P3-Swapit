@@ -15,7 +15,7 @@
   font-weight: bold;
   font-size: 2rem;
   margin-left: 4vh;
-  margin-top: 7vh;
+  margin-block: 60px 30px;
 }
 
 .linkProductHomePage {
@@ -45,13 +45,15 @@
 
   .bannerForHomePage {
     width: 100%;
+    height: 75vh;
+    object-fit: cover;
   }
 
   .latestTitleForHomePage {
     font-weight: bold;
     font-size: 3rem;
     margin-left: 6vh;
-    margin-top: 7vh;
+    margin-block: 80px;
   }
 
   .linkProductHomePage {
