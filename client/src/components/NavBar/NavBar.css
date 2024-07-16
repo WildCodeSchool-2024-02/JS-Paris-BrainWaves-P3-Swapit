@@ -23,6 +23,8 @@
 }
 .instruction {
   display: none;
+  color: black;
+  text-decoration: none;
 }
 
 .presentation {
@@ -92,6 +94,9 @@
     font-size: 20px;
     position: relative;
     right: 65px;
+    a {
+      text-decoration: none;
+    }
   }
 
   .presentation {
