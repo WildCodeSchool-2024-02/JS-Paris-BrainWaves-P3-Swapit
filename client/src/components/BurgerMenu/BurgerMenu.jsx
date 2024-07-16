@@ -26,7 +26,10 @@ export default function BurgerMenu({ auth, setAuth }) {
     setOpen(false);
     navigate(`/categorie/${categoryId}`);
   };
-
+  const profileNavigation = () => {
+    setOpen(false)
+    navigate(`/profile/${auth.user.user_id}`)
+  }
   const handleAllProductsClick = () => {
     setOpen(false);
     navigate("/categorie/produits");
@@ -103,9 +106,14 @@ export default function BurgerMenu({ auth, setAuth }) {
             </ListItemButton>
           ))}
           {auth.isLogged && (
+            <>
+            <ListItemButton sx={{ color: 'black', fontWeight: 'bold' }} role="presentation" onClick={profileNavigation}>
+              Mon profil{" "}
+            </ListItemButton>
             <ListItemButton sx={{ color: "#E32D00" }} onClick={logout}>
               Se deconnecter{" "}
             </ListItemButton>
+            </>
           )}
           <ListItemButton sx={{ color: "#00C3E3" }}>
             Qui sommes-nous{" "}
@@ -123,6 +131,7 @@ BurgerMenu.propTypes = {
   auth: PropTypes.shape({
     isLogged: PropTypes.bool,
     user: PropTypes.shape({
+      user_id: PropTypes.number,
       picture: PropTypes.string,
     }),
   }).isRequired,
