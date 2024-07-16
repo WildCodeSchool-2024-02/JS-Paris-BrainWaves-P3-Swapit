@@ -16,6 +16,9 @@ export default function ProductPage() {
   const [openSwapRequest, setOpenSwapRequest] = useState(false);
   const navigate = useNavigate();
   const [blur, setBlur] = useState(false);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleProfile = () => {
     navigate(`/profile/${product.user_id}`);

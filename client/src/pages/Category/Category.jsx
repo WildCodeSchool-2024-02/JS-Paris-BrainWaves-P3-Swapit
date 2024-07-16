@@ -1,9 +1,13 @@
 import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
 import "./Category.css";
 import ProductsByCategory from "../../components/ProductByCategory/ProductsByCategory";
 
 function Category() {
   const products = useLoaderData();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const uniqueCategories = [
     ...new Set(products.map((product) => product.category_name)),
