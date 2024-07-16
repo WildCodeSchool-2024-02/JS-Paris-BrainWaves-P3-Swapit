@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import "./HomePage.css";
-import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
+import { useLoaderData} from "react-router-dom";
 import Instruction from "../../components/Instruction/Instruction";
 import Swapit from "../../assets/images/Swapit.gif";
 import LatestProduct from "../../components/LatestProduct/LatestProduct";
@@ -18,7 +18,7 @@ function HomePage() {
         alt="banner Swap It avec slogan Donner une seconde vie à vos gadgets"
         className="bannerForHomePage"
       />
-       <div className="operationForHomePage">
+      <div className="operationForHomePage">
         <Instruction />
       </div>
       <h1 className="latestTitleForHomePage">Ajouts récents</h1>
@@ -28,7 +28,6 @@ function HomePage() {
           <LatestProduct key={item.id} data={item} />
         ))}
       </div>
-     
     </>
   );
 }

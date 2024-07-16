@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4vh;
-  margin: 0 auto 5vh auto;
+  margin: 0 auto 10vh auto;
   padding: 0 4vh;
 }
 
@@ -29,7 +29,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     margin-top: 5vh;
-    margin-bottom: 10vh;
+    margin-bottom: 20vh;
     margin-left: 5vh;
     gap: 10vh;
   }
@@ -53,7 +53,7 @@
     font-weight: bold;
     font-size: 3rem;
     margin-left: 6vh;
-    margin-block: 80px;
+    margin-block: 60px;
   }
 
   .linkProductHomePage {
