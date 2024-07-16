@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import "./Profile.css";
 
@@ -9,6 +9,12 @@ export default function Profile() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const navigate = useNavigate();
+  const [dataProduct, setDataProduct] = useState([]);
+
+  const handleRedirectionItem = (itemId) => {
+    navigate(`/produit/${itemId}`);
+  };
 
   const handleChange = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
@@ -27,10 +33,64 @@ export default function Profile() {
 
   const rating = 1.3;
 
+  useEffect(() => {
+    if (alignment === "Vitrine") {
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+        .then((response) => response.json())
+        .then((facts) => setDataProduct(facts));
+    }
+  }, [alignment, id]);
+
   const renderSection = () => {
     switch (alignment) {
       case "Vitrine":
-        return <div>Vitrine section content</div>;
+        return dataProduct.length < 1 ? (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Pas de produit pour le moment...{" "}
+          </div>
+        ) : (
+          <div className="latestProductContainerForProfilePage">
+            {dataProduct.map((product) => (
+              <div key={product.item_id} className="blocProductForProfilePage">
+                <div className="blocProfilePage">
+                  <div className="imgContainerForProfilePage">
+                    <img
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      src={product.image_url}
+                      className="pictureProductForProfilePage"
+                      alt="product"
+                    />
+                  </div>
+                  <div className="productInformationForProfilePage">
+                    <p
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      className="productNameForProfilePage"
+                    >
+                      {product.name}
+                    </p>
+                    <p className="categoryProductForProfilePage">
+                      {product.category_name}
+                    </p>
+                    <p className="conditionProductForProfilePage">
+                      {product.conditions}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+
       case "Evaluations":
         return <div>Evaluations section content</div>;
       case "Propositions":
