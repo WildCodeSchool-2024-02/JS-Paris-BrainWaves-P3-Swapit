@@ -27,7 +27,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/6608247/pexels-photo-6608247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Saint-Cyr",
         swap_request: "Google Pixel 5",
-        user_id: this.getRef("user2").insertId,
+        user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category01").insertId,
       },
       {
@@ -96,7 +96,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/3987020/pexels-photo-3987020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Deauville",
         swap_request: "Dell XPS 15",
-        user_id: this.getRef("user2").insertId,
+        user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category02").insertId,
       },
 

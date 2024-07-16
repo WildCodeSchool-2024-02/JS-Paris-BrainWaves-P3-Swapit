@@ -89,6 +89,60 @@
   background-color: var(--hover-blue);
 }
 
+.blocProductForProfilePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.imgContainerForProfilePage {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.pictureProductForProfilePage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoryProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+  font-weight: bolder;
+  margin-bottom: 1vh;
+}
+
+.productNameForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.conditionProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+}
+
+.blocProfilePage {
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.latestProductContainerForProfilePage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vh;
+  margin: 0 auto 5vh auto;
+  padding: 0 4vh;
+}
 @media only screen and (min-width: 769px) {
   /* react library */
   .Five-Rate-Active {
@@ -185,8 +239,58 @@
     height: 3.7rem;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
   }
-}
 
-#btn {
-  color: var(--main-blue);
+  #btn {
+    color: var(--main-blue);
+  }
+
+  /* VITRINE  */
+
+  .latestProductContainerForProfilePage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4vh;
+    margin: 6vh auto 14vh 10vh;
+    padding: 0 4vh;
+  }
+
+  .blocProductForProfilePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .pictureProductForProfilePage {
+    display: block;
+    width: 88%;
+    height: 14rem;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .productNameForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .conditionProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .imgContainerForProfilePage {
+    position: relative;
+    width: 100%;
+    height: 36vh;
+    overflow: hidden;
+  }
+
+  .categoryProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    margin-bottom: 1vh;
+  }
 }

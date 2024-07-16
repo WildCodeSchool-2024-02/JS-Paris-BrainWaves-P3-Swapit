@@ -43,6 +43,8 @@ class UserRepository extends AbstractRepository {
       `SELECT *
       FROM ${this.table} as u
       JOIN item as i ON i.user_id = u.user_id
+      JOIN category as c
+      ON i.category_id = c.category_id
       WHERE u.user_id =?`,
       [id]
     );
