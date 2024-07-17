@@ -397,8 +397,8 @@ input::placeholder {
     background-color: white;
     padding: 20px;
     border-radius: 22px;
-    width: 35%;
-    height: 85%;
+    width: 550px;
+    height: 785px;
     box-shadow: 1px 1px 1px 1px rgba(54, 54, 54, 0.2);
     flex-direction: column;
     justify-content: center;
