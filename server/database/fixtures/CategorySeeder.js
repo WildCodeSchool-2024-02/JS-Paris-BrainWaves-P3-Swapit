@@ -59,7 +59,7 @@ class CategorySeeder extends AbstractSeeder {
       },
       {
         category_id: 11,
-        category_name: "Appareils\u00A0ménagers",
+        category_name: "Appareils\u00A0ménager",
         refName: "category11",
       },
     ];

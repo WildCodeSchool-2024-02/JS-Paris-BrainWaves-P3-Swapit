@@ -31,6 +31,9 @@
     gap: 3vh;
     padding-top: 15px;
     align-items: center;
+    padding-top: 15px;
+    box-shadow: none;
+    border: solid thin rgb(163, 163, 163);
   }
 
   .categoriesNavBar {

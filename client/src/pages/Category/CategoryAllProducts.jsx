@@ -1,4 +1,5 @@
 import { useLoaderData, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import AllProducts from "../../components/AllProducts/AllProducts";
 
 import "./CategoryAllProducts.css";
@@ -6,6 +7,10 @@ import "./CategoryAllProducts.css";
 function CategoryAllProducts() {
   const location = useLocation();
   const everyProduct = useLoaderData();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const filteredProducts = location.state?.filteredDataItems || everyProduct;
 

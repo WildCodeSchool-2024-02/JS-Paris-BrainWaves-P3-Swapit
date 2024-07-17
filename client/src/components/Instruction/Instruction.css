@@ -3,21 +3,22 @@
   isolation: isolate;
 }
 
-.swiper {
-  width: 90vh;
+.allInstruction {
+  display: flex;
+  justify-content: center;
 }
+
 .swiperInstruction {
   width: 100%;
   height: 100%;
-
-  padding: 50px;
+  padding: 60px;
+  margin-block: 50px;
 }
 
 .slideInstruction {
   background-position: center;
   background-size: cover;
-  width: 90vh;
-  height: 35vh;
+  height: 40vh;
   border: 2px solid;
   border-radius: 20px;
 }
@@ -126,7 +127,7 @@
   }
 
   .swiperInstruction {
-    width: 50vh;
+    width: 37vh;
     height: auto;
     margin: 3rem;
     padding: 0;
@@ -162,7 +163,6 @@
 
 @media screen and (min-width: 744px) and (max-width: 1124px) {
   .swiperInstruction {
-    width: auto;
     margin-bottom: 2rem;
   }
 }

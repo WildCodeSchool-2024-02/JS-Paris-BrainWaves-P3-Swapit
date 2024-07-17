@@ -1,8 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import { useParams, useOutletContext } from "react-router-dom";
+import { useParams, useOutletContext, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import "./Profile.css";
 
 export default function Profile() {
@@ -17,6 +16,15 @@ export default function Profile() {
 
   const today = new Date().toISOString().split("T")[0];
   const [productDate] = useState(today);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const navigate = useNavigate();
+  const [dataProduct, setDataProduct] = useState([]);
+
+  const handleRedirectionItem = (itemId) => {
+    navigate(`/produit/${itemId}`);
+  };
 
   const handleChange = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
@@ -65,10 +73,64 @@ export default function Profile() {
   };
   const rating = 1.3;
 
+  useEffect(() => {
+    if (alignment === "Vitrine") {
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+        .then((response) => response.json())
+        .then((facts) => setDataProduct(facts));
+    }
+  }, [alignment, id]);
+
   const renderSection = () => {
     switch (alignment) {
       case "Vitrine":
-        return <div>Vitrine section content</div>;
+        return dataProduct.length < 1 ? (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Pas de produit pour le moment...{" "}
+          </div>
+        ) : (
+          <div className="latestProductContainerForProfilePage">
+            {dataProduct.map((product) => (
+              <div key={product.item_id} className="blocProductForProfilePage">
+                <div className="blocProfilePage">
+                  <div className="imgContainerForProfilePage">
+                    <img
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      src={product.image_url}
+                      className="pictureProductForProfilePage"
+                      alt="product"
+                    />
+                  </div>
+                  <div className="productInformationForProfilePage">
+                    <p
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      className="productNameForProfilePage"
+                    >
+                      {product.name}
+                    </p>
+                    <p className="categoryProductForProfilePage">
+                      {product.category_name}
+                    </p>
+                    <p className="conditionProductForProfilePage">
+                      {product.conditions}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+
       case "Evaluations":
         return <div>Evaluations section content</div>;
       case "Propositions":
@@ -110,7 +172,9 @@ export default function Profile() {
     <>
       <div className="profileContainer">
         <div className="profileHeader">
-          <img src={user.picture} alt="Profile" className="profileImg" />
+          <div className="profileImgContainer">
+            <img src={user.picture} alt="Profile" className="profileImg" />
+          </div>
           <div className="profileDetails">
             <h2>{user.pseudo}</h2>
             <div className="Five-Rate-Active Larger">
@@ -147,9 +211,15 @@ export default function Profile() {
           onChange={handleChange}
           aria-label="Platform"
         >
-          <ToggleButton value="Vitrine">Vitrine</ToggleButton>
-          <ToggleButton value="Evaluations">Evaluations</ToggleButton>
-          <ToggleButton value="Propositions">Propositons</ToggleButton>
+          <ToggleButton id="btn" value="Vitrine">
+            Vitrine
+          </ToggleButton>
+          <ToggleButton id="btn" value="Evaluations">
+            Evaluations
+          </ToggleButton>
+          <ToggleButton id="btn" value="Propositions">
+            Propositions
+          </ToggleButton>
         </ToggleButtonGroup>
       </div>
       <div className="section-content">{renderSection()}</div>

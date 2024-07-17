@@ -1,6 +1,5 @@
 .screenReaders {
   position: absolute;
-  left: -10000px;
   top: auto;
   width: 1px;
   height: 1px;
@@ -57,21 +56,33 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22.5rem;
+  margin-block: 10px 30px;
+  position: relative;
+  right: 10px;
+}
+
+.profileImgContainer {
+  width: 120px;
+  height: 120px;
 }
 
 .profileImg {
-  width: 23vh;
-  height: 23vh;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  top: 45px;
+  right: 10px;
 }
 
 .profileHeader {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   margin: 2vh;
+  gap: 40px;
 }
 
 .rate-value-full::before,
@@ -172,6 +183,64 @@ button {
   justify-content: center;
 }
 
+#buttonModif:hover {
+  background-color: var(--hover-blue);
+}
+
+.blocProductForProfilePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.imgContainerForProfilePage {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.pictureProductForProfilePage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoryProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+  font-weight: bolder;
+  margin-bottom: 1vh;
+}
+
+.productNameForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.conditionProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6rem;
+}
+
+.blocProfilePage {
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.latestProductContainerForProfilePage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4vh;
+  margin: 0 auto 5vh auto;
+  padding: 0 4vh;
+}
 @media only screen and (min-width: 769px) {
   .Larger {
     font-size: 1.5rem;
@@ -192,12 +261,68 @@ button {
 
   .profileHeader {
     margin: 2.5rem;
+    gap: 60px;
   }
 
   #buttonModif {
     padding: 10px 20px;
     width: 16rem;
     height: 3.7rem;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+  }
+
+  #btn {
+    color: var(--main-blue);
+  }
+
+  /* VITRINE  */
+
+  .latestProductContainerForProfilePage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4vh;
+    margin: 6vh auto 14vh 10vh;
+    padding: 0 4vh;
+  }
+
+  .blocProductForProfilePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .pictureProductForProfilePage {
+    display: block;
+    width: 88%;
+    height: 14rem;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .productNameForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .conditionProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .imgContainerForProfilePage {
+    position: relative;
+    width: 100%;
+    height: 36vh;
+    overflow: hidden;
+  }
+
+  .categoryProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    margin-bottom: 1vh;
   }
 
   .blocAddProduct {
