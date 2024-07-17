@@ -6,6 +6,9 @@ import "./Profile.css";
 
 export default function Profile() {
   const [alignment, setAlignment] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   const [dataProduct, setDataProduct] = useState([]);
   const [isModalOpen, setismodalOpen] = useState(false);

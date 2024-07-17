@@ -6,14 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
 import NavBar from "./components/NavBar/NavBar";
 
-
-
 function App() {
-  const [auth, setAuth] = useState({isLogged: false, user: null, token: null});
-
+  const [auth, setAuth] = useState({
+    isLogged: false,
+    user: null,
+    token: null,
+  });
 
   return (
-
     <>
       <ToastContainer
         position="top-right"
@@ -28,12 +28,10 @@ function App() {
         theme="light"
       />
 
+      <NavBar auth={auth} setAuth={setAuth} />
 
+      <Outlet context={{ auth, setAuth }} />
 
-      <NavBar auth={auth} setAuth={setAuth}/>
-    
-      <Outlet context={{auth, setAuth}} />
-      
       <Footer />
     </>
   );

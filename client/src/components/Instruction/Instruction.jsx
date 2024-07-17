@@ -6,16 +6,16 @@ import Picture2 from "../../assets/images/Picture2.png";
 import Picture3 from "../../assets/images/Picture3.png";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-flip';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/effect-flip";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import "./Instruction.css";
 
 export default function Instruction() {
   return (
-    <div>
+    <div id="linkSlider" className="allInstruction">
       <Swiper
         effect="flip"
         grabCursor

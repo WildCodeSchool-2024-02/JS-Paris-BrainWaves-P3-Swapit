@@ -30,6 +30,9 @@
     display: flex;
     gap: 3vh;
     align-items: center;
+    padding-top: 15px;
+    box-shadow: none;
+    border: solid thin rgb(163, 163, 163);
   }
 
   .categoriesNavBar {

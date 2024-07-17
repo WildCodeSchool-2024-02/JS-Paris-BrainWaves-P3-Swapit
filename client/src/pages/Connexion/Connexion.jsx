@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Connexion.css";
@@ -8,6 +8,10 @@ function Connexion() {
   const email = useRef();
   const password = useRef();
   const { setAuth } = useOutletContext();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const handleSubmitConnect = async () => {
     try {

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Inscription.css";
@@ -9,6 +9,9 @@ function Inscription() {
   const password = useRef();
   const confirmPassword = useRef();
   const phone = useRef();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const navigate = useNavigate();
 

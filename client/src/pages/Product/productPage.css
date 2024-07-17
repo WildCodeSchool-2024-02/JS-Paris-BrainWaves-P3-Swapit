@@ -1,5 +1,5 @@
 .swiperProduct {
-  width: 24rem;
+  width: 24.5rem;
 }
 
 .allSwiper {
@@ -32,7 +32,6 @@
 }
 
 .mainImage {
-  max-lines: 100%;
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -134,7 +133,7 @@
   }
 
   .allSwiper {
-    width: 700px;
+    width: 800px;
     height: 700px;
     margin-left: 60px;
     display: flex;
