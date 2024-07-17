@@ -295,7 +295,6 @@ form input {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 22px;
-  outline-color: #00c3e3;
   box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
 }
 
@@ -465,7 +464,6 @@ input::placeholder {
     margin-bottom: 30px;
     border: 2px solid #ccc;
     border-radius: 22px;
-    outline-color: #00c3e3;
   }
 
   #profileForm {
