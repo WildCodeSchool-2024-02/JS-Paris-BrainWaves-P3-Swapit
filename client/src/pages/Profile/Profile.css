@@ -5,7 +5,6 @@
   height: 1px;
   overflow: hidden;
 }
-
 button {
   background: none;
   border: none;
@@ -15,12 +14,10 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
-
 #buttonStar {
   margin: 0 5px;
   font-size: 2rem;
 }
-
 #buttonModif {
   background-color: #00c3e3;
   padding: 9px;
@@ -31,11 +28,14 @@ button {
   margin: 3% 0 0.5rem;
 }
 
+#btn {
+  color: var(--main-blue);
+}
+
 #buttonModif:hover,
 .Custom-button:hover {
   background-color: #00c3e3;
 }
-
 .validationAddAProduct {
   background-color: #00c3e3;
   color: white;
@@ -51,7 +51,6 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
 .profileDetails {
   display: flex;
   flex-direction: column;
@@ -60,12 +59,10 @@ button {
   position: relative;
   right: 10px;
 }
-
 .profileImgContainer {
   width: 120px;
   height: 120px;
 }
-
 .profileImg {
   width: 120px;
   height: 120px;
@@ -76,7 +73,6 @@ button {
   top: 45px;
   right: 10px;
 }
-
 .profileHeader {
   display: flex;
   justify-content: flex-start;
@@ -84,29 +80,97 @@ button {
   margin: 2vh;
   gap: 40px;
 }
-
-#buttonModif {
-  background-color: #00c3e3;
-  font-family: var(--font);
-  padding: 9px;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 3%;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  border: none;
-  width: 12rem;
-  height: 3.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
-  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+.rate-value-full::before,
+.rate-value-half::before,
+.rate-value-empty::before,
+.Cate-value-empty::before {
+  content: "★";
+  color: gold;
 }
-
+.Cate-value-empty::before {
+  color: lightgray;
+}
+.blocAddProduct {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 1px solid black;
+  width: 75vw;
+  margin: 10vh 10vw;
+  padding: 3vh 5vw;
+  border-radius: 1.5rem;
+}
+.addAProduct {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.titleAddProduct,
+.descriptionAddAProduct,
+.conditionAddAProduct,
+.locationAddAProduct,
+.categoryAddAProduct {
+  margin: 2vh 1vw;
+}
+.inputGroupAddProduct,
+.inputLocation,
+.inputCategory,
+.texteAreaDescription,
+.texteAreaCondition {
+  width: 100%;
+  margin-bottom: 2vh;
+}
+.inputTitleProd {
+  width: 55vw;
+  font-style: italic;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.inputTitleProd::placeholder,
+.inputCategory {
+  color: rgb(163, 163, 163);
+  font-weight: 100;
+}
+.photoPreview {
+  font-size: 4rem;
+  color: black;
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 2vh;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background-image: linear-gradient(
+      45deg,
+      rgb(226, 226, 226) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(226, 226, 226) 75%
+    ),
+    linear-gradient(
+      45deg,
+      rgb(226, 226, 226) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(226, 226, 226) 75%
+    );
+  background-size: 50px 50px;
+  background-position:
+    0 0,
+    25px 25px;
+}
+.buttonZone {
+  display: flex;
+  justify-content: center;
+}
 #buttonModif:hover {
   background-color: var(--hover-blue);
 }
-
 .blocProductForProfilePage {
   display: flex;
   flex-direction: column;
@@ -114,52 +178,50 @@ button {
   height: 100%;
   justify-content: space-between;
 }
-
 .imgContainerForProfilePage {
   position: relative;
   width: 100%;
   height: 20vh;
   overflow: hidden;
 }
-
 .pictureProductForProfilePage {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .categoryProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
   font-weight: bolder;
   margin-bottom: 1vh;
 }
-
 .productNameForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
 }
-
 .conditionProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
 }
-
 .blocProfilePage {
   display: flex;
   margin-bottom: 2vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
-
 .latestProductContainerForProfilePage {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4vh;
   margin: 0 auto 5vh auto;
   padding: 0 4vh;
+}
+.profileAdministrator {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
 }
 
 /* Modal Library*/
@@ -245,50 +307,16 @@ input::placeholder {
   .Larger {
     font-size: 1.5rem;
   }
-
   #buttonStar {
     font-size: 2rem;
-    color: white;
   }
-
-  /* react library */
-  .rate-value-full::before,
-  .rate-value-half::before,
-  .rate-value-empty::before {
-    content: "★";
-    color: gold;
-  }
-
-  .Cate-value-empty::before {
-    color: lightgray;
-  }
-
-  #buttonStar {
-    font-family: var(--font);
-    border-radius: 17px;
-    cursor: pointer;
-    margin-top: 0px;
-  }
-
-  .Custom-button:hover {
-    background-color: #00c3e3;
-  }
-
-  .profileDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .profileImgContainer {
     width: 200px;
     height: 200px;
   }
-
   .profileDetails {
     width: 22rem;
   }
-
   .profileImg {
     width: 200px;
     height: 200px;
@@ -297,32 +325,18 @@ input::placeholder {
     position: relative;
     top: 0px;
   }
-
   .profileHeader {
     margin: 2.5rem;
     gap: 60px;
   }
-
   #buttonModif {
     padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    border-color: white;
     width: 16rem;
     height: 3.7rem;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
   }
 
-  #btn {
-    color: var(--main-blue);
-  }
-
   /* VITRINE  */
-
   .latestProductContainerForProfilePage {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -330,13 +344,11 @@ input::placeholder {
     margin: 6vh auto 14vh 10vh;
     padding: 0 4vh;
   }
-
   .blocProductForProfilePage {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   .pictureProductForProfilePage {
     display: block;
     width: 88%;
@@ -344,31 +356,41 @@ input::placeholder {
     object-fit: cover;
     cursor: pointer;
   }
-
   .productNameForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
   }
-
   .conditionProductForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
-
   .imgContainerForProfilePage {
     position: relative;
     width: 100%;
     height: 36vh;
     overflow: hidden;
   }
-
   .categoryProductForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: 100;
     margin-bottom: 1vh;
+  }
+  .blocAddProduct {
+    width: 55vw;
+    margin: 10vh 20vw;
+    padding: 2rem 3rem;
+  }
+  .inputTitleProd {
+    width: 40vw;
+  }
+  .inputLocation {
+    width: 20vw;
+  }
+  .inputCategory {
+    width: 30vw;
   }
 
   /* Modal Library*/
