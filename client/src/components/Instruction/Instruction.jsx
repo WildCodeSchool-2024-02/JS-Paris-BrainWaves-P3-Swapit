@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import { EffectFlip, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Picture1 from "../../assets/images/Picture1.png";
-import Picture2 from "../../assets/images/Picture2.png";
-import Picture3 from "../../assets/images/Picture3.png";
+import Picture1 from "../../assets/images/Picture1.jpg";
+import Picture2 from "../../assets/images/Picture2.jpg";
+import Picture3 from "../../assets/images/Picture3.jpg";
 
 // Import Swiper styles
 import "swiper/css";
