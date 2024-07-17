@@ -12,7 +12,7 @@ function AllProducts({ data }) {
         <p className="pseudoForAllProducts">{data.pseudo}</p>
       </div>
       <Link
-        to={`/produits/${data.item_id}`}
+        to={`/produit/${data.item_id}`}
         className="linkAllProducts"
         key={data.id}
       >

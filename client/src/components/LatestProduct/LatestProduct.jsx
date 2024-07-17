@@ -26,7 +26,7 @@ function LatestProduct({ data }) {
         <p className="pseudoByLatestProduct">{data.pseudo}</p>
       </div>
       <Link
-        to={`/produits/${data.item_id}`}
+        to={`/produit/${data.item_id}`}
         key={data.id}
         className="linkProductHomePage"
       >

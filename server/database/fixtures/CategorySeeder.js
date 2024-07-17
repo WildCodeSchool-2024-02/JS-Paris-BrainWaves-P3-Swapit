@@ -24,7 +24,7 @@ class CategorySeeder extends AbstractSeeder {
       },
       {
         category_id: 4,
-        category_name: "Son\u00A0&\u00A0Vidéos",
+        category_name: "Son\u00A0&\u00A0Vidéo",
         refName: "category04",
       },
       {
@@ -44,7 +44,7 @@ class CategorySeeder extends AbstractSeeder {
       },
       {
         category_id: 8,
-        category_name: "Sécurités",
+        category_name: "Sécurité",
         refName: "category08",
       },
       {
@@ -54,7 +54,7 @@ class CategorySeeder extends AbstractSeeder {
       },
       {
         category_id: 10,
-        category_name: "Réseaux\u00A0et\u00A0connectivités",
+        category_name: "Réseaux\u00A0et\u00A0connectivité",
         refName: "category10",
       },
       {

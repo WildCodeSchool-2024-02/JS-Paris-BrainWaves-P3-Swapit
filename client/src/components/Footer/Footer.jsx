@@ -35,7 +35,7 @@ function Footer() {
       </div>
 
       <div className="column3">
-        <p className="avis">Comming Soon</p>
+        <p className="avis">Coming Soon</p>
         <div className="pictos">
           <img src={git} className="git" alt="picto Github" />
           <img src={insta} className="insta" alt="picto Instagram" />
