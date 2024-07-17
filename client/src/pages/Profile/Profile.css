@@ -89,6 +89,8 @@
   background-color: var(--hover-blue);
 }
 
+/* VITRINE  */
+
 .blocProductForProfilePage {
   display: flex;
   flex-direction: column;
@@ -140,8 +142,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4vh;
-  margin: 0 auto 5vh auto;
+  margin: 3vh auto 5vh auto;
   padding: 0 4vh;
+}
+
+.numberOfItems {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  font-size: 18px;
+  font-weight: 600;
 }
 @media only screen and (min-width: 769px) {
   /* react library */
@@ -248,9 +258,9 @@
 
   .latestProductContainerForProfilePage {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4vh;
-    margin: 6vh auto 14vh 10vh;
+    margin: 4vh auto 14vh 10vh;
     padding: 0 4vh;
   }
 
@@ -292,5 +302,13 @@
     font-size: 0.8rem;
     font-weight: 100;
     margin-bottom: 1vh;
+  }
+
+  .numberOfItems {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    font-size: 17px;
+    font-weight: 600;
   }
 }

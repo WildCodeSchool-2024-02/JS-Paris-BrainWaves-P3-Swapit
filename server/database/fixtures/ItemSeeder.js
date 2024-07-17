@@ -124,7 +124,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/5243611/pexels-photo-5243611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Bordeaux",
         swap_request: "Dell XPS 13 2-en-1",
-        user_id: this.getRef("user3").insertId,
+        user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category02").insertId,
       },
     ];
