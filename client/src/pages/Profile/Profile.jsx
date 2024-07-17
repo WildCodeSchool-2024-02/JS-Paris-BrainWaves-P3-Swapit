@@ -8,6 +8,30 @@ export default function Profile() {
   const [alignment, setAlignment] = useState("");
   const navigate = useNavigate();
   const [dataProduct, setDataProduct] = useState([]);
+  const [isModalOpen, setismodalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+    city: "",
+    postalCode: ""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic
+    setismodalOpen(false);
+  };
 
   const handleRedirectionItem = (itemId) => {
     navigate(`/produit/${itemId}`);
@@ -47,11 +71,10 @@ export default function Profile() {
               fontSize: "24px",
               textAlign: "center",
               margin: "20px 0",
-              fontFamily: "Helvetica, Arial, sans-serif",
+              fontFamily: "Helvetica, Arial, sans-serif"
             }}
           >
-            {" "}
-            Pas de produit pour le moment...{" "}
+            Pas de produit pour le moment...
           </div>
         ) : (
           <div className="latestProductContainerForProfilePage">
@@ -87,7 +110,6 @@ export default function Profile() {
             ))}
           </div>
         );
-
       case "Evaluations":
         return <div>Evaluations section content</div>;
       case "Propositions":
@@ -125,9 +147,82 @@ export default function Profile() {
             <p className="Location">Paris, France</p>
             <p className="Subscribe">Member since January 2024</p>
             <div>
-              <button id="buttonModif" type="button" onClick={null}>
+              <button id="buttonModif" type="button" onClick={() =>setismodalOpen(true)}>
                 Modifications profil
               </button>
+              {isModalOpen && (
+                <div className="modalProfile">
+                  <div className="modalcontentProfile">
+                    <span className="closeBtn" role="presentation" onClick={() => setismodalOpen(false)}>&times;</span>
+                    <form onSubmit={handleSubmit}>
+                      <input
+                        placeholder="Pseudo"
+                        type="Pseudo"
+                        id="username"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input
+                        placeholder="Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input 
+                        placeholder="Mot de passe"
+                        type="Mot de passe"
+                        id="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input
+                        placeholder="Confirmer mot de passe"
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input
+                        placeholder="Numéro de téléphone"
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input
+                        placeholder="Ville"
+                        type="ville"
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <input
+                        placeholder="Code Postal"
+                        type="Code Postal"
+                        id="postalCode"
+                        name="postalCode"
+                        value={formData.postalCode}
+                        onChange={handleInputChange}
+                        required
+                      />
+                      <button type="submit" className="confirmationBtn">Confirmation</button>
+                    </form>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

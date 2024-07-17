@@ -293,4 +293,69 @@
     font-weight: 100;
     margin-bottom: 1vh;
   }
+
+  /* Modal */
+  .modalProfile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 41, 41, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modalcontentProfile {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    height: 75%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .confirmationBtn {
+    display: flex;
+    width: 18rem;
+    padding: 0.8rem;
+    background-color: #00c3e3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 20px;
+  }
+
+  .saveBtn:hover {
+    background-color: #00c3e3;
+  }
+
+  /* Form */
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 }
