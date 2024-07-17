@@ -157,8 +157,8 @@ export default function Profile() {
                 <div className="modalProfile">
                   <div className="modalcontentProfile">
                     <span className="closeBtn" role="presentation" onClick={() => setismodalOpen(false)}>&times;</span>
-                    <form onSubmit={handleSubmit}>
-                      <input
+                    <form onSubmit={handleSubmit} id="profileForm">
+                    <input
                         placeholder="Pseudo"
                         type="Pseudo"
                         id="username"
@@ -221,7 +221,9 @@ export default function Profile() {
                         onChange={handleInputChange}
                         required
                       />
+                      <div id="confirmationprofileBtn">
                       <button type="submit" className="confirmationBtn">Confirmation</button>
+                    </div>
                     </form>
                   </div>
                 </div>
