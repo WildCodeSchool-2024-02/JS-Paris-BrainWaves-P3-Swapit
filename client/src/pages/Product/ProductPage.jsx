@@ -35,9 +35,13 @@ export default function ProductPage() {
   }, [id]);
 
   const handleSwapRequest = () => {
-    setBlur(true);
-    setOpenSwapRequest(true);
-    document.body.classList.add("active");
+    if (!auth.isLogged) {
+      navigate("/Connexion");
+    } else {
+      setBlur(true);
+      setOpenSwapRequest(true);
+      document.body.classList.add("active");
+    }
   };
 
   const closeSwapRequest = () => {
@@ -112,7 +116,7 @@ export default function ProductPage() {
               />
             </SwiperSlide>
           </Swiper>
-
+      
           <div className="swapBtn">
             <button
               className="swapButton"
@@ -122,6 +126,10 @@ export default function ProductPage() {
               Proposer un SWAP
             </button>
           </div>
+
+
+
+
           { auth.isLogged === true &&
           ((auth.user.user_id) === (product.user_id)) &&  (<div className="swapBtn">
             <button
