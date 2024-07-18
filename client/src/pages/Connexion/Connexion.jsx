@@ -26,6 +26,7 @@ function Connexion() {
             email: email.current.value,
             password: password.current.value,
           }),
+          credentials: "include"
         }
       );
       if (response.ok) {

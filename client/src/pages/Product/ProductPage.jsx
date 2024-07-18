@@ -117,21 +117,9 @@ export default function ProductPage() {
             </SwiperSlide>
           </Swiper>
       
-          <div className="swapBtn">
-            <button
-              className="swapButton"
-              type="button"
-              onClick={handleSwapRequest}
-            >
-              Proposer un SWAP
-            </button>
-          </div>
 
-
-
-
-          { auth.isLogged === true &&
-          ((auth.user.user_id) === (product.user_id)) &&  (<div className="swapBtn">
+           {auth.isLogged === true &&
+          ((auth.user.user_id) === (product.user_id)) ? (<div className="swapBtn">
             <button
             style={{
               backgroundColor: '#E50000 ',
@@ -155,7 +143,21 @@ export default function ProductPage() {
             >
               Supprimer ce produit 
             </button>
-          </div>)}
+          </div> 
+          ):(
+            <div className="swapBtn">
+    <button
+      className="swapButton"
+      type="button"
+      onClick={handleSwapRequest}
+    >
+      Proposer un SWAP
+    </button>
+  </div> 
+          )}
+
+
+
           <div className="swapProposition">
             {openSwapRequest && (
               <SwapProposition
@@ -218,17 +220,8 @@ export default function ProductPage() {
               <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
-
-            <div className="swapBtnMobile">
-              <button
-                className="swapButton"
-                type="button"
-                onClick={handleSwapRequest}
-              >
-                Proposer un SWAP
-              </button>
-            </div>
-            
+            {auth.isLogged === true &&
+          ((auth.user.user_id) === (product.user_id)) ? (
             <div className="swapBtnMobile">
               <button
                           style={{
@@ -254,6 +247,19 @@ export default function ProductPage() {
                 Supprimer ce produit
               </button>
             </div>
+            ):( 
+            <div className="swapBtnMobile">
+              <button
+                className="swapButton"
+                type="button"
+                onClick={handleSwapRequest}
+              >
+                Proposer un SWAP
+              </button>
+            </div>
+
+)}
+            
           </div>
         </div>
       </div>

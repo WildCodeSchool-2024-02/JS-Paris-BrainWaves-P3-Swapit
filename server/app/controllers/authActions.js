@@ -6,31 +6,45 @@ const tables = require("../../database/tables");
 
 const login = async (req, res, next) => {
   try {
-    
     const user = await tables.user.readByEmailWithPassword(req.body.email);
 
     if (user == null) {
       res.sendStatus(422);
       return;
     }
-   
 
     const verified = await argon2.verify(user.password, req.body.password);
 
     if (verified) {
-      const token = jwt.sign(
+      const accessToken = jwt.sign(
         { id: user.user_id, is_admin: user.is_admin },
         process.env.APP_SECRET,
         { expiresIn: "1h" }
       );
-      delete user.hashed_password;
 
-      res.status(200).json({ user, token });
+      const refreshToken = jwt.sign(
+        { id: user.user_id, is_admin: user.is_admin },
+        process.env.APP_SECRET,
+        { expiresIn: "1d" }
+      );
+
+      delete user.hashed_password; // Suppression du mot de passe avant de renvoyer l'utilisateur
+
+      res.status(200)
+        .header("Authorization", accessToken)
+        .cookie("refreshToken", refreshToken, {
+          httpOnly: true,
+          sameSite: "none",
+          expires: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1),
+        })
+        .json({
+          user
+        });
     } else {
-      res.sendStatus(422);
+      res.status(400).json({ error: "wrong credentials" });
     }
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
