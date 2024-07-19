@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./productPage.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
@@ -15,6 +15,7 @@ export default function ProductPage() {
   const [product, setProduct] = useState([]);
   const [openSwapRequest, setOpenSwapRequest] = useState(false);
   const navigate = useNavigate();
+  const { auth } = useOutletContext();
   const [blur, setBlur] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,6 +24,7 @@ export default function ProductPage() {
   const handleProfile = () => {
     navigate(`/profile/${product.user_id}`);
   };
+
 
   const { id } = useParams();
 
@@ -33,9 +35,13 @@ export default function ProductPage() {
   }, [id]);
 
   const handleSwapRequest = () => {
-    setBlur(true);
-    setOpenSwapRequest(true);
-    document.body.classList.add("active");
+    if (!auth.isLogged) {
+      navigate("/Connexion");
+    } else {
+      setBlur(true);
+      setOpenSwapRequest(true);
+      document.body.classList.add("active");
+    }
   };
 
   const closeSwapRequest = () => {
@@ -50,7 +56,23 @@ export default function ProductPage() {
 
   const formattedDate = new Date(product.date_added).toLocaleDateString();
 
+  const handleDeleteProduct = () => {
+    fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
+      method: 'DELETE',
+    })
+    .then(response => {
+      if (response.ok) {
+  
+        navigate(`/profile/${product.user_id}`)
+      } else {
+        console.error('Erreur lors de la suppression du produit');
+      }
+    })
+    .catch(error => console.error(error));
+  };
+
   return (
+    
     <>
       {blur && <div className="blurEffect" />}
 
@@ -94,16 +116,48 @@ export default function ProductPage() {
               />
             </SwiperSlide>
           </Swiper>
+      
 
-          <div className="swapBtn">
+           {auth.isLogged === true &&
+          ((auth.user.user_id) === (product.user_id)) ? (<div className="swapBtn">
             <button
+            style={{
+              backgroundColor: '#E50000 ',
+              transition: 'background-color 0.3s ease'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'darkred';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = '#E50000 ';
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.backgroundColor = 'darkred';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.backgroundColor = '#E50000' ;
+            }}
               className="swapButton"
               type="button"
-              onClick={handleSwapRequest}
+              onClick={handleDeleteProduct}
             >
-              Proposer un SWAP
+              Supprimer ce produit 
             </button>
-          </div>
+          </div> 
+          ):(
+            <div className="swapBtn">
+    <button
+      className="swapButton"
+      type="button"
+      onClick={handleSwapRequest}
+    >
+      Proposer un SWAP
+    </button>
+  </div> 
+          )}
+
+
+
           <div className="swapProposition">
             {openSwapRequest && (
               <SwapProposition
@@ -166,7 +220,34 @@ export default function ProductPage() {
               <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
-
+            {auth.isLogged === true &&
+          ((auth.user.user_id) === (product.user_id)) ? (
+            <div className="swapBtnMobile">
+              <button
+                          style={{
+                            backgroundColor: '#E50000',
+                            transition: 'background-color 0.3s ease'
+                          }}
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.backgroundColor = 'darkred';
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.backgroundColor = '#E50000 ';
+                          }}
+                          onFocus={(e) => {
+                            e.currentTarget.style.backgroundColor = 'darkred';
+                          }}
+                          onBlur={(e) => {
+                            e.currentTarget.style.backgroundColor = '#E50000' ;
+                          }}
+                className="swapButton"
+                type="button"
+                onClick={handleDeleteProduct}
+              >
+                Supprimer ce produit
+              </button>
+            </div>
+            ):( 
             <div className="swapBtnMobile">
               <button
                 className="swapButton"
@@ -176,9 +257,13 @@ export default function ProductPage() {
                 Proposer un SWAP
               </button>
             </div>
+
+)}
+            
           </div>
         </div>
       </div>
     </>
   );
+  
 }
