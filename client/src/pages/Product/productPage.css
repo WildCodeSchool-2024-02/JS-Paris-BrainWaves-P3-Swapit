@@ -187,7 +187,8 @@
   .swapBtn {
     display: flex;
     width: 60%;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .swapButton {

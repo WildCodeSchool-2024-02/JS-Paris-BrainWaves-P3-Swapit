@@ -24,7 +24,7 @@ button {
 #buttonModif {
   background-color: #00c3e3;
   padding: 9px;
-  border-radius: 20px;
+  border-radius: 50px;
   font-size: 1.2rem;
   width: 12rem;
   height: 3.5rem;
@@ -274,6 +274,7 @@ button {
   }
 
   #buttonModif {
+    border-radius: 50px;
     padding: 10px 20px;
     width: 16rem;
     height: 3.7rem;

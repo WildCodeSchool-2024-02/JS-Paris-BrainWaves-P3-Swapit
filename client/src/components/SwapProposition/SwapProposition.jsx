@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./swapProposition.css";
 import Checkbox from "@mui/material/Checkbox";
@@ -6,15 +7,16 @@ import Checkbox from "@mui/material/Checkbox";
 function SwapProposition({ closeProposition, setBlur }) {
   const [productList, setProductList] = useState([]);
   const [checked, setChecked] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/items")
+    fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
       .then((response) => response.json())
       .then((json) => {
         setProductList(json);
         setChecked(new Array(json.length).fill(false));
       });
-  }, []);
+  }, [id]);
 
   const handleChange = (index) => () => {
     const newChecked = checked.map((item, i) => (i === index ? !item : false));

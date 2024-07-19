@@ -17,10 +17,10 @@ function NavBar({ auth, setAuth }) {
   const logout = () => {
     setAuth({ isLogged: false, user: null, token: null });
     navigate("/");
-  }
+  };
   const profileDirection = () => {
-    navigate(`/profile/${auth.user.user_id}`)
-  }
+    navigate(`/profile/${auth.user.user_id}`);
+  };
   const updateMedia = () => {
     setIsDesktop(window.innerWidth >= 769);
   };
@@ -42,6 +42,7 @@ function NavBar({ auth, setAuth }) {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    navigate(`/profile/${auth.user.user_id}`);
   };
 
   const handleClose = () => {
@@ -63,7 +64,9 @@ function NavBar({ auth, setAuth }) {
           role="presentation"
         />
         <div className="instructionPresentation">
-          <a href="http://localhost:3000/#linkSlider"><p className="instruction">Mode&nbsp;d&rsquo;Emploi</p></a>
+          <a href="http://localhost:3000/#linkSlider">
+            <p className="instruction">Mode&nbsp;d&rsquo;Emploi</p>
+          </a>
           <p className="presentation">Qui&nbsp;sommes&#8209;nous&nbsp;?</p>
         </div>
         {isDesktop && <SearchBar />}
@@ -89,24 +92,33 @@ function NavBar({ auth, setAuth }) {
                 alt="user"
               />
             </button>
-            <Popover className="popoverContainer"
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-      >
-        <Typography sx={{ p: 2}}><button type="button" className ="buttonLogout" onClick={profileDirection} >Profil</button></Typography>
-        <Typography sx={{ p: 2}}><button type="button" className ="buttonLogout" onClick={logout} >Se deconnecter</button></Typography>
-        
-        
-      </Popover>
-
-            </>
-          
+            <Popover
+              className="popoverContainer"
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+            >
+              <Typography sx={{ p: 2 }}>
+                <button
+                  type="button"
+                  className="buttonProfil"
+                  onClick={profileDirection}
+                >
+                  Profil
+                </button>
+              </Typography>
+              <Typography sx={{ p: 2 }}>
+                <button type="button" className="buttonLogout" onClick={logout}>
+                  Se deconnecter
+                </button>
+              </Typography>
+            </Popover>
+          </>
         )}
       </div>
       {!isDesktop && <SearchBar />}
@@ -116,7 +128,6 @@ function NavBar({ auth, setAuth }) {
 }
 
 NavBar.propTypes = {
- 
   auth: PropTypes.shape({
     isLogged: PropTypes.bool,
     user: PropTypes.shape({

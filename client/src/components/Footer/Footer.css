@@ -169,12 +169,13 @@ p {
 
 @media only screen and (min-width: 601px) {
   .wave {
-    margin-bottom: -30px;
+    margin-bottom: -132px;
   }
 
   .containerFooter {
     font-size: 20px;
     padding-bottom: 1vh;
+    margin-top: 15vh;
   }
   .column1,
   .column2,
@@ -236,7 +237,7 @@ p {
     font-size: small;
     margin-left: 20px;
     position: relative;
-    margin-top: 20%;
+    margin-top: 10%;
   }
 }
 
@@ -246,7 +247,14 @@ p {
     padding: 0px 10px 0px 10px;
   }
   .wave {
+    display: none;
     margin-bottom: -40px;
+  }
+
+  .column1,
+  .column2,
+  .column3 {
+    padding-top: 20px;
   }
 
   .avis {
@@ -307,7 +315,7 @@ p {
     font-size: medium;
     margin-left: 20px;
     position: relative;
-    margin-top: 12%;
+    margin-top: 8%;
     margin-bottom: 5%;
   }
 }
