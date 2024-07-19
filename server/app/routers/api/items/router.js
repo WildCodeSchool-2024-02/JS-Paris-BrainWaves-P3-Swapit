@@ -8,23 +8,28 @@ const {
   add,
   edit,
   destroy,
-  getItemWithUser,
+  getItemApproved,
   getUserByItem,
-  getItemByDate
+  getItemByDate,
+  getItemUnapproved,
 } = require("../../../controllers/itemActions");
+const { isAuth } = require("../../../services/auth");
+const fileUpload = require("../../../services/fileUpload");
 
-router.get("/all", getItemWithUser);
+router.get("/all", getItemApproved);
+
+router.get("/unapproved", getItemUnapproved);
+
 
 router.get("/latest", getItemByDate);
-
 
 router.get("/", browse);
 
 router.get("/:id", read);
 
-router.get("/:id/user", getUserByItem)
+router.get("/:id/user", getUserByItem);
 
-router.post("/", add);
+router.post("/", isAuth, fileUpload.single(`image_url`), add);
 
 router.put("/:id", edit);
 

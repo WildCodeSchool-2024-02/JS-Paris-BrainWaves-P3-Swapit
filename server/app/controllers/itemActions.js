@@ -38,6 +38,11 @@ const edit = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   try {
+    if (req.file) {
+      const uploadDir = `${process.env.APP_HOST}/upload/${req.file.filename}`;
+      req.body.image_url = uploadDir;
+    }
+
     const itemData = req.body;
     const result = await tables.item.create(itemData);
 
@@ -57,24 +62,35 @@ const destroy = async (req, res, next) => {
     next(e);
   }
 };
-  const getUserByItem = async (req, res, next) => {
-    try {
-      const [result] = await tables.item.readUserByItem(req.params.id);
-      if (result) {
-        res.json(result);
-      } else {
-        res.status(404).json({ message: "Item not found" });
-      }
-    } catch (err) {
-      next(err);
-    }
-  };
-
-
-
-const getItemWithUser = async (req, res, next) => {
+const getUserByItem = async (req, res, next) => {
   try {
-    const [result] = await tables.item.readItemWithUser();
+    const [result] = await tables.item.readUserByItem(req.params.id);
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getItemApproved = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemApproved();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getItemUnapproved = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemUnapproved();
     if (result) {
       res.json(result);
     } else {
@@ -98,7 +114,6 @@ const getItemByDate = async (req, res, next) => {
   }
 };
 
-
 module.exports = {
   browse,
   read,
@@ -106,6 +121,7 @@ module.exports = {
   add,
   destroy,
   getUserByItem,
-  getItemWithUser,
-  getItemByDate
+  getItemApproved,
+  getItemByDate,
+  getItemUnapproved,
 };

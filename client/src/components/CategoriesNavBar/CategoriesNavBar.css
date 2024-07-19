@@ -29,6 +29,7 @@
   .categoriesContainerNavBar {
     display: flex;
     gap: 3vh;
+    padding-top: 15px;
     align-items: center;
     padding-top: 15px;
     box-shadow: none;

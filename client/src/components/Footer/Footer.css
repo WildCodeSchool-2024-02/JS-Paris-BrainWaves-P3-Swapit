@@ -8,6 +8,10 @@ hr {
   margin-bottom: 50px;
 }
 
+p {
+  font-family: system-ui, sans-serif;
+}
+
 .containerFooter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -22,6 +26,11 @@ hr {
   padding-bottom: 10px;
   padding-top: 2vh;
 }
+
+.wave {
+  margin-bottom: -16px;
+}
+
 .column1 {
   margin: auto;
   height: 100%;
@@ -45,7 +54,7 @@ hr {
   margin: auto;
   border-image: linear-gradient(
       transparent 10%,
-      rgb(163, 163, 163) 0% 90%,
+      rgb(163, 163, 163) 30% 90%,
       transparent 0%
     )
     0 1 0 1 / 1px;
@@ -62,14 +71,14 @@ hr {
 .column1,
 .column2,
 .column3 {
-  padding: 11px;
+  padding: 10px;
 }
 
 .avis {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
   font-weight: bold;
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 }
 
 .avisP1 {
@@ -88,17 +97,17 @@ hr {
   flex-wrap: wrap;
   gap: 5px;
   width: 100%;
-  padding-left: 20px;
+  padding-left: 10px;
   margin-top: 2vh;
 }
 .we {
   width: 7vh;
-  margin-bottom: 7vh;
+  margin-bottom: 4vh;
 }
 
 .gh {
   width: 12vh;
-  margin-bottom: 7vh;
+  margin-bottom: 4vh;
 }
 
 .tr {
@@ -112,7 +121,7 @@ hr {
 
 .info {
   width: 25vw;
-  margin-top: 6vh;
+  margin-top: 5vh;
 }
 
 .insta {
@@ -139,7 +148,17 @@ hr {
 .thanks {
   font-size: 10px;
   font-weight: bold;
-  margin-top: 2vh;
+  margin-top: 3vh;
+  color: black;
+  font-style: italic;
+}
+
+.swapitTag {
+  display: flex;
+  font-size: xx-small;
+  padding: 0px;
+  margin: 10px 0px 5px 11px;
+  color: rgb(94, 94, 94);
 }
 
 *,
@@ -149,9 +168,13 @@ hr {
 }
 
 @media only screen and (min-width: 601px) {
+  .wave {
+    margin-bottom: -30px;
+  }
+
   .containerFooter {
     font-size: 20px;
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
   }
   .column1,
   .column2,
@@ -160,26 +183,13 @@ hr {
   }
 
   .column1 {
-    width: 80%;
     padding-right: 13%;
   }
 
-  .avisP1 {
-    font-size: large;
-  }
-  .avisP2 {
-    font-size: larger;
-    margin-bottom: 0px;
-  }
-
-  .avis2 {
-    position: relative;
-    bottom: 30px;
-  }
   .column2 {
     border-image: linear-gradient(
         transparent 10%,
-        rgb(163, 163, 163) 10% 90%,
+        rgb(163, 163, 163) 30% 90%,
         transparent 0%
       )
       0 1 0 1 / 2px;
@@ -191,27 +201,84 @@ hr {
     padding-left: 20%;
   }
 
-  .we {
-    width: 12vh;
-    margin-bottom: 15vh;
+  .avis {
+    font-size: 15px;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+  }
+  .avisP1 {
+    margin-top: 2px;
+    font-size: 65%;
+    color: black;
+  }
+  .avisP2 {
+    font-size: 66%;
+    margin-bottom: 0px;
+    color: black;
   }
 
-  .gh {
-    width: 15vh;
-    margin-bottom: 15vh;
-  }
-
-  .tr {
-    width: 15vh;
+  .avis2 {
+    margin-top: 20px;
   }
 
   .info {
     width: 70%;
-    margin-top: 13vh;
+    margin-top: 6vh;
   }
 
+  .thanks {
+    font-size: 18px;
+    margin-top: 10vh;
+    margin-left: 20px;
+  }
+
+  .swapitTag {
+    font-size: small;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 20%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .containerFooter {
+    font-size: 15px;
+    padding: 0px 10px 0px 10px;
+  }
+  .wave {
+    margin-bottom: -40px;
+  }
+
+  .avis {
+    font-size: 20px;
+    margin-bottom: 9vh;
+  }
+
+  .avisP2 {
+    font-size: larger;
+    margin-bottom: 7vh;
+  }
+  .avisP1 {
+    font-size: medium;
+  }
+
+  .we {
+    width: 10vh;
+    margin-bottom: 5vh;
+  }
+
+  .gh {
+    width: 29vh;
+    margin-bottom: 5vh;
+  }
+
+  .tr {
+    width: 30vh;
+  }
   .pictos {
-    margin-top: 5vh;
+    display: flex;
+    gap: 3%;
+    justify-content: space-around;
   }
   .git {
     width: 9vh;
@@ -233,52 +300,14 @@ hr {
     height: 9vh;
   }
 
-  .avis {
-    font-size: 26px;
-  }
-
   .thanks {
-    font-size: 20px;
-    margin-top: 10vh;
+    font-size: 24px;
+  }
+  .swapitTag {
+    font-size: medium;
     margin-left: 20px;
-  }
-}
-
-@media only screen and (min-width: 769px) {
-  .containerFooter {
-    font-size: 20px;
-    padding: 60px 10px 0px 10px;
-  }
-
-  .avis {
-    font-size: 28px;
-    margin-bottom: 11vh;
-  }
-
-  .avisP2 {
-    margin-bottom: 15vh;
-  }
-
-  .we {
-    width: 12vh;
-    margin-bottom: 8vh;
-  }
-
-  .gh {
-    width: 29vh;
-    margin-bottom: 15vh;
-  }
-
-  .tr {
-    width: 29vh;
-  }
-  .pictos {
-    display: flex;
-    gap: 5px;
-    justify-content: space-around;
-  }
-
-  .thanks {
-    font-size: 26px;
+    position: relative;
+    margin-top: 12%;
+    margin-bottom: 5%;
   }
 }
