@@ -130,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`item` (
   `image_url` TEXT NOT NULL,
   `location` VARCHAR(100) NOT NULL,
   `swap_request` TEXT NULL DEFAULT NULL,
+  `is_approved` TINYINT NULL DEFAULT FALSE,
   `user_id` INT NULL DEFAULT NULL,
   `category_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`item_id`),
