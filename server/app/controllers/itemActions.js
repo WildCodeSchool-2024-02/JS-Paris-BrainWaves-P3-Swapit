@@ -75,9 +75,22 @@ const getUserByItem = async (req, res, next) => {
   }
 };
 
-const getItemWithUser = async (req, res, next) => {
+const getItemApproved = async (req, res, next) => {
   try {
-    const [result] = await tables.item.readItemWithUser();
+    const [result] = await tables.item.readItemApproved();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getItemUnapproved = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemUnapproved();
     if (result) {
       res.json(result);
     } else {
@@ -108,6 +121,7 @@ module.exports = {
   add,
   destroy,
   getUserByItem,
-  getItemWithUser,
+  getItemApproved,
   getItemByDate,
+  getItemUnapproved,
 };

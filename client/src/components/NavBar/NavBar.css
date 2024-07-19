@@ -136,5 +136,6 @@
     margin: 0;
     cursor: pointer;
     display: inline-block;
+    color: black;
   }
 }
