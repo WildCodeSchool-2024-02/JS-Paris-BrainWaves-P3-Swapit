@@ -119,7 +119,8 @@ button {
 .descriptionAddAProduct,
 .conditionAddAProduct,
 .locationAddAProduct,
-.categoryAddAProduct {
+.categoryAddAProduct,
+.requestAddAProduct {
   margin: 2vh 1vw;
 }
 
@@ -127,7 +128,8 @@ button {
 .inputLocation,
 .inputCategory,
 .texteAreaDescription,
-.texteAreaCondition {
+.texteAreaCondition,
+.texteAreaRequest {
   width: 100%;
   margin-bottom: 2vh;
 }

@@ -10,6 +10,7 @@ export default function Profile() {
   const [productDescription, setProductDescription] = useState("");
   const [productImage, setProductImage] = useState(null);
   const [productCondition, setProductCondition] = useState("");
+  const [productRequest, setProductRequest] = useState("");
   const [productLocation, setProductLocation] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -71,6 +72,10 @@ export default function Profile() {
 
   const handleLocationChange = (e) => {
     setProductLocation(e.target.value);
+  };
+
+  const handleRequestChange = (e) => {
+    setProductRequest(e.target.value);
   };
 
   const handleCategoryChange = (e) => {
@@ -157,6 +162,7 @@ export default function Profile() {
     form.append("conditions", productCondition);
     form.append("date_added", productDate);
     form.append("location", productLocation);
+    form.append("swap_request", productRequest);
     form.append(`image_url`, productImage);
     form.append("user_id", id);
     form.append("category_id", selectedCategory);
@@ -177,6 +183,10 @@ export default function Profile() {
   };
 
   const handleValidationAdProduct = async (articleId) => {
+    setItem((prevItems) =>
+      prevItems.filter((element) => element.item_id !== articleId)
+    );
+
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/items/${articleId}`,
@@ -353,7 +363,7 @@ export default function Profile() {
             />
 
             <div className="inputGroupAddProduct">
-              <p className="locationAddAProduct">Location&nbsp;:</p>
+              <p className="locationAddAProduct">Localisation&nbsp;:</p>
               <input
                 type="text"
                 value={productLocation}
@@ -361,6 +371,14 @@ export default function Profile() {
                 className="inputLocation"
               />
             </div>
+
+            <p className="requestAddAProduct">Echange souhaité&nbsp;:</p>
+            <textarea
+              type="text"
+              value={productRequest}
+              onChange={handleRequestChange}
+              className="texteAreaRequest"
+            />
 
             <div className="inputGroupAddProduct">
               <p className="categoryAddAProduct">Catégorie&nbsp;:</p>
@@ -436,7 +454,12 @@ export default function Profile() {
                     {article.conditions}{" "}
                   </span>
                 </p>
-
+                <p className="conditionAdValidation">
+                  Condition&nbsp;:{" "}
+                  <span className="contentConditionAdValidation">
+                    {article.conditions}{" "}
+                  </span>
+                </p>
                 <div className="buttonZoneAdValidation">
                   <button
                     type="button"
