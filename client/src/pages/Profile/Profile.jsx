@@ -34,6 +34,7 @@ export default function Profile() {
 
   const { id } = useParams();
   const [user, setUser] = useState([]);
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/users/${id}`)
@@ -43,6 +44,10 @@ export default function Profile() {
     fetch(`${import.meta.env.VITE_API_URL}/categories`)
       .then((response) => response.json())
       .then((data) => setCategories(data));
+
+    fetch(`${import.meta.env.VITE_API_URL}/items/unapproved`)
+      .then((response) => response.json())
+      .then((data) => setItem(data));
   }, [id]);
 
   const handleTitleChange = (e) => {
@@ -95,8 +100,7 @@ export default function Profile() {
               fontFamily: "Helvetica, Arial, sans-serif",
             }}
           >
-            {" "}
-            Pas de produit pour le moment...{" "}
+            Pas de produit pour le moment...
           </div>
         ) : (
           <div>
@@ -143,6 +147,10 @@ export default function Profile() {
         return <div>Evaluations section content</div>;
       case "Propositions":
         return <div>Propositions section content</div>;
+      case "Validations":
+        return user.is_admin === 1 ? (
+          <div>Validations section content</div>
+        ) : null;
       default:
         return null;
     }
@@ -176,6 +184,62 @@ export default function Profile() {
     }
   };
 
+  const handleValidationAdProduct = async (articleId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/items/${articleId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify({ is_approved: true }),
+        }
+      );
+      if (response.ok) {
+        toast.success("L'article a été validé avec succès.");
+        setItem((prevItems) =>
+          prevItems.map((element) =>
+            element.item_id === articleId
+              ? { ...element, is_approved: true }
+              : element
+          )
+        );
+      } else {
+        toast.warning("Échec de la validation de l'article.");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue lors de la validation.");
+    }
+  };
+
+  const handleRefusalAdProduct = async (articleId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/items/${articleId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify({ is_approved: false }),
+        }
+      );
+      if (response.ok) {
+        toast.success("L'article a été refusé avec succès.");
+        setItem((prevItems) =>
+          prevItems.filter((element) => element.id !== articleId)
+        );
+      } else {
+        toast.warning("Échec du refus de l'article.");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue lors du refus.");
+    }
+  };
+
   return (
     <>
       <div className="profileContainer">
@@ -185,6 +249,9 @@ export default function Profile() {
           </div>
           <div className="profileDetails">
             <h2>{user.pseudo}</h2>
+            {user.is_admin === 1 && (
+              <div className="profileAdministrator">Administrateur</div>
+            )}
             <div className="Five-Rate-Active Larger">
               <p className="screenReaders">Rated {rating} out of 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
@@ -226,14 +293,15 @@ export default function Profile() {
             Evaluations
           </ToggleButton>
           <ToggleButton id="btn" value="Propositions">
-            Propositions
+            {user.is_admin === 0 ? "Propositions" : "Validations"}
           </ToggleButton>
         </ToggleButtonGroup>
       </div>
       <div className="section-content">{renderSection()}</div>
 
       {alignment === "Vitrine" &&
-        (auth.isLogged === true && (
+        auth.isLogged === true &&
+        user.is_admin === 0 && (
           <div className="blocAddProduct">
             <p className="addAProduct">Ajouter un produit</p>
 
@@ -257,12 +325,11 @@ export default function Profile() {
               >
                 {productImage ? (
                   <img
-                    src={productImage}
+                    src={URL.createObjectURL(productImage)}
                     alt="product"
                     style={{
-                      width: "50px",
-                      height: "50px",
-                      borderRadius: "50%",
+                      width: "20vh",
+                      height: "auto",
                     }}
                   />
                 ) : (
@@ -332,7 +399,72 @@ export default function Profile() {
               </button>
             </div>
           </div>
-        ))}
+        )}
+
+      {alignment === "Propositions" &&
+        auth.isLogged === true &&
+        user.is_admin === 1 && (
+          <>
+            {item.map((article) => (
+              <div key={article.id} className="productAdValidation">
+                <p className="adValidation">Annonce à valider</p>
+                <p className="pseudoAdValidation">
+                  Swaper :{" "}
+                  <span className="contentPseudoAdValidation">
+                    {article.pseudo}
+                  </span>
+                </p>
+                <p className="titleAdValidation">
+                  Titre :{" "}
+                  <span className="contentTitleAdValidation">
+                    {article.name}
+                  </span>
+                </p>
+                <p className="categoryAdValidation">
+                  Catégorie&nbsp;:{" "}
+                  <span className="contentCategoryAdValidation">
+                    {article.category_name}{" "}
+                  </span>
+                </p>
+                <p>Photo(s) : </p>
+                <div className="containerPhotoAdValidation">
+                  <img
+                    src={article.image_url}
+                    alt="product representation"
+                    className="photoAdValidation"
+                  />
+                </div>
+                <p className="descriptionAdValidation">Description&nbsp;:</p>
+                <p className="contentDescriptionAdValidation">
+                  {article.description}
+                </p>
+                <p className="conditionAdValidation">
+                  Condition&nbsp;:{" "}
+                  <span className="contentConditionAdValidation">
+                    {article.conditions}{" "}
+                  </span>
+                </p>
+
+                <div className="buttonZoneAdValidation">
+                  <button
+                    type="button"
+                    className="validationAdProduct"
+                    onClick={() => handleValidationAdProduct(article.item_id)}
+                  >
+                    Validation
+                  </button>
+                  <button
+                    type="button"
+                    className="refusalAdProduct"
+                    onClick={() => handleRefusalAdProduct(article.item_id)}
+                  >
+                    Refus
+                  </button>
+                </div>
+              </div>
+            ))}
+          </>
+        )}
     </>
   );
 }

@@ -8,14 +8,18 @@ const {
   add,
   edit,
   destroy,
-  getItemWithUser,
+  getItemApproved,
   getUserByItem,
   getItemByDate,
+  getItemUnapproved,
 } = require("../../../controllers/itemActions");
 const { isAuth } = require("../../../services/auth");
 const fileUpload = require("../../../services/fileUpload");
 
-router.get("/all", getItemWithUser);
+router.get("/all", getItemApproved);
+
+router.get("/unapproved", getItemUnapproved);
+
 
 router.get("/latest", getItemByDate);
 
