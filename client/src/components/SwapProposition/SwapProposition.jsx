@@ -8,6 +8,7 @@ import Checkbox from "@mui/material/Checkbox";
 function SwapProposition({ closeProposition, setBlur }) {
   const [productList, setProductList] = useState([]);
   const [checked, setChecked] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const { auth } = useOutletContext();
 
 
@@ -23,13 +24,24 @@ function SwapProposition({ closeProposition, setBlur }) {
   const handleChange = (index) => () => {
     const newChecked = checked.map((item, i) => (i === index ? !item : false));
     setChecked(newChecked);
+
+    if (!newChecked[index]) {
+      setSelectedProduct(null);
+    } else {
+      setSelectedProduct(productList[index]);
+    }
+    
   };
+
+  // eslint-disable-next-line no-console
+  console.log(selectedProduct)
 
   const handleSwapRequest = () => {
     closeProposition(false);
     setBlur(false);
     document.body.classList.remove("modal-open");
   };
+  
 
   return (
     <div className="proposition">
@@ -81,7 +93,6 @@ function SwapProposition({ closeProposition, setBlur }) {
     </div>
   );
 }
-
 SwapProposition.propTypes = {
   closeProposition: PropTypes.func.isRequired,
   setBlur: PropTypes.func.isRequired,

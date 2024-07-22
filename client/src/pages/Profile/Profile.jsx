@@ -83,6 +83,7 @@ export default function Profile() {
 
 
 
+
   const renderSection = () => {
     switch (alignment) {
       case "Vitrine":
@@ -149,6 +150,7 @@ export default function Profile() {
   };
 
   const { auth, setAuth } = useOutletContext();
+
 
   const handleSubmit = async () => {
     const form = new FormData();
@@ -233,7 +235,7 @@ export default function Profile() {
       <div className="section-content">{renderSection()}</div>
 
       {alignment === "Vitrine" &&
-        (auth.isLogged === true && (
+        (auth.isLogged === true &&  ((auth.user.user_id)===(user.user_id)) && (
           <div className="blocAddProduct">
             <p className="addAProduct">Ajouter un produit</p>
 
