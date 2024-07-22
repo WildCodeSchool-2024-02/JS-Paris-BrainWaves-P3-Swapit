@@ -104,6 +104,7 @@ button {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+  font-size: 2rem;
 }
 .titleAddProduct,
 .descriptionAddAProduct,
@@ -167,6 +168,10 @@ button {
 .buttonZone {
   display: flex;
   justify-content: center;
+}
+.buttonZoneAdValidation {
+  display: flex;
+  justify-content: space-between;
 }
 #buttonModif:hover {
   background-color: var(--hover-blue);
@@ -252,9 +257,9 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 35px;
+  font-size: 60px;
   cursor: pointer;
-  color: #00c3e3;
+  color: black;
 }
 
 #confirmationprofileBtn {
@@ -300,6 +305,87 @@ form input {
 
 input::placeholder {
   color: #a0dae4;
+}
+
+.profileAdministrator {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+.productAdValidation {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 1px solid black;
+  width: 75vw;
+  margin: 10vh 10vw;
+  padding: 3vh 5vw;
+  border-radius: 1.5rem;
+}
+.addAProduct {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.pseudoAdValidation,
+.titleAdValidation,
+.categoryAdValidation,
+.descriptionAdValidation {
+  margin-bottom: 2vh;
+}
+.contentTitleAdValidation,
+.contentPseudoAdValidation,
+.contentCategoryAdValidation,
+.contentConditionAdValidation {
+  font-weight: 300;
+}
+.contentDescriptionAdValidation {
+  font-weight: 300;
+  margin-bottom: 2vh;
+}
+.containerPhotoAdValidation {
+  position: relative;
+  height: 55vh;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3vh;
+}
+.photoAdValidation {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.validationAdProduct {
+  background-color: #00c3e3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px 0 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.refusalAdProduct {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px 0 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 769px) {
@@ -421,11 +507,11 @@ input::placeholder {
 
   .closeBtn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 35px;
+    top: 0px;
+    right: 20px;
+    font-size: 60px;
     cursor: pointer;
-    color: #00c3e3;
+    color: black;
   }
 
   #confirmationprofileBtn {
@@ -475,5 +561,11 @@ input::placeholder {
 
   input::placeholder {
     color: #a0dae4;
+  }
+
+  .productAdValidation {
+    width: 55vw;
+    margin: 10vh 20vw;
+    padding: 2rem 3rem;
   }
 }
