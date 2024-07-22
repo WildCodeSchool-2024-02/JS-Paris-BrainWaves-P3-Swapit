@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+ import { useState, useCallback, useEffect } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useParams, useOutletContext, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -188,8 +188,7 @@ export default function Profile() {
     } catch (error) {
       toast.error("Une erreur est survenue . .");
     }
-  };
-  
+
   const renderSection = () => {
     switch (alignment) {
       case "Vitrine":
@@ -205,10 +204,15 @@ export default function Profile() {
             Pas de produit pour le moment...
           </div>
         ) : (
+          <div>
+  
+            <h3 className="numberOfItems">{dataProduct.length} {dataProduct.length === 1 ? "article" : "articles"}</h3> 
           <div className="latestProductContainerForProfilePage">
+            
             {dataProduct.map((product) => (
               <div key={product.item_id} className="blocProductForProfilePage">
                 <div className="blocProfilePage">
+                
                   <div className="imgContainerForProfilePage">
                     <img
                       onClick={() => handleRedirectionItem(product.item_id)}
@@ -236,6 +240,7 @@ export default function Profile() {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         );
         case "Evaluations":
