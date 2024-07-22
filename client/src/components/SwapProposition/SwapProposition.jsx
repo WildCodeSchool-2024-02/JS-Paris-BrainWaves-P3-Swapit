@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./swapProposition.css";
 import Checkbox from "@mui/material/Checkbox";
 
+
 function SwapProposition({ closeProposition, setBlur }) {
   const [productList, setProductList] = useState([]);
   const [checked, setChecked] = useState([]);
+  const { auth } = useOutletContext();
+
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/items")
+    fetch(`${import.meta.env.VITE_API_URL}/users/${auth.user.user_id}/items`)
       .then((response) => response.json())
       .then((json) => {
         setProductList(json);
         setChecked(new Array(json.length).fill(false));
       });
-  }, []);
+  }, [auth.user.user_id]);
 
   const handleChange = (index) => () => {
     const newChecked = checked.map((item, i) => (i === index ? !item : false));
