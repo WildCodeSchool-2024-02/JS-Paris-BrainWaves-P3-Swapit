@@ -1,16 +1,48 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import "./swapProposition.css";
 import Checkbox from "@mui/material/Checkbox";
 
-
-function SwapProposition({ closeProposition, setBlur }) {
+function SwapProposition({ closeProposition, setBlur, dataUserReceiver }) {
   const [productList, setProductList] = useState([]);
   const [checked, setChecked] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [dataOfferProduct, setdataOfferProduct] = useState(null);
   const { auth } = useOutletContext();
 
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/exchanges`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            item_id: dataUserReceiver.item_id,
+            itemTwo_id: dataOfferProduct.item_id,
+            receiver_id : dataUserReceiver.user_id,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        toast.success(
+          `Votre proposition a bien été envoyé à ${dataUserReceiver.pseudo} !`
+        );
+      } else {
+        const errors = await response.json();
+        errors.details.forEach((error) => {
+          toast.warn(error.message);
+        });
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue..");
+    }
+  };
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/users/${auth.user.user_id}/items`)
@@ -26,22 +58,17 @@ function SwapProposition({ closeProposition, setBlur }) {
     setChecked(newChecked);
 
     if (!newChecked[index]) {
-      setSelectedProduct(null);
+      setdataOfferProduct(null);
     } else {
-      setSelectedProduct(productList[index]);
+      setdataOfferProduct(productList[index]);
     }
-    
   };
-
-  // eslint-disable-next-line no-console
-  console.log(selectedProduct)
 
   const handleSwapRequest = () => {
     closeProposition(false);
     setBlur(false);
     document.body.classList.remove("modal-open");
   };
-  
 
   return (
     <div className="proposition">
@@ -55,7 +82,7 @@ function SwapProposition({ closeProposition, setBlur }) {
             Annuler la proposition
           </button>
 
-          <button className="btnSend" type="button">
+          <button onClick={handleSubmit} className="btnSend" type="button">
             Envoyer la proposition
           </button>
         </div>
@@ -94,6 +121,7 @@ function SwapProposition({ closeProposition, setBlur }) {
   );
 }
 SwapProposition.propTypes = {
+  dataUserReceiver: PropTypes.func.isRequired,
   closeProposition: PropTypes.func.isRequired,
   setBlur: PropTypes.func.isRequired,
 };

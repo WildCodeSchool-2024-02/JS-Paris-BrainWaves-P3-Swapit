@@ -92,6 +92,20 @@ class ItemRepository extends AbstractRepository {
     );
     return result;
   }
+
+  async swap (id) {
+    const result = await this.database.query(
+      `SELECT DISTINCT i.*, ex.*, t.* 
+      FROM ${this.table} as i
+      JOIN transaction as t 
+      ON i.item_id = t.item_id 
+      JOIN exchange as ex 
+      ON ex.receiver_id = ? WHERE i.user_id != ?
+       `, [id, id]
+    
+    )
+    return result;
+  }
 }
 
 module.exports = ItemRepository;

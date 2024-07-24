@@ -114,6 +114,20 @@ const getItemByDate = async (req, res, next) => {
   }
 };
 
+const swapProposition = async (req, res, next) => {
+  try {
+
+    const [result] = await tables.item.swap(req.auth.id);
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: " not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   read,
@@ -124,4 +138,5 @@ module.exports = {
   getItemApproved,
   getItemByDate,
   getItemUnapproved,
+  swapProposition,
 };

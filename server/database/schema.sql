@@ -64,18 +64,24 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swapit_db`.`exchange` (
   `exchange_id` INT NOT NULL AUTO_INCREMENT,
-  `transaction_id` INT NULL DEFAULT NULL,
   `comment_id` INT NULL DEFAULT NULL,
+  `receiver_id` INT NULL DEFAULT NULL,
   `date` DATETIME NOT NULL,
   `status` VARCHAR(45) NOT NULL,
-  `exchangecol` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`exchange_id`, `exchangecol`),
-  INDEX `exchange_comment_id_idx` (`comment_id` ASC) VISIBLE,
+  PRIMARY KEY (`exchange_id`),
+  INDEX `exchange_comment_id` (`comment_id` ASC) VISIBLE,
+  INDEX `exchange_receiver_id` (`receiver_id` ASC) VISIBLE,
   CONSTRAINT `exchange_comment_id`
     FOREIGN KEY (`comment_id`)
     REFERENCES `swapit_db`.`comment` (`comment_id`)
     ON DELETE SET NULL
-    ON UPDATE CASCADE)
+    ON UPDATE CASCADE,
+    CONSTRAINT `exchange_receiver_id`
+    FOREIGN KEY (`receiver_id`)
+    REFERENCES `swapit_db`.`user` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE
+    )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -112,21 +118,22 @@ AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
--- Table `swapit_db`.`item_has_exchange`
+-- Table `swapit_db`.`transaction`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `swapit_db`.`item_has_exchange` (
-  `item_item_id` INT NOT NULL,
-  `exchange_exchange_id` INT NOT NULL,
-  PRIMARY KEY (`item_item_id`, `exchange_exchange_id`),
-  INDEX `fk_item_has_exchange_exchange1_idx` (`exchange_exchange_id` ASC) VISIBLE,
-  INDEX `fk_item_has_exchange_item1_idx` (`item_item_id` ASC) VISIBLE,
-  CONSTRAINT `fk_item_has_exchange_item1`
-    FOREIGN KEY (`item_item_id`)
+CREATE TABLE IF NOT EXISTS `swapit_db`.`transaction` (
+  `transaction_id` INT NOT NULL AUTO_INCREMENT,
+  `item_id` INT NOT NULL,
+  `exchange_id` INT NOT NULL,
+  PRIMARY KEY (`transaction_id`),
+  INDEX `fk_transaction_item` (`item_id` ASC) VISIBLE,
+  INDEX `fk_transaction_exchange` (`exchange_id` ASC) VISIBLE,
+  CONSTRAINT `fk_item`
+    FOREIGN KEY (`item_id`)
     REFERENCES `swapit_db`.`item` (`item_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_item_has_exchange_exchange1`
-    FOREIGN KEY (`exchange_exchange_id`)
+  CONSTRAINT `fk_exchange`
+    FOREIGN KEY (`exchange_id`)
     REFERENCES `swapit_db`.`exchange` (`exchange_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

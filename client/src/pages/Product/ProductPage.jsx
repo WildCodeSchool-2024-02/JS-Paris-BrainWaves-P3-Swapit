@@ -160,7 +160,7 @@ export default function ProductPage() {
 
           <div className="swapProposition">
             {openSwapRequest && (
-              <SwapProposition
+              <SwapProposition dataUserReceiver = {product}
                 closeProposition={closeSwapRequest}
                 setBlur={setBlur}
               />

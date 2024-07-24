@@ -119,6 +119,9 @@ export default function Profile() {
  
   const [user, setUser] = useState([]);
   const [item, setItem] = useState([]);
+  const [swapProposition, setSwapProposition] = useState([])
+
+
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/users/${id}`)
@@ -132,7 +135,30 @@ export default function Profile() {
     fetch(`${import.meta.env.VITE_API_URL}/items/unapproved`)
       .then((response) => response.json())
       .then((data) => setItem(data));
+
   }, [id]);
+
+  useEffect(() => {
+    const fetchSwapPropositions = async () => {
+      try {
+        const swapReponse= await fetch(`${import.meta.env.VITE_API_URL}/items/swap`, {
+          method: "GET",
+          headers:{
+            "Authorization" : `Bearer ${auth.token}`,
+            "Content-Type": "application/json",
+          },
+        });
+        const swapData = await swapReponse.json();
+        setSwapProposition(swapData);
+      } catch (error) {
+        console.error("Error fetching data swap propositions", error);
+      }
+    };
+    fetchSwapPropositions();
+  }, [auth.token]);
+
+
+
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -605,6 +631,45 @@ return (
             ))}
           </>
         )}
+        {alignment === "Propositions" &&
+        auth.isLogged === true &&
+        user.is_admin === 0 && (
+
+          <div className="latestProductContainerForProfilePage">
+          {swapProposition.map((product) => (
+              <div key={product.item_id} className="blocProductForProfilePage">
+                <div className="blocProfilePage">
+                
+                  <div className="imgContainerForProfilePage">
+                    <img
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      src={product.image_url}
+                      className="pictureProductForProfilePage"
+                      alt="product"
+                      />
+                  </div>
+                  <div className="productInformationForProfilePage">
+                    <p
+                      onClick={() => handleRedirectionItem(product.item_id)}
+                      role="presentation"
+                      className="productNameForProfilePage"
+                      >
+                      {product.name}
+                    </p>
+                    <p className="categoryProductForProfilePage">
+                      {product.category_name}
+                    </p>
+                    <p className="conditionProductForProfilePage">
+                      {product.conditions}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
     </>
   );
 }
