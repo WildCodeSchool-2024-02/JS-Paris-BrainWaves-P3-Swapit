@@ -37,17 +37,33 @@ class ItemRepository extends AbstractRepository {
     );
   }
 
-  async readItemWithUser() {
+  async readItemApproved() {
     const result = await this.database.query(
       `SELECT u.*, i.*, c.category_name 
     FROM ${this.table} as i
     JOIN category as c
     ON i.category_id = c.category_id
     JOIN user as u
-    ON i.user_id = u.user_id`
+    ON i.user_id = u.user_id
+    WHERE i.is_approved = 1`
     );
     return result;
   }
+
+  async readItemUnapproved() {
+    const result = await this.database.query(
+      `SELECT u.*, i.*, c.category_name 
+    FROM ${this.table} as i
+    JOIN category as c
+    ON i.category_id = c.category_id
+    JOIN user as u
+    ON i.user_id = u.user_id
+    WHERE i.is_approved = 0`
+    );
+    return result;
+  }
+
+
 
   async readUserByItem(id) {
     const result = await this.database.query(
@@ -71,8 +87,8 @@ class ItemRepository extends AbstractRepository {
     ON i.category_id = c.category_id
     JOIN user as u
     ON i.user_id = u.user_id
+    WHERE i.is_approved = 1
     ORDER BY i.date_added DESC`
-    
     );
     return result;
   }

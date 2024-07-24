@@ -47,4 +47,8 @@
     color: black;
     cursor: pointer;
   }
+
+  .href:hover {
+    color: var(--main-blue);
+  }
 }

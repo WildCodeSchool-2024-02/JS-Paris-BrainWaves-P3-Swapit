@@ -1,16 +1,17 @@
 /* MOBILE  FIRST */
 
 .sectionFormConnect {
-  background-color: #f1f1f1;
+  background-color: #f7f7f7;
   margin: auto auto;
   padding-top: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   font-family: Helvetica, sans-serif;
 }
 
 .formConnect {
   background-color: #ffffff;
   padding: 2rem;
+  padding-top: 3rem;
   margin: 0 auto;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgb(163 159 159);
@@ -47,6 +48,11 @@
   box-sizing: border-box;
   font-style: italic;
 }
+.inputFormConnect:focus {
+  outline: none;
+  border: solid thin #00c3e3;
+  box-shadow: inset gray 0px 0px 4px -1px;
+}
 
 .buttonSubmitConnect {
   width: 60%;
@@ -77,12 +83,20 @@
   padding: 0;
   cursor: pointer;
   outline: none;
+  color: black;
 }
 
 @media only screen and (min-width: 768px) {
+  .sectionFormConnect {
+    background-color: #f7f7f7;
+    margin: auto auto;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    font-family: Helvetica, sans-serif;
+  }
   .formConnect {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 3rem;
     margin: 0 auto;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -90,6 +104,7 @@
     max-width: 50%;
     text-align: center;
   }
+
   .up {
     display: none;
   }

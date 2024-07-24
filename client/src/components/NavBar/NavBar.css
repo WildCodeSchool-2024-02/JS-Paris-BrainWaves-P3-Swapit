@@ -71,7 +71,11 @@
     width: 14vh;
     cursor: pointer;
     position: relative;
-    left: 10px;
+    left: 30px;
+  }
+  .userButton {
+    display: block;
+    margin-right: 10px;
   }
 
   .containerNavBar {
@@ -104,6 +108,7 @@
     display: inline;
     align-self: center;
     color: #00c3e3;
+    cursor: pointer;
   }
 
   .import {
@@ -135,6 +140,7 @@
     color: black;
     position: relative;
     bottom: 5px;
+    padding-top: 6px;
   }
   .buttonProfil {
     cursor: pointer;

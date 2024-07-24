@@ -1,15 +1,32 @@
 import "./AllProducts.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function AllProducts({ data }) {
+  const navigate = useNavigate();
+
+  const profilPagesDirection = () => {
+    navigate(`/profile/${data.user_id}`);
+  };
   return (
     <div className="blocProductForAllProducts">
       <div className="blocProfile">
         <div className="pictureProfileContainer">
-          <img src={data.picture} className="pictureProfile" alt="profile" />
+          <img
+            src={data.picture}
+            className="pictureProfile"
+            alt="profile"
+            onClick={profilPagesDirection}
+            role="presentation"
+          />
         </div>
-        <p className="pseudoForAllProducts">{data.pseudo}</p>
+        <p
+          className="pseudoForAllProducts"
+          onClick={profilPagesDirection}
+          role="presentation"
+        >
+          {data.pseudo}
+        </p>
       </div>
       <Link
         to={`/produit/${data.item_id}`}
@@ -44,6 +61,7 @@ AllProducts.propTypes = {
     item: PropTypes.string,
     id: PropTypes.string,
     item_id: PropTypes.string,
+    user_id: PropTypes.number,
   }).isRequired,
 };
 
