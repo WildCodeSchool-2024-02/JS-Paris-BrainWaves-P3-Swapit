@@ -14,4 +14,13 @@ const categoriesRouter = require("./categories/router");
 
 router.use("/categories", categoriesRouter);
 
+const exchangesRouter = require("./exchanges/router")
+
+router.use("/exchanges", exchangesRouter)
+
+const transactionsRouter = require("./transactions/router")
+
+router.use("/transactions", transactionsRouter)
+
+
 module.exports = router;

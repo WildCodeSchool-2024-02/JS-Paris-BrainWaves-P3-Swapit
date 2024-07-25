@@ -533,7 +533,7 @@ input::placeholder {
     align-items: flex-start;
   }
   .productNameForProfilePage {
-    margin-bottom: 1vh;
+    margin-bottom: 0vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
@@ -823,5 +823,28 @@ input::placeholder {
 
   .refusalAdProduct:hover {
     background-color: rgb(213, 0, 0);
+  }
+
+  /* Modal Swap */
+  #modalSwap {
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+  }
+  #modalBox {
+    border: solid thick black;
+  }
+  .modalContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textSwap {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--main-blue);
   }
 }

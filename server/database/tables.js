@@ -5,6 +5,10 @@ const UserRepository = require("./models/UserRepository");
 
 const CategoryRepository = require("./models/CategoryRepository");
 
+const ExchangeRepository = require("./models/ExchangeRepository");
+
+const TransactionRepository = require("./models/TransactionRepository");
+
 const tables = {};
 
 tables.item = new ItemRepository();
@@ -12,6 +16,10 @@ tables.item = new ItemRepository();
 tables.user = new UserRepository();
 
 tables.category = new CategoryRepository();
+
+tables.exchange = new ExchangeRepository();
+
+tables.transaction = new TransactionRepository();
 
 module.exports = new Proxy(tables, {
   get(obj, prop) {
