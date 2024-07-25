@@ -110,14 +110,16 @@ button {
 .descriptionAddAProduct,
 .conditionAddAProduct,
 .locationAddAProduct,
-.categoryAddAProduct {
+.categoryAddAProduct,
+.requestAddAProduct {
   margin: 2vh 1vw;
 }
 .inputGroupAddProduct,
 .inputLocation,
 .inputCategory,
 .texteAreaDescription,
-.texteAreaCondition {
+.texteAreaCondition,
+.texteAreaRequest {
   width: 100%;
   margin-bottom: 2vh;
 }
