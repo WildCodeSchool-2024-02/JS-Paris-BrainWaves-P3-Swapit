@@ -95,12 +95,29 @@ class ItemRepository extends AbstractRepository {
 
   async swap (id) {
     const result = await this.database.query(
+      `SELECT DISTINCT i.*, ex.*, t.*, u.pseudo
+		FROM user as u 
+      JOIN item as i
+      ON u.user_id = i.user_id
+      JOIN transaction as t 
+      ON i.item_id = t.item_id 
+      JOIN exchange as ex 
+      ON ex.exchange_id = t.exchange_id WHERE ex.receiver_id = ? 
+      AND u.user_id != ?
+       `, [id, id]
+    
+    )
+    return result;
+  }
+
+  async reception (id) {
+    const result = await this.database.query(
       `SELECT DISTINCT i.*, ex.*, t.* 
       FROM ${this.table} as i
       JOIN transaction as t 
       ON i.item_id = t.item_id 
       JOIN exchange as ex 
-      ON ex.receiver_id = ? WHERE i.user_id != ?
+      ON ex.receiver_id = ? WHERE i.user_id = ?
        `, [id, id]
     
     )

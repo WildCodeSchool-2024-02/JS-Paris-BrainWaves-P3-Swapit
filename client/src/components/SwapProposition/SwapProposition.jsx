@@ -40,7 +40,7 @@ function SwapProposition({ closeProposition, setBlur, dataUserReceiver }) {
         });
       }
     } catch (error) {
-      toast.error("Une erreur est survenue..");
+      toast.error("Vous avez déjà proposé un swap sur ce produit");
     }
   };
 

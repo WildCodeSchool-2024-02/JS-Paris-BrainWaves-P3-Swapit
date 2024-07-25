@@ -31,7 +31,7 @@ export default function Profile() {
   const [, setUserProfile ] = useState([]);
   const { auth, setAuth } = useOutletContext();
   const navigate = useNavigate();
-  
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -120,7 +120,7 @@ export default function Profile() {
   const [user, setUser] = useState([]);
   const [item, setItem] = useState([]);
   const [swapProposition, setSwapProposition] = useState([])
-
+  const [swapReception, setSwapReception] = useState([])
 
 
   useEffect(() => {
@@ -155,6 +155,25 @@ export default function Profile() {
       }
     };
     fetchSwapPropositions();
+  }, [auth.token]);
+
+  useEffect(() => {
+    const fetchSwapReceptions= async () => {
+      try {
+        const swapReponseReceptions= await fetch(`${import.meta.env.VITE_API_URL}/items/reception`, {
+          method: "GET",
+          headers:{
+            "Authorization" : `Bearer ${auth.token}`,
+            "Content-Type": "application/json",
+          },
+        });
+        const swapReceptionData = await swapReponseReceptions.json();
+        setSwapReception(swapReceptionData);
+      } catch (error) {
+        console.error("Error fetching data swap receptions", error);
+      }
+    };
+    fetchSwapReceptions();
   }, [auth.token]);
 
 
@@ -663,10 +682,19 @@ return (
                     <p className="conditionProductForProfilePage">
                       {product.conditions}
                     </p>
+                    {swapReception
+                    .filter((productRec) => productRec.exchange_id === product.exchange_id)
+                    .map((productRec) => (  <p key={product.index} className="conditionProductForProfilePage">
+                      {product.pseudo} veut swapper votre {productRec.name}
+                    </p>
+                    ))}
+                 
+
                   </div>
                 </div>
               </div>
             ))}
+             
           </div>
         )
       }

@@ -15,23 +15,30 @@ class ExchangeRepository extends AbstractRepository {
             exchange.receiver_id ,
         ]
     )
-    
+  
     return result
-    
- }
 
-  // async swap() {
-  //   const [result] = await this.database.query(
-  //     `SELECT ex.*, t.* from ${this.table} as ex
-  //     JOIN transaction as t
-  //     ON t.exchange_id = ex.exchange_id
-  //     JOIN ex.`
+  }
+
+    async filterProposition(itemId, itemTwoId, receiverId){
+    const [result] = await this.database.query(
+      `SELECT DISTINCT i.*, ex.*, t.* 
+      FROM item as i
+      JOIN transaction as t 
+      ON i.item_id = t.item_id 
+      JOIN exchange as ex 
+      ON ex.receiver_id = ? WHERE i.item_id IN (?, ?) AND ex.exchange_id = t.exchange_id`,
+      [
+        receiverId,
+        itemId,
+        itemTwoId
+      ]
       
-  //   )
+    )
+    return result
+  }
 
-  //   return result
-  // }
 }
-// definir status 
+
 
 module.exports = ExchangeRepository; 

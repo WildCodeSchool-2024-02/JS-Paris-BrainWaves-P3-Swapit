@@ -13,6 +13,7 @@ const {
   getItemByDate,
   getItemUnapproved,
   swapProposition,
+  swapReception,
 } = require("../../../controllers/itemActions");
 const { isAuth } = require("../../../services/auth");
 const fileUpload = require("../../../services/fileUpload");
@@ -27,6 +28,8 @@ router.get("/latest", getItemByDate);
 router.get("/", browse);
 
 router.get("/swap", isAuth, swapProposition)
+
+router.get("/reception", isAuth, swapReception)
 
 router.get("/:id", read);
 
