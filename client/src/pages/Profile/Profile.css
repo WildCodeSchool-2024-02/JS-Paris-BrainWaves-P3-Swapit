@@ -5,7 +5,6 @@
   height: 1px;
   overflow: hidden;
 }
-
 button {
   background: none;
   border: none;
@@ -15,12 +14,10 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
-
 #buttonStar {
   margin: 0 5px;
   font-size: 2rem;
 }
-
 #buttonModif {
   background-color: #00c3e3;
   padding: 9px;
@@ -31,11 +28,14 @@ button {
   margin: 3% 0 0.5rem;
 }
 
+#btn {
+  color: var(--main-blue);
+}
+
 #buttonModif:hover,
 .Custom-button:hover {
   background-color: #00c3e3;
 }
-
 .validationAddAProduct {
   background-color: #00c3e3;
   color: white;
@@ -51,7 +51,6 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
 .profileDetails {
   display: flex;
   flex-direction: column;
@@ -60,12 +59,10 @@ button {
   position: relative;
   right: 10px;
 }
-
 .profileImgContainer {
   width: 120px;
   height: 120px;
 }
-
 .profileImg {
   width: 120px;
   height: 120px;
@@ -76,7 +73,6 @@ button {
   top: 45px;
   right: 10px;
 }
-
 .profileHeader {
   display: flex;
   justify-content: flex-start;
@@ -84,7 +80,6 @@ button {
   margin: 2vh;
   gap: 40px;
 }
-
 .rate-value-full::before,
 .rate-value-half::before,
 .rate-value-empty::before,
@@ -92,11 +87,9 @@ button {
   content: "★";
   color: gold;
 }
-
 .Cate-value-empty::before {
   color: lightgray;
 }
-
 .blocAddProduct {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
@@ -107,14 +100,12 @@ button {
   padding: 3vh 5vw;
   border-radius: 1.5rem;
 }
-
-.adValidation {
+.addAProduct {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
   font-size: 2rem;
 }
-
 .titleAddProduct,
 .descriptionAddAProduct,
 .conditionAddAProduct,
@@ -123,7 +114,6 @@ button {
 .requestAddAProduct {
   margin: 2vh 1vw;
 }
-
 .inputGroupAddProduct,
 .inputLocation,
 .inputCategory,
@@ -133,20 +123,17 @@ button {
   width: 100%;
   margin-bottom: 2vh;
 }
-
 .inputTitleProd {
   width: 55vw;
   font-style: italic;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 .inputTitleProd::placeholder,
 .inputCategory {
   color: rgb(163, 163, 163);
   font-weight: 100;
 }
-
 .photoPreview {
   font-size: 4rem;
   color: black;
@@ -180,20 +167,19 @@ button {
     0 0,
     25px 25px;
 }
-
 .buttonZone {
   display: flex;
   justify-content: center;
 }
-
 .buttonZoneAdValidation {
   display: flex;
   justify-content: space-between;
 }
-
 #buttonModif:hover {
   background-color: var(--hover-blue);
 }
+
+/* VITRINE  */
 
 .blocProductForProfilePage {
   display: flex;
@@ -202,52 +188,53 @@ button {
   height: 100%;
   justify-content: space-between;
 }
-
 .imgContainerForProfilePage {
   position: relative;
   width: 100%;
   height: 20vh;
   overflow: hidden;
 }
-
 .pictureProductForProfilePage {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .categoryProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
   font-weight: bolder;
   margin-bottom: 1vh;
 }
-
 .productNameForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: bold;
 }
-
 .conditionProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
 }
-
 .blocProfilePage {
   display: flex;
   margin-bottom: 2vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
-
 .latestProductContainerForProfilePage {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4vh;
-  margin: 0 auto 5vh auto;
+  margin: 3vh auto 5vh auto;
   padding: 0 4vh;
+}
+
+.numberOfItems {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .profileAdministrator {
@@ -256,6 +243,89 @@ button {
   font-size: 2rem;
 }
 
+/* Modal Library*/
+.modalProfile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalcontentProfile {
+  background-color: white;
+  padding: 20px;
+  border-radius: 22px;
+  width: 75%;
+  height: 490px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 60px;
+  cursor: pointer;
+  color: black;
+}
+
+#confirmationprofileBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmationBtn {
+  display: flex;
+  width: 12rem;
+  padding: 0.4rem;
+  background-color: #00c3e3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+.saveBtn:hover {
+  background-color: #00c3e3;
+}
+
+/* Modal Form Library*/
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 22px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #a0dae4;
+}
+
+.profileAdministrator {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
 .productAdValidation {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
@@ -266,32 +336,27 @@ button {
   padding: 3vh 5vw;
   border-radius: 1.5rem;
 }
-
 .addAProduct {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
-
 .pseudoAdValidation,
 .titleAdValidation,
 .categoryAdValidation,
 .descriptionAdValidation {
   margin-bottom: 2vh;
 }
-
 .contentTitleAdValidation,
 .contentPseudoAdValidation,
 .contentCategoryAdValidation,
 .contentConditionAdValidation {
   font-weight: 300;
 }
-
 .contentDescriptionAdValidation {
   font-weight: 300;
   margin-bottom: 2vh;
 }
-
 .containerPhotoAdValidation {
   position: relative;
   height: 55vh;
@@ -305,7 +370,6 @@ button {
   height: 100%;
   object-fit: cover;
 }
-
 .validationAdProduct {
   background-color: #00c3e3;
   color: white;
@@ -322,7 +386,6 @@ button {
   font-weight: bold;
   margin-left: 10px;
 }
-
 .refusalAdProduct {
   background-color: red;
   color: white;
@@ -343,20 +406,16 @@ button {
   .Larger {
     font-size: 1.5rem;
   }
-
   #buttonStar {
     font-size: 2rem;
   }
-
   .profileImgContainer {
     width: 200px;
     height: 200px;
   }
-
   .profileDetails {
     width: 22rem;
   }
-
   .profileImg {
     width: 200px;
     height: 200px;
@@ -365,12 +424,10 @@ button {
     position: relative;
     top: 0px;
   }
-
   .profileHeader {
     margin: 2.5rem;
     gap: 60px;
   }
-
   #buttonModif {
     padding: 10px 20px;
     width: 16rem;
@@ -378,26 +435,19 @@ button {
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
   }
 
-  #btn {
-    color: var(--main-blue);
-  }
-
   /* VITRINE  */
-
   .latestProductContainerForProfilePage {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4vh;
-    margin: 6vh auto 14vh 10vh;
+    margin: 4vh auto 14vh 10vh;
     padding: 0 4vh;
   }
-
   .blocProductForProfilePage {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   .pictureProductForProfilePage {
     display: block;
     width: 88%;
@@ -405,26 +455,22 @@ button {
     object-fit: cover;
     cursor: pointer;
   }
-
   .productNameForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
   }
-
   .conditionProductForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
   }
-
   .imgContainerForProfilePage {
     position: relative;
     width: 100%;
     height: 36vh;
     overflow: hidden;
   }
-
   .categoryProductForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
@@ -432,22 +478,112 @@ button {
     margin-bottom: 1vh;
   }
 
+  .numberOfItems {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
   .blocAddProduct {
     width: 55vw;
     margin: 10vh 20vw;
     padding: 2rem 3rem;
   }
-
   .inputTitleProd {
     width: 40vw;
   }
-
   .inputLocation {
     width: 20vw;
   }
-
   .inputCategory {
     width: 30vw;
+  }
+
+  /* Modal Library*/
+  .modalProfile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 41, 41, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modalcontentProfile {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: 22px;
+    width: 550px;
+    height: 785px;
+    box-shadow: 1px 1px 1px 1px rgba(54, 54, 54, 0.2);
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 60px;
+    cursor: pointer;
+    color: black;
+  }
+
+  #confirmationprofileBtn {
+    margin-top: 25px;
+  }
+
+  .confirmationBtn {
+    display: flex;
+    width: 16rem;
+    padding: 0.7rem;
+    background-color: #00c3e3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .saveBtn:hover {
+    background-color: #00c3e3;
+  }
+
+  /* Modal Form Library*/
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  form input {
+    width: 22rem;
+    padding: 8px;
+    margin-bottom: 30px;
+    border: 2px solid #ccc;
+    border-radius: 22px;
+  }
+
+  #profileForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input::placeholder {
+    color: #a0dae4;
   }
 
   .productAdValidation {

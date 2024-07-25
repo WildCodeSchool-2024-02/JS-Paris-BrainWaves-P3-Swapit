@@ -17,11 +17,101 @@ export default function Profile() {
 
   const today = new Date().toISOString().split("T")[0];
   const [productDate] = useState(today);
+
+  const [dataProduct, setDataProduct] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
+  });
+
+  const { id } = useParams();
+  const [, setUserProfile] = useState([]);
+  const { auth, setAuth } = useOutletContext();
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const navigate = useNavigate();
-  const [dataProduct, setDataProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/users/${id}`
+        );
+        const data = await response.json();
+
+        setUserProfile(data);
+        setFormData({
+          username: data.pseudo,
+          email: data.email,
+          phone: data.phone,
+        });
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
+  }, [id, setUserProfile]);
+
+  useEffect(() => {
+    if (alignment === "Vitrine") {
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+        .then((response) => response.json())
+        .then((facts) => setDataProduct(facts));
+    }
+  }, [alignment, id]);
+
+  const handleProfileSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      toast.warning("Les mots de passe ne correspondent pas");
+      return;
+    }
+
+    const updatedUserData = {
+      pseudo: formData.username,
+      email: formData.email,
+      phone: formData.phone,
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/users/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify(updatedUserData),
+        }
+      );
+
+      if (response.ok) {
+        toast.success("Profil mis à jour avec succès");
+        setIsModalOpen(false);
+        navigate(`/profile/${id}`);
+      } else {
+        toast.warning("Échec de la mise à jour du profil");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue lors de la mise à jour du profil");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   const handleRedirectionItem = (itemId) => {
     navigate(`/produit/${itemId}`);
@@ -33,7 +123,6 @@ export default function Profile() {
     }
   }, []);
 
-  const { id } = useParams();
   const [user, setUser] = useState([]);
   const [item, setItem] = useState([]);
 
@@ -66,6 +155,7 @@ export default function Profile() {
   const triggerFileInput = () => {
     document.getElementById("fileInput").click();
   };
+
   const handleConditionChange = (e) => {
     setProductCondition(e.target.value);
   };
@@ -81,15 +171,34 @@ export default function Profile() {
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-  const rating = 1.3;
 
-  useEffect(() => {
-    if (alignment === "Vitrine") {
-      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
-        .then((response) => response.json())
-        .then((facts) => setDataProduct(facts));
+  const handleSubmit = async () => {
+    const form = new FormData();
+    form.append("name", title);
+    form.append("description", productDescription);
+    form.append("conditions", productCondition);
+    form.append("date_added", productDate);
+    form.append("location", productLocation);
+    form.append(`image_url`, productImage);
+    form.append("user_id", id);
+    form.append("category_id", selectedCategory);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/items`, {
+        method: "POST",
+        body: form,
+        headers: { Authorization: `Bearer ${auth.token}` },
+      });
+      if (response.ok) {
+        setAuth((prevState) => ({ ...prevState, user }));
+        toast.success("Vos modifications ont bien été prises en compte.");
+      } else {
+        toast.warning("Veuillez vérifier le format de vos données.");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue . .");
     }
-  }, [alignment, id]);
+  };
 
   const renderSection = () => {
     switch (alignment) {
@@ -106,40 +215,48 @@ export default function Profile() {
             Pas de produit pour le moment...
           </div>
         ) : (
-          <div className="latestProductContainerForProfilePage">
-            {dataProduct.map((product) => (
-              <div key={product.item_id} className="blocProductForProfilePage">
-                <div className="blocProfilePage">
-                  <div className="imgContainerForProfilePage">
-                    <img
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      src={product.image_url}
-                      className="pictureProductForProfilePage"
-                      alt="product"
-                    />
-                  </div>
-                  <div className="productInformationForProfilePage">
-                    <p
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      className="productNameForProfilePage"
-                    >
-                      {product.name}
-                    </p>
-                    <p className="categoryProductForProfilePage">
-                      {product.category_name}
-                    </p>
-                    <p className="conditionProductForProfilePage">
-                      {product.conditions}
-                    </p>
+          <div>
+            <h3 className="numberOfItems">
+              {dataProduct.length}{" "}
+              {dataProduct.length === 1 ? "article" : "articles"}
+            </h3>
+            <div className="latestProductContainerForProfilePage">
+              {dataProduct.map((product) => (
+                <div
+                  key={product.item_id}
+                  className="blocProductForProfilePage"
+                >
+                  <div className="blocProfilePage">
+                    <div className="imgContainerForProfilePage">
+                      <img
+                        onClick={() => handleRedirectionItem(product.item_id)}
+                        role="presentation"
+                        src={product.image_url}
+                        className="pictureProductForProfilePage"
+                        alt="product"
+                      />
+                    </div>
+                    <div className="productInformationForProfilePage">
+                      <p
+                        onClick={() => handleRedirectionItem(product.item_id)}
+                        role="presentation"
+                        className="productNameForProfilePage"
+                      >
+                        {product.name}
+                      </p>
+                      <p className="categoryProductForProfilePage">
+                        {product.category_name}
+                      </p>
+                      <p className="conditionProductForProfilePage">
+                        {product.conditions}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         );
-
       case "Evaluations":
         return <div>Evaluations section content</div>;
       case "Propositions":
@@ -153,40 +270,7 @@ export default function Profile() {
     }
   };
 
-  const { auth, setAuth } = useOutletContext();
-
-  const handleSubmit = async () => {
-    const form = new FormData();
-    form.append("name", title);
-    form.append("description", productDescription);
-    form.append("conditions", productCondition);
-    form.append("date_added", productDate);
-    form.append("location", productLocation);
-    form.append("swap_request", productRequest);
-    form.append(`image_url`, productImage);
-    form.append("user_id", id);
-    form.append("category_id", selectedCategory);
-
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/items`, {
-        method: "POST",
-        body: form,
-        headers: { Authorization: `Bearer ${auth.token}` },
-      });
-      if (response.ok) {
-        setAuth((prevState) => ({ ...prevState, user }));
-        toast.success("Vos modifications ont bien été prise en compte.");
-      } else toast.warning("Veuillez verifier le format de vos données.");
-    } catch (error) {
-      toast.error("Une erreur est survenue . .");
-    }
-  };
-
   const handleValidationAdProduct = async (articleId) => {
-    setItem((prevItems) =>
-      prevItems.filter((element) => element.item_id !== articleId)
-    );
-
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/items/${articleId}`,
@@ -255,14 +339,14 @@ export default function Profile() {
               <div className="profileAdministrator">Administrateur</div>
             )}
             <div className="Five-Rate-Active Larger">
-              <p className="screenReaders">Rated {rating} out of 5</p>
+              <p className="screenReaders">Rated {user.rating} out of 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
                 <button
                   id="buttonStar"
                   key={rate}
                   type="button"
                   className={
-                    rate <= rating ? "rate-value-full" : "rate-value-empty"
+                    rate <= user.rating ? "rate-value-full" : "rate-value-empty"
                   }
                   aria-label={`Rate ${rate} out of 5`}
                 >
@@ -272,11 +356,93 @@ export default function Profile() {
             </div>
             <p className="Location">Paris, France</p>
             <p className="Subscribe">Member since January 2024</p>
-            <div>
-              <button id="buttonModif" type="button" onClick={null}>
-                Modifications profil
-              </button>
-            </div>
+            {auth.isLogged && auth.user.user_id === user.user_id && (
+              <div>
+                <button
+                  id="buttonModif"
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  Modifications profil
+                </button>
+                {isModalOpen && (
+                  <div className="modalProfile">
+                    <span
+                      className="closeBtn"
+                      role="presentation"
+                      onClick={() => setIsModalOpen(false)}
+                    >
+                      &times;
+                    </span>
+                    <div className="modalcontentProfile">
+                      <form onSubmit={handleProfileSubmit} id="profileForm">
+                        <input
+                          placeholder="Pseudo"
+                          type="text"
+                          id="username"
+                          name="username"
+                          value={formData.username}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Email"
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Mot de passe"
+                          type="password"
+                          id="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Confirmer mot de passe"
+                          type="password"
+                          id="confirmPassword"
+                          name="confirmPassword"
+                          value={formData.confirmPassword}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Telephone"
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Ville"
+                          type="text"
+                          id="city"
+                          name="city"
+                          value={formData.city}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Code Postal"
+                          type="text"
+                          id="postalCode"
+                          name="postalCode"
+                          value={formData.postalCode}
+                          onChange={handleInputChange}
+                        />
+                        <div id="confirmationprofileBtn">
+                          <button type="submit" className="confirmationBtn">
+                            Confirmation
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -303,10 +469,9 @@ export default function Profile() {
 
       {alignment === "Vitrine" &&
         auth.isLogged === true &&
-        user.is_admin === 0 && (
+        auth.user.user_id === user.user_id && (
           <div className="blocAddProduct">
             <p className="addAProduct">Ajouter un produit</p>
-
             <div className="inputGroupAddProduct">
               <p className="titleAddProduct">Titre&nbsp;:</p>
               <input
@@ -317,7 +482,6 @@ export default function Profile() {
                 className="inputTitleProd"
               />
             </div>
-
             <div>
               <p className="addAPhoto">Ajouter votre / vos photo(s) ici</p>
               <div
@@ -345,7 +509,6 @@ export default function Profile() {
                 style={{ display: "none" }}
               />
             </div>
-
             <p className="descriptionAddAProduct">Description&nbsp;:</p>
             <textarea
               type="text"
@@ -353,7 +516,6 @@ export default function Profile() {
               onChange={handleDescriptionChange}
               className="texteAreaDescription"
             />
-
             <p className="conditionAddAProduct">Condition&nbsp;:</p>
             <textarea
               type="text"
@@ -361,7 +523,6 @@ export default function Profile() {
               onChange={handleConditionChange}
               className="texteAreaCondition"
             />
-
             <div className="inputGroupAddProduct">
               <p className="locationAddAProduct">Localisation&nbsp;:</p>
               <input
@@ -398,7 +559,6 @@ export default function Profile() {
                 ))}
               </select>
             </div>
-
             <div className="buttonZone">
               <button
                 type="button"
@@ -410,7 +570,6 @@ export default function Profile() {
             </div>
           </div>
         )}
-
       {alignment === "Propositions" &&
         auth.isLogged === true &&
         user.is_admin === 1 && (
@@ -447,12 +606,6 @@ export default function Profile() {
                 <p className="descriptionAdValidation">Description&nbsp;:</p>
                 <p className="contentDescriptionAdValidation">
                   {article.description}
-                </p>
-                <p className="conditionAdValidation">
-                  Condition&nbsp;:{" "}
-                  <span className="contentConditionAdValidation">
-                    {article.conditions}{" "}
-                  </span>
                 </p>
                 <p className="conditionAdValidation">
                   Condition&nbsp;:{" "}
