@@ -127,6 +127,19 @@ class ItemSeeder extends AbstractSeeder {
         user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category02").insertId,
       },
+
+      {
+        "name": "DJI Mavic Air 2",
+        "description": "DJI Mavic Air 2 à échanger. Drone compact avec caméra 4K, capteurs d'évitement d'obstacles, autonomie de 34 minutes, et transmission vidéo 10 km. Très bon état, utilisé uniquement quelques fois. Comprend télécommande, deux batteries supplémentaires, et sac de transport.",
+        "conditions": "Très bon état",
+        "date_added": "2024-07-25",
+        "image_url": "https://images.pexels.com/photos/8170183/pexels-photo-8170183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "location": "Lyon",
+        "swap_request": "GoPro HERO 10",
+        "user_id": this.getRef("user2").insertId,
+        "category_id": this.getRef("category07").insertId
+      }
+      
     ];
 
     // Insert the fakeItem data into the 'item' table
