@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`user` (
   `email` VARCHAR(50) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
   `picture` TEXT NULL DEFAULT NULL,
-  `is_admin` TINYINT NOT NULL DEFAULT FALSE,
+  `is_admin` TINYINT NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
   UNIQUE INDEX `e-mail_UNIQUE` (`email` ASC) VISIBLE)
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`item` (
   `image_url` TEXT NOT NULL,
   `location` VARCHAR(100) NOT NULL,
   `swap_request` TEXT NULL DEFAULT NULL,
-  `is_approved` TINYINT NOT NULL DEFAULT FALSE,
+  `is_approved` TINYINT NOT NULL DEFAULT '0',
   `user_id` INT NULL DEFAULT NULL,
   `category_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`item_id`),

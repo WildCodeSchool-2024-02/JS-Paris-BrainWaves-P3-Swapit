@@ -1,10 +1,10 @@
 /* MOBILE  FIRST */
 
 .sectionForm {
-  background-color: #f1f1f1;
+  background-color: #f7f7f7;
   margin: auto auto;
   padding-top: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
   font-family: Helvetica, sans-serif;
 }
 
@@ -39,7 +39,14 @@
   box-sizing: border-box;
   font-style: italic;
 }
-
+.inputForm:focus {
+  outline: none;
+  border: solid thin #00c3e3;
+  box-shadow: inset gray 0px 0px 4px -1px;
+}
+.inputForm::placeholder {
+  color: rgb(169, 169, 169);
+}
 .buttonSubmit {
   width: 60%;
   padding: 10px;
@@ -51,6 +58,7 @@
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease 0s;
 }
 
 .buttonSubmit:hover {
@@ -58,9 +66,17 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .sectionForm {
+    background-color: #f7f7f7;
+    margin: auto auto;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    font-family: Helvetica, sans-serif;
+  }
+
   .form {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 3rem;
     margin: 0 auto;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./productPage.css";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
@@ -15,6 +15,7 @@ export default function ProductPage() {
   const [product, setProduct] = useState([]);
   const [openSwapRequest, setOpenSwapRequest] = useState(false);
   const navigate = useNavigate();
+  const { auth } = useOutletContext();
   const [blur, setBlur] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,9 +34,13 @@ export default function ProductPage() {
   }, [id]);
 
   const handleSwapRequest = () => {
-    setBlur(true);
-    setOpenSwapRequest(true);
-    document.body.classList.add("active");
+    if (!auth.isLogged) {
+      navigate("/Connexion");
+    } else {
+      setBlur(true);
+      setOpenSwapRequest(true);
+      document.body.classList.add("active");
+    }
   };
 
   const closeSwapRequest = () => {
@@ -49,6 +54,20 @@ export default function ProductPage() {
   }
 
   const formattedDate = new Date(product.date_added).toLocaleDateString();
+
+  const handleDeleteProduct = () => {
+    fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          navigate(`/profile/${product.user_id}`);
+        } else {
+          console.error("Erreur lors de la suppression du produit");
+        }
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <>
@@ -72,41 +91,50 @@ export default function ProductPage() {
                 className="mainImage"
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
           </Swiper>
 
-          <div className="swapBtn">
-            <button
-              className="swapButton"
-              type="button"
-              onClick={handleSwapRequest}
-            >
-              Proposer un SWAP
-            </button>
-          </div>
+          {auth.isLogged === true && auth.user.user_id === product.user_id ? (
+            <div className="swapBtn">
+              <button
+                style={{
+                  backgroundColor: "#E50000 ",
+                  transition: "background-color 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "darkred";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E50000 ";
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.backgroundColor = "darkred";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E50000";
+                }}
+                className="swapButton"
+                type="button"
+                onClick={handleDeleteProduct}
+              >
+                Supprimer ce produit
+              </button>
+            </div>
+          ) : (
+            <div className="swapBtn">
+              <button
+                className="swapButton"
+                type="button"
+                onClick={handleSwapRequest}
+              >
+                Proposer un SWAP
+              </button>
+            </div>
+          )}
+
           <div className="swapProposition">
             {openSwapRequest && (
               <SwapProposition
+                dataUserReceiver={product}
                 closeProposition={closeSwapRequest}
                 setBlur={setBlur}
               />
@@ -166,16 +194,43 @@ export default function ProductPage() {
               <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
-
-            <div className="swapBtnMobile">
-              <button
-                className="swapButton"
-                type="button"
-                onClick={handleSwapRequest}
-              >
-                Proposer un SWAP
-              </button>
-            </div>
+            {auth.isLogged === true && auth.user.user_id === product.user_id ? (
+              <div className="swapBtnMobile">
+                <button
+                  style={{
+                    backgroundColor: "#E50000",
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000 ";
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000";
+                  }}
+                  className="swapButton"
+                  type="button"
+                  onClick={handleDeleteProduct}
+                >
+                  Supprimer ce produit
+                </button>
+              </div>
+            ) : (
+              <div className="swapBtnMobile">
+                <button
+                  className="swapButton"
+                  type="button"
+                  onClick={handleSwapRequest}
+                >
+                  Proposer un SWAP
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -40,11 +40,14 @@ function LatestProduct({ data }) {
             alt="product"
           />
         </div>
+        <div className="descByLatestProduct">
         <p className="productNameByLatestProduct">{data.name}</p>
-      </Link>
+      
 
       <p className="conditionProductByLatestProduct">{data.conditions}</p>
       <p className="locationByLatestProduct">{data.location}, France</p>
+      </div>
+      </Link>
     </div>
   );
 }

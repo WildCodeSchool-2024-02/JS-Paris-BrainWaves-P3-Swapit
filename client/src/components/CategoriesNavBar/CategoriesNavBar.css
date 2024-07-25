@@ -34,6 +34,8 @@
     padding-top: 15px;
     box-shadow: none;
     border: solid thin rgb(163, 163, 163);
+    border-left: none;
+    border-right: none;
   }
 
   .categoriesNavBar {
@@ -46,5 +48,9 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+  }
+
+  .href:hover {
+    color: var(--main-blue);
   }
 }

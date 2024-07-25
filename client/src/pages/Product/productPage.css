@@ -105,6 +105,7 @@
   margin: 40px 0px 40px 0px;
   font-family: var(--font);
   font-weight: bold;
+  transition: background-color 0.3s ease 0s;
 }
 
 .swapButton:hover {
@@ -141,7 +142,7 @@
 
   .allSwiper {
     width: 800px;
-    height: 800px;
+    height: 750px;
     margin-left: 60px;
     display: flex;
     flex-direction: column;
@@ -187,7 +188,8 @@
   .swapBtn {
     display: flex;
     width: 60%;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .swapButton {

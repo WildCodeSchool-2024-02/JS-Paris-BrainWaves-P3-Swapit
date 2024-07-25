@@ -14,12 +14,15 @@ function CategoryAllProducts() {
 
   const filteredProducts = location.state?.filteredDataItems || everyProduct;
 
-  return (
+  return ( 
+    <>
+    <h1 className="allProductName">Tous les produits</h1>
     <div className="productContainerForAllProducts">
       {filteredProducts.map((item) => (
         <AllProducts key={item.id} data={item} />
       ))}
     </div>
+    </>
   );
 }
 

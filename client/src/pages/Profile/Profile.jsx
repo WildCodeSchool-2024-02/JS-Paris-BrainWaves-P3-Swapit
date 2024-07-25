@@ -171,6 +171,91 @@ export default function Profile() {
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
+  // const rating = 1.3;
+
+  useEffect(() => {
+    if (alignment === "Vitrine") {
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+        .then((response) => response.json())
+        .then((facts) => setDataProduct(facts));
+    }
+  }, [alignment, id]);
+
+  // const renderSection = () => {
+  //   switch (alignment) {
+  //     case "Vitrine":
+  //       return dataProduct.length < 1 ? (
+  //         <div
+  //           style={{
+  //             fontSize: "24px",
+  //             textAlign: "center",
+  //             margin: "20px 0px 2rem",
+
+  //             fontFamily: "Helvetica, Arial, sans-serif",
+  //           }}
+  //         >
+  //           Pas de produit pour le moment...
+  //         </div>
+  //       ) : (
+
+        
+
+  //         <div className="latestProductContainerForProfilePage">
+  //           {dataProduct.map((product) => (
+  //             <div key={product.item_id} className="blocProductForProfilePage">
+  //               <div className="blocProfilePage">
+  //                 <div className="imgContainerForProfilePage">
+  //                   <img
+  //                     onClick={() => handleRedirectionItem(product.item_id)}
+  //                     role="presentation"
+  //                     src={product.image_url}
+  //                     className="pictureProductForProfilePage"
+  //                     alt="product"
+  //                   />
+  //                 </div>
+  //                 <div className="productInformationForProfilePage">
+  //                   <p
+  //                     onClick={() => handleRedirectionItem(product.item_id)}
+  //                     role="presentation"
+  //                     className="productNameForProfilePage"
+  //                   >
+  //                     {product.name}
+  //                   </p>
+  //                   <p className="categoryProductForProfilePage">
+  //                     {product.category_name}
+  //                   </p>
+  //                   <p className="conditionProductForProfilePage">
+  //                     {product.conditions}
+  //                   </p>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           ))}
+  //         </div>
+  //       );
+
+  //     case "Evaluations":
+  //       return (
+  //         <div
+  //           style={{
+  //             fontSize: "24px",
+  //             textAlign: "center",
+  //             margin: "20px 0",
+  //             marginBottom: "2rem",
+  //             fontFamily: "Helvetica, Arial, sans-serif",
+  //           }}
+  //         >
+  //           {" "}
+  //           Evaluations section
+  //         </div>
+  //       );
+  //     case "Validations":
+  //       return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
+  //     default:
+  //       return null;
+  //   }
+  // };
+
 
   const handleSubmit = async () => {
     const form = new FormData();
@@ -216,10 +301,12 @@ export default function Profile() {
           </div>
         ) : (
           <div>
-            <h3 className="numberOfItems">
-              {dataProduct.length}{" "}
-              {dataProduct.length === 1 ? "article" : "articles"}
-            </h3>
+  
+              <h3 className="numberOfItems">
+                {dataProduct.length}{" "}
+                {dataProduct.length === 1 ? "article" : "articles"}
+              </h3>
+          <div>
             <div className="latestProductContainerForProfilePage">
               {dataProduct.map((product) => (
                 <div
@@ -256,15 +343,25 @@ export default function Profile() {
               ))}
             </div>
           </div>
+          </div>
         );
-      case "Evaluations":
-        return <div>Evaluations section content</div>;
-      case "Propositions":
-        return <div>Propositions section content</div>;
+     case "Evaluations":
+        return (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              marginBottom: "2rem",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Pas d'évaluation pour le moment ! 
+          </div>
+        );
       case "Validations":
-        return user.is_admin === 1 ? (
-          <div>Validations section content</div>
-        ) : null;
+        return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
       default:
         return null;
     }
@@ -446,7 +543,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="profileBar">
         <ToggleButtonGroup
           color="primary"
           value={alignment}
@@ -471,7 +568,8 @@ export default function Profile() {
         auth.isLogged === true &&
         auth.user.user_id === user.user_id && (
           <div className="blocAddProduct">
-            <p className="addAProduct">Ajouter un produit</p>
+            <p className="addAProduct">Ajoutez un produit</p>
+
             <div className="inputGroupAddProduct">
               <p className="titleAddProduct">Titre&nbsp;:</p>
               <input
@@ -483,7 +581,7 @@ export default function Profile() {
               />
             </div>
             <div>
-              <p className="addAPhoto">Ajouter votre / vos photo(s) ici</p>
+              <p className="addAPhoto">Ajoutez votre / vos photo(s) ici</p>
               <div
                 className="photoPreview"
                 role="presentation"
@@ -503,6 +601,7 @@ export default function Profile() {
                 )}
               </div>
               <input
+                placeholder="Entrez le titre du produit"
                 id="fileInput"
                 type="file"
                 onChange={handleFileChange}
@@ -511,6 +610,7 @@ export default function Profile() {
             </div>
             <p className="descriptionAddAProduct">Description&nbsp;:</p>
             <textarea
+              placeholder="Ajoutez une descriptionn"
               type="text"
               value={productDescription}
               onChange={handleDescriptionChange}
@@ -518,6 +618,7 @@ export default function Profile() {
             />
             <p className="conditionAddAProduct">Condition&nbsp;:</p>
             <textarea
+              placeholder="Ajoutez une Condition"
               type="text"
               value={productCondition}
               onChange={handleConditionChange}
@@ -526,6 +627,7 @@ export default function Profile() {
             <div className="inputGroupAddProduct">
               <p className="locationAddAProduct">Localisation&nbsp;:</p>
               <input
+                placeholder="Ajoutez une localisation"
                 type="text"
                 value={productLocation}
                 onChange={handleLocationChange}
@@ -535,6 +637,7 @@ export default function Profile() {
 
             <p className="requestAddAProduct">Echange souhaité&nbsp;:</p>
             <textarea
+             placeholder="Ajoutez les échanges souhaités"
               type="text"
               value={productRequest}
               onChange={handleRequestChange}
@@ -576,7 +679,6 @@ export default function Profile() {
           <>
             {item.map((article) => (
               <div key={article.id} className="productAdValidation">
-                <p className="adValidation">Annonce à valider</p>
                 <p className="pseudoAdValidation">
                   Swaper :{" "}
                   <span className="contentPseudoAdValidation">

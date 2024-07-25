@@ -79,6 +79,7 @@
   margin-top: 20px;
   position: relative;
   bottom: 40px;
+  transition: background-color 0.3s ease 0s;
 }
 
 .btnClose:hover {
@@ -100,6 +101,7 @@
   position: relative;
   bottom: 45px;
   font-size: medium;
+  transition: background-color 0.3s ease 0s;
 }
 
 .btnSend:hover {
