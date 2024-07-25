@@ -21,11 +21,12 @@ button {
 #buttonModif {
   background-color: #00c3e3;
   padding: 9px;
-  border-radius: 20px;
+  border-radius: 50px;
   font-size: 1.2rem;
   width: 12rem;
   height: 3.5rem;
   margin: 3% 0 0.5rem;
+  transition: background-color 0.3s ease 0s;
 }
 
 #btn {
@@ -50,7 +51,17 @@ button {
   margin: 30px 0 40px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  transition: background-color 0.3s ease 0s;
 }
+
+.validationAddAProduct:hover {
+  background-color: #0093aa;
+}
+
+.Subscribe {
+  margin-bottom: 10px;
+}
+
 .profileDetails {
   display: flex;
   flex-direction: column;
@@ -75,10 +86,15 @@ button {
 }
 .profileHeader {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
   margin: 2vh;
   gap: 40px;
+}
+
+.profileBar {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 }
 .rate-value-full::before,
 .rate-value-half::before,
@@ -104,20 +120,24 @@ button {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: 20px;
 }
 .titleAddProduct,
 .descriptionAddAProduct,
 .conditionAddAProduct,
 .locationAddAProduct,
-.categoryAddAProduct {
+.categoryAddAProduct,
+.requestAddAProduct {
   margin: 2vh 1vw;
 }
 .inputGroupAddProduct,
 .inputLocation,
 .inputCategory,
 .texteAreaDescription,
-.texteAreaCondition {
+.texteAreaCondition,
+.texteAreaRequest {
   width: 100%;
   margin-bottom: 2vh;
 }
@@ -133,6 +153,7 @@ button {
   font-weight: 100;
 }
 .photoPreview {
+  cursor: pointer;
   font-size: 4rem;
   color: black;
   height: 30vh;
@@ -188,9 +209,11 @@ button {
 }
 .imgContainerForProfilePage {
   position: relative;
-  width: 100%;
-  height: 20vh;
+  width: 800%;
+  height: 45vh;
   overflow: hidden;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 .pictureProductForProfilePage {
   display: block;
@@ -200,39 +223,41 @@ button {
 }
 .categoryProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.6rem;
-  font-weight: bolder;
-  margin-bottom: 1vh;
+  font-size: 1.2rem;
 }
 .productNameForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.7rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 .conditionProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.6rem;
+  font-size: 1.2rem;
 }
 .blocProfilePage {
   display: flex;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
 .latestProductContainerForProfilePage {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 4vh;
-  margin: 3vh auto 5vh auto;
-  padding: 0 4vh;
+  margin: 0 auto 0vh auto;
+  padding: 0 5vh;
 }
 
 .numberOfItems {
+  display: flex;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 2vh;
   margin-left: 2vh;
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .profileAdministrator {
@@ -330,9 +355,13 @@ input::placeholder {
   font-weight: bolder;
   border: 1px solid black;
   width: 75vw;
-  margin: 10vh 10vw;
+  margin: auto;
+  margin-top: 3rem;
   padding: 3vh 5vw;
   border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .addAProduct {
   display: flex;
@@ -400,7 +429,38 @@ input::placeholder {
   font-weight: bold;
 }
 
+#btn {
+  color: var(--main-blue);
+}
+
 @media only screen and (min-width: 769px) {
+  .adValidation {
+    font-size: 24px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .contentTitleAdValidation,
+  .contentPseudoAdValidation,
+  .contentCategoryAdValidation,
+  .contentConditionAdValidation {
+    font-weight: 400;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .contentDescriptionAdValidation {
+    font-weight: 400;
+    font-size: large;
+    margin-bottom: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .photoAdValidation {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 18px;
+    object-fit: cover;
+  }
   .Larger {
     font-size: 1.5rem;
   }
@@ -423,10 +483,13 @@ input::placeholder {
     top: 0px;
   }
   .profileHeader {
-    margin: 2.5rem;
-    gap: 60px;
+    margin: 2rem;
+    gap: 40px;
+    display: flex;
+    align-items: center;
   }
   #buttonModif {
+    border-radius: 50px;
     padding: 10px 20px;
     width: 16rem;
     height: 3.7rem;
@@ -435,12 +498,22 @@ input::placeholder {
 
   /* VITRINE  */
   .latestProductContainerForProfilePage {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4vh;
-    margin: 4vh auto 14vh 10vh;
     padding: 0 4vh;
   }
+  .blocProfilePage {
+    position: relative;
+
+    display: flex;
+    margin-bottom: 5vh;
+    gap: 1vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .blocProductForProfilePage {
     display: flex;
     flex-direction: column;
@@ -448,12 +521,19 @@ input::placeholder {
   }
   .pictureProductForProfilePage {
     display: block;
-    width: 88%;
-    height: 14rem;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     cursor: pointer;
   }
+  .productInformationForProfilePage {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .productNameForProfilePage {
+    margin-bottom: 1vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
@@ -464,10 +544,12 @@ input::placeholder {
     font-size: 0.8rem;
   }
   .imgContainerForProfilePage {
+    margin-top: 100px;
     position: relative;
-    width: 100%;
-    height: 36vh;
+    width: 65%;
+    height: 60vh;
     overflow: hidden;
+    border-radius: 10px;
   }
   .categoryProductForProfilePage {
     font-family: Arial, Helvetica, sans-serif;
@@ -482,21 +564,149 @@ input::placeholder {
     margin-left: 4vh;
     font-size: 17px;
     font-weight: 600;
+    margin-bottom: 0px;
   }
 
   .blocAddProduct {
-    width: 55vw;
+    width: 35vw;
     margin: 10vh 20vw;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
+    padding-bottom: 1%;
+    margin: auto;
+    margin-bottom: 15%;
+    margin-top: 10%;
+  }
+
+  .titleAddProduct,
+  .descriptionAddAProduct,
+  .conditionAddAProduct,
+  .locationAddAProduct,
+  .categoryAddAProduct,
+  .addAPhoto {
+    font-size: large;
   }
   .inputTitleProd {
-    width: 40vw;
+    width: 20vw;
+    height: 9vh;
+    font-size: medium;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 2%;
+  }
+
+  .inputTitleProd::placeholder {
+    font-size: medium;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+  }
+
+  .inputTitleProd:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+  .texteAreaDescription {
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    padding: 4%;
+  }
+
+  .texteAreaDescription::placeholder {
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .texteAreaDescription:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+  .texteAreaCondition {
+    width: 18vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 3%;
+  }
+
+  .texteAreaCondition::placeholder {
+    font-size: medium;
+    font-style: italic;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+    display: flex;
+  }
+  .texteAreaCondition:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
   }
   .inputLocation {
-    width: 20vw;
+    width: 18vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 2%;
   }
+
+  .inputLocation::placeholder {
+    font-size: medium;
+    font-style: italic;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+  }
+
+  .inputLocation:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  .texteAreaRequest {
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    padding: 4%;
+    margin-bottom: 0px;
+  }
+
+  .texteAreaRequest::placeholder {
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .texteAreaRequest:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  .requestAddAProduct {
+    font-size: large;
+  }
+
   .inputCategory {
-    width: 30vw;
+    width: 22vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    color: rgb(124, 124, 124);
+    font-size: medium;
+    font-style: italic;
+    padding: 7px;
+  }
+  .inputCategory:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
   }
 
   /* Modal Library*/
@@ -585,8 +795,33 @@ input::placeholder {
   }
 
   .productAdValidation {
-    width: 55vw;
-    margin: 10vh 20vw;
-    padding: 2rem 3rem;
+    width: 35vw;
+    margin: auto;
+    margin-bottom: 60px;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonZoneAdValidation {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+  }
+
+  .validationAdProduct {
+    width: 70%;
+  }
+  .validationAdProduct:hover {
+    background-color: var(--hover-blue);
+  }
+
+  .refusalAdProduct {
+    width: 70%;
+  }
+
+  .refusalAdProduct:hover {
+    background-color: rgb(213, 0, 0);
   }
 }

@@ -57,10 +57,18 @@ function Footer() {
         <div className="column3">
           <p className="avis">Coming Soon...</p>
           <div className="pictos">
-            <img src={git} className="git" alt="picto Github" />
-            <img src={insta} className="insta" alt="picto Instagram" />
-            <img src={likedin} className="linkedin" alt="picto Linkedin" />
-            <img src={facebook} className="facebook" alt="picto Facebook" />
+            <a href="https://github.com/login">
+              <img src={git} className="git" alt="picto Github" />
+            </a>
+            <a href="https://www.instagram.com/accounts/login/">
+              <img src={insta} className="insta" alt="picto Instagram" />
+            </a>
+            <a href="https://www.linkedin.com/checkpoint/rm/sign-in-another-account?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin">
+              <img src={likedin} className="linkedin" alt="picto Linkedin" />
+            </a>
+            <a href="https://m.facebook.com/login/?locale=fr_FR">
+              <img src={facebook} className="facebook" alt="picto Facebook" />
+            </a>
           </div>
           <p className="thanks">
             Remerciements à nos swapers présents et futurs&nbsp;!

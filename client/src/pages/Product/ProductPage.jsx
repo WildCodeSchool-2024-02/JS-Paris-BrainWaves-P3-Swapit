@@ -25,7 +25,6 @@ export default function ProductPage() {
     navigate(`/profile/${product.user_id}`);
   };
 
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -58,21 +57,19 @@ export default function ProductPage() {
 
   const handleDeleteProduct = () => {
     fetch(`${import.meta.env.VITE_API_URL}/items/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
-    .then(response => {
-      if (response.ok) {
-  
-        navigate(`/profile/${product.user_id}`)
-      } else {
-        console.error('Erreur lors de la suppression du produit');
-      }
-    })
-    .catch(error => console.error(error));
+      .then((response) => {
+        if (response.ok) {
+          navigate(`/profile/${product.user_id}`);
+        } else {
+          console.error("Erreur lors de la suppression du produit");
+        }
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
-    
     <>
       {blur && <div className="blurEffect" />}
 
@@ -94,69 +91,45 @@ export default function ProductPage() {
                 className="mainImage"
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
           </Swiper>
-      
 
-           {auth.isLogged === true &&
-          ((auth.user.user_id) === (product.user_id)) ? (<div className="swapBtn">
-            <button
-            style={{
-              backgroundColor: '#E50000 ',
-              transition: 'background-color 0.3s ease'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'darkred';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = '#E50000 ';
-            }}
-            onFocus={(e) => {
-              e.currentTarget.style.backgroundColor = 'darkred';
-            }}
-            onBlur={(e) => {
-              e.currentTarget.style.backgroundColor = '#E50000' ;
-            }}
-              className="swapButton"
-              type="button"
-              onClick={handleDeleteProduct}
-            >
-              Supprimer ce produit 
-            </button>
-          </div> 
-          ):(
+          {auth.isLogged === true && auth.user.user_id === product.user_id ? (
             <div className="swapBtn">
-    <button
-      className="swapButton"
-      type="button"
-      onClick={handleSwapRequest}
-    >
-      Proposer un SWAP
-    </button>
-  </div> 
+              <button
+                style={{
+                  backgroundColor: "#E50000 ",
+                  transition: "background-color 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "darkred";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E50000 ";
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.backgroundColor = "darkred";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E50000";
+                }}
+                className="swapButton"
+                type="button"
+                onClick={handleDeleteProduct}
+              >
+                Supprimer ce produit
+              </button>
+            </div>
+          ) : (
+            <div className="swapBtn">
+              <button
+                className="swapButton"
+                type="button"
+                onClick={handleSwapRequest}
+              >
+                Proposer un SWAP
+              </button>
+            </div>
           )}
-
-
 
           <div className="swapProposition">
             {openSwapRequest && (
@@ -220,50 +193,46 @@ export default function ProductPage() {
               <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
-            {auth.isLogged === true &&
-          ((auth.user.user_id) === (product.user_id)) ? (
-            <div className="swapBtnMobile">
-              <button
-                          style={{
-                            backgroundColor: '#E50000',
-                            transition: 'background-color 0.3s ease'
-                          }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.backgroundColor = 'darkred';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.backgroundColor = '#E50000 ';
-                          }}
-                          onFocus={(e) => {
-                            e.currentTarget.style.backgroundColor = 'darkred';
-                          }}
-                          onBlur={(e) => {
-                            e.currentTarget.style.backgroundColor = '#E50000' ;
-                          }}
-                className="swapButton"
-                type="button"
-                onClick={handleDeleteProduct}
-              >
-                Supprimer ce produit
-              </button>
-            </div>
-            ):( 
-            <div className="swapBtnMobile">
-              <button
-                className="swapButton"
-                type="button"
-                onClick={handleSwapRequest}
-              >
-                Proposer un SWAP
-              </button>
-            </div>
-
-)}
-            
+            {auth.isLogged === true && auth.user.user_id === product.user_id ? (
+              <div className="swapBtnMobile">
+                <button
+                  style={{
+                    backgroundColor: "#E50000",
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000 ";
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000";
+                  }}
+                  className="swapButton"
+                  type="button"
+                  onClick={handleDeleteProduct}
+                >
+                  Supprimer ce produit
+                </button>
+              </div>
+            ) : (
+              <div className="swapBtnMobile">
+                <button
+                  className="swapButton"
+                  type="button"
+                  onClick={handleSwapRequest}
+                >
+                  Proposer un SWAP
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </>
   );
-  
 }

@@ -40,9 +40,13 @@ function ProductByCategory({ data }) {
             alt="product"
           />
         </div>
+        
+        <div className="descByCategory">
         <p className="productNameByCategory">{data.name}</p>
-      </Link>
+     
       <p className="conditionProductByCategory">{data.conditions}</p>
+      </div>
+      </Link>
     </div>
   );
 }

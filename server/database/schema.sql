@@ -59,11 +59,12 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`comment` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
--- -----------------------------------------------------
+---- -----------------------------------------------------
 -- Table `swapit_db`.`exchange`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swapit_db`.`exchange` (
   `exchange_id` INT NOT NULL AUTO_INCREMENT,
+  `transaction_id` INT NULL DEFAULT NULL,
   `comment_id` INT NULL DEFAULT NULL,
   `receiver_id` INT NULL DEFAULT NULL,
   `date` DATETIME NOT NULL,

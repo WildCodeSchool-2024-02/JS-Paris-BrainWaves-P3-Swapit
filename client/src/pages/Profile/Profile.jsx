@@ -10,6 +10,7 @@ export default function Profile() {
   const [productDescription, setProductDescription] = useState("");
   const [productImage, setProductImage] = useState(null);
   const [productCondition, setProductCondition] = useState("");
+  const [productRequest, setProductRequest] = useState("");
   const [productLocation, setProductLocation] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -28,7 +29,7 @@ export default function Profile() {
   });
 
   const { id } = useParams();
-  const [, setUserProfile ] = useState([]);
+  const [, setUserProfile] = useState([]);
   const { auth, setAuth } = useOutletContext();
   const navigate = useNavigate();
  
@@ -39,9 +40,11 @@ export default function Profile() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/users/${id}`
+        );
         const data = await response.json();
-     
+
         setUserProfile(data);
         setFormData({
           username: data.pseudo,
@@ -78,14 +81,17 @@ export default function Profile() {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${auth.token}`,
-        },
-        body: JSON.stringify(updatedUserData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/users/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify(updatedUserData),
+        }
+      );
 
       if (response.ok) {
         toast.success("Profil mis à jour avec succès");
@@ -103,7 +109,7 @@ export default function Profile() {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -116,7 +122,7 @@ export default function Profile() {
       setAlignment(newAlignment);
     }
   }, []);
- 
+
   const [user, setUser] = useState([]);
   const [item, setItem] = useState([]);
   const [swapProposition, setSwapProposition] = useState([])
@@ -182,31 +188,120 @@ export default function Profile() {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
-  
+
   const handleDescriptionChange = (e) => {
     setProductDescription(e.target.value);
   };
-  
+
   const handleFileChange = (e) => {
     setProductImage(e.target.files[0]);
   };
-  
+
   const triggerFileInput = () => {
     document.getElementById("fileInput").click();
   };
-  
+
   const handleConditionChange = (e) => {
     setProductCondition(e.target.value);
   };
-  
+
   const handleLocationChange = (e) => {
     setProductLocation(e.target.value);
   };
-  
+
+  const handleRequestChange = (e) => {
+    setProductRequest(e.target.value);
+  };
+
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-  
+  // const rating = 1.3;
+
+  useEffect(() => {
+    if (alignment === "Vitrine") {
+      fetch(`${import.meta.env.VITE_API_URL}/users/${id}/items`)
+        .then((response) => response.json())
+        .then((facts) => setDataProduct(facts));
+    }
+  }, [alignment, id]);
+
+  // const renderSection = () => {
+  //   switch (alignment) {
+  //     case "Vitrine":
+  //       return dataProduct.length < 1 ? (
+  //         <div
+  //           style={{
+  //             fontSize: "24px",
+  //             textAlign: "center",
+  //             margin: "20px 0px 2rem",
+
+  //             fontFamily: "Helvetica, Arial, sans-serif",
+  //           }}
+  //         >
+  //           Pas de produit pour le moment...
+  //         </div>
+  //       ) : (
+
+        
+
+  //         <div className="latestProductContainerForProfilePage">
+  //           {dataProduct.map((product) => (
+  //             <div key={product.item_id} className="blocProductForProfilePage">
+  //               <div className="blocProfilePage">
+  //                 <div className="imgContainerForProfilePage">
+  //                   <img
+  //                     onClick={() => handleRedirectionItem(product.item_id)}
+  //                     role="presentation"
+  //                     src={product.image_url}
+  //                     className="pictureProductForProfilePage"
+  //                     alt="product"
+  //                   />
+  //                 </div>
+  //                 <div className="productInformationForProfilePage">
+  //                   <p
+  //                     onClick={() => handleRedirectionItem(product.item_id)}
+  //                     role="presentation"
+  //                     className="productNameForProfilePage"
+  //                   >
+  //                     {product.name}
+  //                   </p>
+  //                   <p className="categoryProductForProfilePage">
+  //                     {product.category_name}
+  //                   </p>
+  //                   <p className="conditionProductForProfilePage">
+  //                     {product.conditions}
+  //                   </p>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           ))}
+  //         </div>
+  //       );
+
+  //     case "Evaluations":
+  //       return (
+  //         <div
+  //           style={{
+  //             fontSize: "24px",
+  //             textAlign: "center",
+  //             margin: "20px 0",
+  //             marginBottom: "2rem",
+  //             fontFamily: "Helvetica, Arial, sans-serif",
+  //           }}
+  //         >
+  //           {" "}
+  //           Evaluations section
+  //         </div>
+  //       );
+  //     case "Validations":
+  //       return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
+  //     default:
+  //       return null;
+  //   }
+  // };
+
+
   const handleSubmit = async () => {
     
     const form = new FormData();
@@ -218,7 +313,7 @@ export default function Profile() {
     form.append(`image_url`, productImage);
     form.append("user_id", id);
     form.append("category_id", selectedCategory);
-    
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/items`, {
         method: "POST",
@@ -234,104 +329,120 @@ export default function Profile() {
     } catch (error) {
       toast.error("Une erreur est survenue . .");
     }
-  }
+  };
+
   const renderSection = () => {
     switch (alignment) {
       case "Vitrine":
         return dataProduct.length < 1 ? (
           <div
-          style={{
-            fontSize: "24px",
-            textAlign: "center",
-            margin: "20px 0",
-            fontFamily: "Helvetica, Arial, sans-serif"
-          }}
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
           >
             Pas de produit pour le moment...
           </div>
         ) : (
           <div>
   
-            <h3 className="numberOfItems">{dataProduct.length} {dataProduct.length === 1 ? "article" : "articles"}</h3> 
-          <div className="latestProductContainerForProfilePage">
-            
-            {dataProduct.map((product) => (
-              <div key={product.item_id} className="blocProductForProfilePage">
-                <div className="blocProfilePage">
-                
-                  <div className="imgContainerForProfilePage">
-                    <img
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      src={product.image_url}
-                      className="pictureProductForProfilePage"
-                      alt="product"
+              <h3 className="numberOfItems">
+                {dataProduct.length}{" "}
+                {dataProduct.length === 1 ? "article" : "articles"}
+              </h3>
+          <div>
+            <div className="latestProductContainerForProfilePage">
+              {dataProduct.map((product) => (
+                <div
+                  key={product.item_id}
+                  className="blocProductForProfilePage"
+                >
+                  <div className="blocProfilePage">
+                    <div className="imgContainerForProfilePage">
+                      <img
+                        onClick={() => handleRedirectionItem(product.item_id)}
+                        role="presentation"
+                        src={product.image_url}
+                        className="pictureProductForProfilePage"
+                        alt="product"
                       />
-                  </div>
-                  <div className="productInformationForProfilePage">
-                    <p
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      className="productNameForProfilePage"
+                    </div>
+                    <div className="productInformationForProfilePage">
+                      <p
+                        onClick={() => handleRedirectionItem(product.item_id)}
+                        role="presentation"
+                        className="productNameForProfilePage"
                       >
-                      {product.name}
-                    </p>
-                    <p className="categoryProductForProfilePage">
-                      {product.category_name}
-                    </p>
-                    <p className="conditionProductForProfilePage">
-                      {product.conditions}
-                    </p>
+                        {product.name}
+                      </p>
+                      <p className="categoryProductForProfilePage">
+                        {product.category_name}
+                      </p>
+                      <p className="conditionProductForProfilePage">
+                        {product.conditions}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           </div>
         );
-        case "Evaluations":
-          return <div>Evaluations section content</div>;
-      case "Propositions":
-        return <div>Propositions section content</div>;
-        case "Validations":
-          return user.is_admin === 1 ? (
-            <div>Validations section content</div>
-          ) : null;
+     case "Evaluations":
+        return (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              marginBottom: "2rem",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Pas d'évaluation pour le moment ! 
+          </div>
+        );
+      case "Validations":
+        return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
       default:
         return null;
-      }
-    };
-    
-    const handleValidationAdProduct = async (articleId) => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/items/${articleId}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${auth.token}`,
-            },
-            body: JSON.stringify({ is_approved: true }),
-          }
-        );
-        if (response.ok) {
-          toast.success("L'article a été validé avec succès.");
-          setItem((prevItems) =>
-            prevItems.map((element) =>
-              element.item_id === articleId
-          ? { ...element, is_approved: true }
-          : element
-        )
-      );
-    } else {
-      toast.warning("Échec de la validation de l'article.");
     }
-  } catch (error) {
-    toast.error("Une erreur est survenue lors de la validation.");
-  }
   };
-  
+
+  const handleValidationAdProduct = async (articleId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/items/${articleId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth.token}`,
+          },
+          body: JSON.stringify({ is_approved: true }),
+        }
+      );
+      if (response.ok) {
+        toast.success("L'article a été validé avec succès.");
+        setItem((prevItems) =>
+          prevItems.map((element) =>
+            element.item_id === articleId
+              ? { ...element, is_approved: true }
+              : element
+          )
+        );
+      } else {
+        toast.warning("Échec de la validation de l'article.");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue lors de la validation.");
+    }
+  };
+
   const handleRefusalAdProduct = async (articleId) => {
     try {
       const response = await fetch(
@@ -349,17 +460,17 @@ export default function Profile() {
         toast.success("L'article a été refusé avec succès.");
         setItem((prevItems) =>
           prevItems.filter((element) => element.id !== articleId)
-      );
-    } else {
-      toast.warning("Échec du refus de l'article.");
+        );
+      } else {
+        toast.warning("Échec du refus de l'article.");
+      }
+    } catch (error) {
+      toast.error("Une erreur est survenue lors du refus.");
     }
-  } catch (error) {
-    toast.error("Une erreur est survenue lors du refus.");
-  }
-};
+  };
 
-return (
-  <>  
+  return (
+    <>
       <div className="profileContainer">
         <div className="profileHeader">
           <div className="profileImgContainer">
@@ -374,9 +485,9 @@ return (
               <p className="screenReaders">Rated {user.rating} out of 5</p>
               {[1, 2, 3, 4, 5].map((rate) => (
                 <button
-                id="buttonStar"
-                key={rate}
-                type="button"
+                  id="buttonStar"
+                  key={rate}
+                  type="button"
                   className={
                     rate <= user.rating ? "rate-value-full" : "rate-value-empty"
                   }
@@ -388,91 +499,97 @@ return (
             </div>
             <p className="Location">Paris, France</p>
             <p className="Subscribe">Member since January 2024</p>
-            {auth.isLogged &&
-            ((auth.user.user_id) === (user.user_id)) && 
-            <div>
-              <button id="buttonModif" type="button" onClick={() => setIsModalOpen(true)}>
-                Modifications profil
-              </button>
-              {isModalOpen && (
-                <div className="modalProfile">
-                    <span className="closeBtn" role="presentation" onClick={() => setIsModalOpen(false)}>&times;</span>
-                  <div className="modalcontentProfile">
-                    <form onSubmit={handleProfileSubmit} id="profileForm">
-                      <input
-                        placeholder="Pseudo"
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleInputChange}
-                       
-                      />
-                      <input
-                        placeholder="Email"
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                       
-                      />
-                      <input 
-                        placeholder="Mot de passe"
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        
-                      />
-                      <input
-                        placeholder="Confirmer mot de passe"
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleInputChange}
-                       
-                      />
-                      <input
-                        placeholder="Telephone"
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        
-                      />
-                      <input
-                        placeholder="Ville"
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleInputChange}
-                        
-                      />
-                      <input
-                        placeholder="Code Postal"
-                        type="text"
-                        id="postalCode"
-                        name="postalCode"
-                        value={formData.postalCode}
-                        onChange={handleInputChange}
-                       />
-                      <div id="confirmationprofileBtn">
-                        <button type="submit" className="confirmationBtn">Confirmation</button>
-                      </div>
-                    </form>
+            {auth.isLogged && auth.user.user_id === user.user_id && (
+              <div>
+                <button
+                  id="buttonModif"
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  Modifications profil
+                </button>
+                {isModalOpen && (
+                  <div className="modalProfile">
+                    <span
+                      className="closeBtn"
+                      role="presentation"
+                      onClick={() => setIsModalOpen(false)}
+                    >
+                      &times;
+                    </span>
+                    <div className="modalcontentProfile">
+                      <form onSubmit={handleProfileSubmit} id="profileForm">
+                        <input
+                          placeholder="Pseudo"
+                          type="text"
+                          id="username"
+                          name="username"
+                          value={formData.username}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Email"
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Mot de passe"
+                          type="password"
+                          id="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Confirmer mot de passe"
+                          type="password"
+                          id="confirmPassword"
+                          name="confirmPassword"
+                          value={formData.confirmPassword}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Telephone"
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Ville"
+                          type="text"
+                          id="city"
+                          name="city"
+                          value={formData.city}
+                          onChange={handleInputChange}
+                        />
+                        <input
+                          placeholder="Code Postal"
+                          type="text"
+                          id="postalCode"
+                          name="postalCode"
+                          value={formData.postalCode}
+                          onChange={handleInputChange}
+                        />
+                        <div id="confirmationprofileBtn">
+                          <button type="submit" className="confirmationBtn">
+                            Confirmation
+                          </button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>}
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
-      <div>
+      <div className="profileBar">
         <ToggleButtonGroup
           color="primary"
           value={alignment}
@@ -495,9 +612,10 @@ return (
 
       {alignment === "Vitrine" &&
         auth.isLogged === true &&
-        user.is_admin === 0 && (
+        auth.user.user_id === user.user_id && (
           <div className="blocAddProduct">
-            <p className="addAProduct">Ajouter un produit</p>
+            <p className="addAProduct">Ajoutez un produit</p>
+
             <div className="inputGroupAddProduct">
               <p className="titleAddProduct">Titre&nbsp;:</p>
               <input
@@ -509,7 +627,7 @@ return (
               />
             </div>
             <div>
-              <p className="addAPhoto">Ajouter votre / vos photo(s) ici</p>
+              <p className="addAPhoto">Ajoutez votre / vos photo(s) ici</p>
               <div
                 className="photoPreview"
                 role="presentation"
@@ -529,6 +647,7 @@ return (
                 )}
               </div>
               <input
+                placeholder="Entrez le titre du produit"
                 id="fileInput"
                 type="file"
                 onChange={handleFileChange}
@@ -537,6 +656,7 @@ return (
             </div>
             <p className="descriptionAddAProduct">Description&nbsp;:</p>
             <textarea
+              placeholder="Ajoutez une descriptionn"
               type="text"
               value={productDescription}
               onChange={handleDescriptionChange}
@@ -544,20 +664,32 @@ return (
             />
             <p className="conditionAddAProduct">Condition&nbsp;:</p>
             <textarea
+              placeholder="Ajoutez une Condition"
               type="text"
               value={productCondition}
               onChange={handleConditionChange}
               className="texteAreaCondition"
             />
             <div className="inputGroupAddProduct">
-              <p className="locationAddAProduct">Location&nbsp;:</p>
+              <p className="locationAddAProduct">Localisation&nbsp;:</p>
               <input
+                placeholder="Ajoutez une localisation"
                 type="text"
                 value={productLocation}
                 onChange={handleLocationChange}
                 className="inputLocation"
               />
             </div>
+
+            <p className="requestAddAProduct">Echange souhaité&nbsp;:</p>
+            <textarea
+             placeholder="Ajoutez les échanges souhaités"
+              type="text"
+              value={productRequest}
+              onChange={handleRequestChange}
+              className="texteAreaRequest"
+            />
+
             <div className="inputGroupAddProduct">
               <p className="categoryAddAProduct">Catégorie&nbsp;:</p>
               <select
@@ -593,7 +725,6 @@ return (
           <>
             {item.map((article) => (
               <div key={article.id} className="productAdValidation">
-                <p className="adValidation">Annonce à valider</p>
                 <p className="pseudoAdValidation">
                   Swaper :{" "}
                   <span className="contentPseudoAdValidation">
