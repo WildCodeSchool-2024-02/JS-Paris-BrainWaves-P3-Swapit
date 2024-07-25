@@ -2,9 +2,27 @@ import { useState, useCallback, useEffect } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useParams, useOutletContext, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 import "./Profile.css";
 
 export default function Profile() {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 550,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    borderRadius: "20px",
+    boxShadow: 24,
+    p: 4,
+  };
+
   const [alignment, setAlignment] = useState("");
   const [title, setTitle] = useState("");
   const [productDescription, setProductDescription] = useState("");
@@ -32,7 +50,7 @@ export default function Profile() {
   const [, setUserProfile] = useState([]);
   const { auth, setAuth } = useOutletContext();
   const navigate = useNavigate();
- 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -125,9 +143,8 @@ export default function Profile() {
 
   const [user, setUser] = useState([]);
   const [item, setItem] = useState([]);
-  const [swapProposition, setSwapProposition] = useState([])
-  const [swapReception, setSwapReception] = useState([])
-
+  const [swapProposition, setSwapProposition] = useState([]);
+  const [swapReception, setSwapReception] = useState([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/users/${id}`)
@@ -141,19 +158,21 @@ export default function Profile() {
     fetch(`${import.meta.env.VITE_API_URL}/items/unapproved`)
       .then((response) => response.json())
       .then((data) => setItem(data));
-
   }, [id]);
 
   useEffect(() => {
     const fetchSwapPropositions = async () => {
       try {
-        const swapReponse= await fetch(`${import.meta.env.VITE_API_URL}/items/swap`, {
-          method: "GET",
-          headers:{
-            "Authorization" : `Bearer ${auth.token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const swapReponse = await fetch(
+          `${import.meta.env.VITE_API_URL}/items/swap`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${auth.token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const swapData = await swapReponse.json();
         setSwapProposition(swapData);
       } catch (error) {
@@ -164,15 +183,18 @@ export default function Profile() {
   }, [auth.token]);
 
   useEffect(() => {
-    const fetchSwapReceptions= async () => {
+    const fetchSwapReceptions = async () => {
       try {
-        const swapReponseReceptions= await fetch(`${import.meta.env.VITE_API_URL}/items/reception`, {
-          method: "GET",
-          headers:{
-            "Authorization" : `Bearer ${auth.token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const swapReponseReceptions = await fetch(
+          `${import.meta.env.VITE_API_URL}/items/reception`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${auth.token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const swapReceptionData = await swapReponseReceptions.json();
         setSwapReception(swapReceptionData);
       } catch (error) {
@@ -181,9 +203,6 @@ export default function Profile() {
     };
     fetchSwapReceptions();
   }, [auth.token]);
-
-
-
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -216,7 +235,6 @@ export default function Profile() {
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-  // const rating = 1.3;
 
   useEffect(() => {
     if (alignment === "Vitrine") {
@@ -226,84 +244,7 @@ export default function Profile() {
     }
   }, [alignment, id]);
 
-  // const renderSection = () => {
-  //   switch (alignment) {
-  //     case "Vitrine":
-  //       return dataProduct.length < 1 ? (
-  //         <div
-  //           style={{
-  //             fontSize: "24px",
-  //             textAlign: "center",
-  //             margin: "20px 0px 2rem",
-
-  //             fontFamily: "Helvetica, Arial, sans-serif",
-  //           }}
-  //         >
-  //           Pas de produit pour le moment...
-  //         </div>
-  //       ) : (
-
-        
-
-  //         <div className="latestProductContainerForProfilePage">
-  //           {dataProduct.map((product) => (
-  //             <div key={product.item_id} className="blocProductForProfilePage">
-  //               <div className="blocProfilePage">
-  //                 <div className="imgContainerForProfilePage">
-  //                   <img
-  //                     onClick={() => handleRedirectionItem(product.item_id)}
-  //                     role="presentation"
-  //                     src={product.image_url}
-  //                     className="pictureProductForProfilePage"
-  //                     alt="product"
-  //                   />
-  //                 </div>
-  //                 <div className="productInformationForProfilePage">
-  //                   <p
-  //                     onClick={() => handleRedirectionItem(product.item_id)}
-  //                     role="presentation"
-  //                     className="productNameForProfilePage"
-  //                   >
-  //                     {product.name}
-  //                   </p>
-  //                   <p className="categoryProductForProfilePage">
-  //                     {product.category_name}
-  //                   </p>
-  //                   <p className="conditionProductForProfilePage">
-  //                     {product.conditions}
-  //                   </p>
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       );
-
-  //     case "Evaluations":
-  //       return (
-  //         <div
-  //           style={{
-  //             fontSize: "24px",
-  //             textAlign: "center",
-  //             margin: "20px 0",
-  //             marginBottom: "2rem",
-  //             fontFamily: "Helvetica, Arial, sans-serif",
-  //           }}
-  //         >
-  //           {" "}
-  //           Evaluations section
-  //         </div>
-  //       );
-  //     case "Validations":
-  //       return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
-  //     default:
-  //       return null;
-  //   }
-  // };
-
-
   const handleSubmit = async () => {
-    
     const form = new FormData();
     form.append("name", title);
     form.append("description", productDescription);
@@ -347,51 +288,50 @@ export default function Profile() {
           </div>
         ) : (
           <div>
-  
-              <h3 className="numberOfItems">
-                {dataProduct.length}{" "}
-                {dataProduct.length === 1 ? "article" : "articles"}
-              </h3>
-          <div>
-            <div className="latestProductContainerForProfilePage">
-              {dataProduct.map((product) => (
-                <div
-                  key={product.item_id}
-                  className="blocProductForProfilePage"
-                >
-                  <div className="blocProfilePage">
-                    <div className="imgContainerForProfilePage">
-                      <img
-                        onClick={() => handleRedirectionItem(product.item_id)}
-                        role="presentation"
-                        src={product.image_url}
-                        className="pictureProductForProfilePage"
-                        alt="product"
-                      />
-                    </div>
-                    <div className="productInformationForProfilePage">
-                      <p
-                        onClick={() => handleRedirectionItem(product.item_id)}
-                        role="presentation"
-                        className="productNameForProfilePage"
-                      >
-                        {product.name}
-                      </p>
-                      <p className="categoryProductForProfilePage">
-                        {product.category_name}
-                      </p>
-                      <p className="conditionProductForProfilePage">
-                        {product.conditions}
-                      </p>
+            <h3 className="numberOfItems">
+              {dataProduct.length}{" "}
+              {dataProduct.length === 1 ? "article" : "articles"}
+            </h3>
+            <div>
+              <div className="latestProductContainerForProfilePage">
+                {dataProduct.map((product) => (
+                  <div
+                    key={product.item_id}
+                    className="blocProductForProfilePage"
+                  >
+                    <div className="blocProfilePage">
+                      <div className="imgContainerForProfilePage">
+                        <img
+                          onClick={() => handleRedirectionItem(product.item_id)}
+                          role="presentation"
+                          src={product.image_url}
+                          className="pictureProductForProfilePage"
+                          alt="product"
+                        />
+                      </div>
+                      <div className="productInformationForProfilePage">
+                        <p
+                          onClick={() => handleRedirectionItem(product.item_id)}
+                          role="presentation"
+                          className="productNameForProfilePage"
+                        >
+                          {product.name}
+                        </p>
+                        <p className="categoryProductForProfilePage">
+                          {product.category_name}
+                        </p>
+                        <p className="conditionProductForProfilePage">
+                          {product.conditions}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-          </div>
         );
-     case "Evaluations":
+      case "Evaluations":
         return (
           <div
             style={{
@@ -403,7 +343,7 @@ export default function Profile() {
             }}
           >
             {" "}
-            Pas d'évaluation pour le moment ! 
+            Pas d'évaluation pour le moment !
           </div>
         );
       case "Validations":
@@ -468,6 +408,7 @@ export default function Profile() {
       toast.error("Une erreur est survenue lors du refus.");
     }
   };
+
 
   return (
     <>
@@ -683,7 +624,7 @@ export default function Profile() {
 
             <p className="requestAddAProduct">Echange souhaité&nbsp;:</p>
             <textarea
-             placeholder="Ajoutez les échanges souhaités"
+              placeholder="Ajoutez les échanges souhaités"
               type="text"
               value={productRequest}
               onChange={handleRequestChange}
@@ -781,54 +722,125 @@ export default function Profile() {
             ))}
           </>
         )}
-        {alignment === "Propositions" &&
+      {alignment === "Propositions" &&
         auth.isLogged === true &&
-        user.is_admin === 0 && (
+        user.is_admin === 0 &&
+        (swapProposition.length > 0 ? (
+          <div>
+            {swapProposition.map((product) => (
+              <div key={product.item_id} className="productAdValidation">
+                <p className="pseudoAdValidation">
+                  Swap proposé par :{" "}
+                  <span className="contentPseudoAdValidation">
+                    {product.pseudo}
+                  </span>
+                </p>
+                <p className="titleAdValidation">
+                  Titre :{" "}
+                  <span className="contentTitleAdValidation">
+                    {product.name}
+                  </span>
+                </p>
 
-          <div className="latestProductContainerForProfilePage">
-          {swapProposition.map((product) => (
-              <div key={product.item_id} className="blocProductForProfilePage">
-                <div className="blocProfilePage">
-                
-                  <div className="imgContainerForProfilePage">
-                    <img
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      src={product.image_url}
-                      className="pictureProductForProfilePage"
-                      alt="product"
-                      />
-                  </div>
-                  <div className="productInformationForProfilePage">
-                    <p
-                      onClick={() => handleRedirectionItem(product.item_id)}
-                      role="presentation"
-                      className="productNameForProfilePage"
-                      >
-                      {product.name}
-                    </p>
-                    <p className="categoryProductForProfilePage">
-                      {product.category_name}
-                    </p>
-                    <p className="conditionProductForProfilePage">
-                      {product.conditions}
-                    </p>
+                <p>Photo : </p>
+                <div className="containerPhotoAdValidation">
+                  <img
+                    onClick={() => handleRedirectionItem(product.item_id)}
+                    role="presentation"
+                    src={product.image_url}
+                    className="photoAdValidation"
+                    alt="product"
+                  />
+                </div>
+
+                <p className="conditionAdValidation">
+                  Condition&nbsp;:{" "}
+                  <span className="contentConditionAdValidation">
+                    {product.conditions}{" "}
+                  </span>
+                </p>
+                <p className="conditionAdValidation">
+                  Swap contre votre&nbsp;:{" "}
+                  <span className="contentConditionAdValidation">
                     {swapReception
-                    .filter((productRec) => productRec.exchange_id === product.exchange_id)
-                    .map((productRec) => (  <p key={product.index} className="conditionProductForProfilePage">
-                      {product.pseudo} veut swapper votre {productRec.name}
-                    </p>
-                    ))}
-                 
+                      .filter(
+                        (productRec) =>
+                          productRec.exchange_id === product.exchange_id
+                      )
+                      .map((productRec) => (
+                        <p key={product.index}>{productRec.name}</p>
+                      ))}
+                  </span>
+                </p>
+                <div className="buttonZoneAdValidation">
+                  <button
+                    type="button"
+                    className="validationAdProduct"
+                    onClick={handleOpen}
+                  >
+                    Accepter
+                  </button>
+                  <Modal
+                    id="modalSwap"
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box id="modalBox" sx={style}>
+                      {" "}
+                      {swapProposition.map((productModal) => (
+                        <div
+                          className="modalContent"
+                          key={productModal.item_id}
+                        >
+                          <h3 className="textSwap">
+                            Veuillez trouver ci-dessous les coordonnées du
+                            swappeur afin de convenir d'un rendez-vous :{" "}
+                          </h3>
 
-                  </div>
+                          <p key={productModal.item_id} className="numSwap">
+                            {" "}
+                            <span  style={{
+             fontWeight:"bold"
+            }}>Téléphone:</span>  {productModal.phone}
+                          </p>
+
+                          <p key={productModal.item_id} className="mailSwap">
+                            {" "}
+                            <span  style={{
+             fontWeight:"bold"
+            }}>Email:</span> {productModal.email}
+                          </p>
+                        </div>
+                      ))}
+                    </Box>
+                  </Modal>
+                  <button
+                    type="button"
+                    className="refusalAdProduct"
+                    onClick={handleClose}
+                  >
+                    Refuser
+                  </button>
                 </div>
               </div>
             ))}
-             
           </div>
-        )
-      }
+        ) : (
+          <p
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              marginBottom: "2rem",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Vous n'avez pas de proposition de swap pour le moment ...
+          </p>
+        ))}
     </>
   );
 }

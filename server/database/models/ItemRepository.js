@@ -94,7 +94,7 @@ class ItemRepository extends AbstractRepository {
 
   async swap (id) {
     const result = await this.database.query(
-      `SELECT DISTINCT i.*, ex.*, t.*, u.pseudo
+      `SELECT DISTINCT i.*, ex.*, t.*, u.*
 		FROM user as u 
       JOIN item as i
       ON u.user_id = i.user_id

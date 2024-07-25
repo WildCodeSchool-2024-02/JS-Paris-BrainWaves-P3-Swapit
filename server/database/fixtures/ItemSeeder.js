@@ -18,7 +18,7 @@ class ItemSeeder extends AbstractSeeder {
     // Generate fake item data
     const items = [
       {
-        name: "iphone 12",
+        name: "Iphone 12",
         description:
           "iPhone 12 à échanger Écran Super Retina XDR de 6,1 pouces, puce A14 Bionic, double caméra avec mode Nuit, compatible 5G. Très bon état avec accessoires inclus.",
         conditions: "Très bon état",
@@ -31,7 +31,7 @@ class ItemSeeder extends AbstractSeeder {
         category_id: this.getRef("category01").insertId,
       },
       {
-        name: "iphone 11",
+        name: "Iphone 11",
         description:
           "iPhone 11 à échanger Écran Super Retina XDR de 5,8 pouces, puce A14 Bionic, double caméra avec mode Nuit, compatible 5G. Très bon état avec accessoires inclus.",
         conditions: "Très bon état",
@@ -59,7 +59,7 @@ class ItemSeeder extends AbstractSeeder {
       },
 
       {
-        name: "iPhone 13",
+        name: "Iphone 13",
         description:
           "Google Pixel 6 à échanger Écran OLED de 6,4 pouces, processeur Google Tensor, double caméra avec Night Sight, compatible 5G. Très bon état avec accessoires inclus.",
         conditions: "Très bon état",
