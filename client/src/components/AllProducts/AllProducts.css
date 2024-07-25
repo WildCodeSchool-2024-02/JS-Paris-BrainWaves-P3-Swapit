@@ -38,8 +38,9 @@
 
 .productInformationForAllProducts {
   display: flex;
+  width: 80%;
+  align-items: flex-start;
   flex-direction: column;
-  align-items: center;
 }
 
 .conditionProductForAllProducts {
@@ -58,6 +59,7 @@
 }
 
 .blocProfile {
+  width: 80%;
   display: flex;
   margin-bottom: 2vh;
   gap: 1vh;

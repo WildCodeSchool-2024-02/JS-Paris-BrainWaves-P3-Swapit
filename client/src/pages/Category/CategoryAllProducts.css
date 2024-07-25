@@ -3,7 +3,6 @@
   grid-template-columns: repeat(1, 1fr);
   gap: 7vh;
   margin: 0 auto 5vh auto;
-  padding: 0 4vh;
 }
 
 .linkAllProducts {
@@ -25,6 +24,7 @@
 
 @media only screen and (min-width: 769px) {
   .productContainerForAllProducts {
+    padding: 0 4vh;
     display: flex;
     flex-direction: row;
     margin-top: 5vh;

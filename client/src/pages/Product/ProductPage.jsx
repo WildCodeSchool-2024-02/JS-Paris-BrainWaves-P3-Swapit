@@ -91,27 +91,6 @@ export default function ProductPage() {
                 className="mainImage"
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src={product.image_url}
-                alt="Main product"
-                className="mainImage"
-              />
-            </SwiperSlide>
           </Swiper>
 
           <div className="swapBtn">
@@ -152,7 +131,6 @@ export default function ProductPage() {
             </div>
           )}
 
-          
           <div className="swapProposition">
             {openSwapRequest && (
               <SwapProposition

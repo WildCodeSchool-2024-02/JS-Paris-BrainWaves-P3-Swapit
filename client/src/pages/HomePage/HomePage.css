@@ -3,7 +3,7 @@
   grid-template-columns: repeat(1, 1fr);
   gap: 7vh;
   margin: 0 auto 5vh auto;
-  padding: 0 4vh;
+
   text-decoration: none;
 }
 
@@ -30,6 +30,7 @@
 @media only screen and (min-width: 769px) {
   .latestProductContainerForHomePage {
     display: flex;
+    padding: 0 4vh;
     flex-direction: row;
     margin-top: 5vh;
     margin-bottom: 10vh;

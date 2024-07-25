@@ -52,6 +52,10 @@ button {
   font-weight: bold;
 }
 
+.Subscribe {
+  margin-bottom: 10px;
+}
+
 .profileDetails {
   display: flex;
   flex-direction: column;
@@ -85,6 +89,7 @@ button {
 }
 
 .profileBar {
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
 }
@@ -209,11 +214,11 @@ button {
 
 .imgContainerForProfilePage {
   position: relative;
-  width: 100%;
-  height: 22vh;
+  width: 800%;
+  height: 45vh;
   overflow: hidden;
   border-radius: 10px;
-  margin-top: 30%;
+  margin-top: 20px;
 }
 
 .pictureProductForProfilePage {
@@ -225,34 +230,34 @@ button {
 
 .categoryProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
-  font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 .productNameForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
 .conditionProductForProfilePage {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.6rem;
+  font-size: 1.2rem;
 }
 
 .blocProfilePage {
   display: flex;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
   gap: 1vh;
   flex-wrap: wrap;
 }
 
 .latestProductContainerForProfilePage {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 4vh;
   margin: 0 auto 0vh auto;
-  padding: 0 4vh;
+  padding: 0 5vh;
 }
 
 .profileAdministrator {
@@ -407,8 +412,10 @@ button {
   }
 
   .profileHeader {
-    margin: 2.5rem;
-    gap: 60px;
+    margin: 2rem;
+    gap: 40px;
+    display: flex;
+    align-items: center;
   }
 
   #buttonModif {
@@ -426,17 +433,20 @@ button {
   /* VITRINE  */
 
   .latestProductContainerForProfilePage {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4vh;
     padding: 0 4vh;
   }
   .blocProfilePage {
+    position: relative;
+
     display: flex;
     margin-bottom: 5vh;
     gap: 1vh;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: center;
   }
 
   .blocProductForProfilePage {
@@ -452,8 +462,14 @@ button {
     object-fit: cover;
     cursor: pointer;
   }
-
+  .productInformationForProfilePage {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .productNameForProfilePage {
+    margin-bottom: 1vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: bold;
@@ -466,9 +482,10 @@ button {
   }
 
   .imgContainerForProfilePage {
+    margin-top: 100px;
     position: relative;
-    width: 80%;
-    height: 50vh;
+    width: 65%;
+    height: 60vh;
     overflow: hidden;
     border-radius: 10px;
   }
@@ -487,6 +504,7 @@ button {
     padding-bottom: 1%;
     margin: auto;
     margin-bottom: 15%;
+    margin-top: 10%;
   }
 
   .titleAddProduct,
