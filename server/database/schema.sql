@@ -1,22 +1,17 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION’;
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema swapit_db
 -- -----------------------------------------------------
-
 -- -----------------------------------------------------
 -- Schema swapit_db
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `swapit_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `swapit_db` ;
-
 -- -----------------------------------------------------
 -- Table `swapit_db`.`category`
 -- -----------------------------------------------------
@@ -28,8 +23,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 23
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `swapit_db`.`user`
 -- -----------------------------------------------------
@@ -48,8 +41,6 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `swapit_db`.`comment`
 -- -----------------------------------------------------
@@ -68,9 +59,7 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`comment` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
+---- -----------------------------------------------------
 -- Table `swapit_db`.`exchange`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swapit_db`.`exchange` (
@@ -79,9 +68,8 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`exchange` (
   `comment_id` INT NULL DEFAULT NULL,
   `date` DATETIME NOT NULL,
   `status` VARCHAR(45) NOT NULL,
-  `exchangecol` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`exchange_id`, `exchangecol`),
-  INDEX `exchange_comment_id_idx` (`comment_id` ASC) VISIBLE,
+  PRIMARY KEY (`exchange_id`),
+  INDEX `exchange_comment_id` (`comment_id` ASC) VISIBLE,
   CONSTRAINT `exchange_comment_id`
     FOREIGN KEY (`comment_id`)
     REFERENCES `swapit_db`.`comment` (`comment_id`)
@@ -90,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `swapit_db`.`exchange` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
 
 -- -----------------------------------------------------
 -- Table `swapit_db`.`item`
@@ -124,32 +111,29 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
 -- -----------------------------------------------------
 -- Table `swapit_db`.`transaction`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swapit_db`.`transaction` (
-  `item_item_id` INT NOT NULL,
-  `exchange_exchange_id` INT NOT NULL,
-  PRIMARY KEY (`item_item_id`, `exchange_exchange_id`),
-  INDEX `fk_item_has_exchange_exchange1_idx` (`exchange_exchange_id` ASC) VISIBLE,
-  INDEX `fk_item_has_exchange_item1_idx` (`item_item_id` ASC) VISIBLE,
-  CONSTRAINT `fk_item_has_exchange_item1`
-    FOREIGN KEY (`item_item_id`)
+  `transaction_id` INT NOT NULL AUTO_INCREMENT,
+  `item_id` INT NOT NULL,
+  `exchange_id` INT NOT NULL,
+  PRIMARY KEY (`transaction_id`),
+  INDEX `fk_transaction_item` (`item_id` ASC) VISIBLE,
+  INDEX `fk_transaction_exchange` (`exchange_id` ASC) VISIBLE,
+  CONSTRAINT `fk_item`
+    FOREIGN KEY (`item_id`)
     REFERENCES `swapit_db`.`item` (`item_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_item_has_exchange_exchange1`
-    FOREIGN KEY (`exchange_exchange_id`)
+  CONSTRAINT `fk_exchange`
+    FOREIGN KEY (`exchange_id`)
     REFERENCES `swapit_db`.`exchange` (`exchange_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

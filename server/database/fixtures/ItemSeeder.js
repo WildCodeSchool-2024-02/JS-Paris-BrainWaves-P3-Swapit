@@ -82,7 +82,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/9403824/pexels-photo-9403824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Lille",
         swap_request: "iPhone 12 Pro Max",
-        user_id: this.getRef("user5").insertId,
+        user_id: this.getRef("user2").insertId,
         category_id: this.getRef("category01").insertId,
       },
 
@@ -110,7 +110,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/3987066/pexels-photo-3987066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Lyon",
         swap_request: "HP Spectre x360 13",
-        user_id: this.getRef("user2").insertId,
+        user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category02").insertId,
       },
 
@@ -124,7 +124,7 @@ class ItemSeeder extends AbstractSeeder {
           "https://images.pexels.com/photos/5243611/pexels-photo-5243611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         location: "Bordeaux",
         swap_request: "Dell XPS 13 2-en-1",
-        user_id: this.getRef("user3").insertId,
+        user_id: this.getRef("user1").insertId,
         category_id: this.getRef("category02").insertId,
       },
     ];

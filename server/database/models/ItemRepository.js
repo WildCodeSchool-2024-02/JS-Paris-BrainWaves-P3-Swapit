@@ -7,7 +7,7 @@ class ItemRepository extends AbstractRepository {
 
   async create(item) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (name, description, conditions, date_added, image_url, location, user_id, category_id ) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (name, description, conditions, date_added, image_url, location, swap_request, user_id, category_id ) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         item.name,
         item.description,
@@ -15,6 +15,7 @@ class ItemRepository extends AbstractRepository {
         item.date_added,
         item.image_url,
         item.location,
+        item.swap_request,
         item.user_id,
         item.category_id,
       ]
@@ -62,8 +63,6 @@ class ItemRepository extends AbstractRepository {
     );
     return result;
   }
-
-
 
   async readUserByItem(id) {
     const result = await this.database.query(

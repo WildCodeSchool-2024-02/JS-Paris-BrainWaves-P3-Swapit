@@ -26,7 +26,7 @@ class UserRepository extends AbstractRepository {
 
   async update(user, id) {
     return this.database.query(
-      `UPDATE ${this.table}  SET ? WHERE ${this.table}_id = ?`,
+      `UPDATE ${this.table} SET ? WHERE ${this.table}_id = ?`,
       [user, id]
     );
   }
