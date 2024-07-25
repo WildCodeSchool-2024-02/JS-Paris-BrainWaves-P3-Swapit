@@ -26,6 +26,7 @@ button {
   width: 12rem;
   height: 3.5rem;
   margin: 3% 0 0.5rem;
+  transition: background-color 0.3s ease 0s;
 }
 
 #btn {
@@ -50,6 +51,11 @@ button {
   margin: 30px 0 40px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  transition: background-color 0.3s ease 0s;
+}
+
+.validationAddAProduct:hover {
+  background-color: #0093aa;
 }
 
 .Subscribe {
@@ -244,11 +250,14 @@ button {
 }
 
 .numberOfItems {
+  display: flex;
+  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 2vh;
   margin-left: 2vh;
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .profileAdministrator {
@@ -555,6 +564,7 @@ input::placeholder {
     margin-left: 4vh;
     font-size: 17px;
     font-weight: 600;
+    margin-bottom: 0px;
   }
 
   .blocAddProduct {
@@ -652,11 +662,36 @@ input::placeholder {
     color: rgb(124, 124, 124);
     padding-left: 7px;
   }
+
   .inputLocation:focus {
     outline: none;
     border: solid thin #00c3e3;
     box-shadow: inset gray 0px 0px 4px -1px;
   }
+
+  .texteAreaRequest {
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    padding: 4%;
+    margin-bottom: 0px;
+  }
+
+  .texteAreaRequest::placeholder {
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .texteAreaRequest:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  .requestAddAProduct {
+    font-size: large;
+  }
+
   .inputCategory {
     width: 22vw;
     height: 9vh;

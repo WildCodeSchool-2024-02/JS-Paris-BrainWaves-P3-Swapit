@@ -21,6 +21,9 @@
   border-radius: 20px;
   font-size: 0.8rem;
 }
+.searchTerm::placeholder {
+  color: rgb(169, 169, 169);
+}
 
 .searchTerm:focus {
   outline: none;

@@ -93,17 +93,7 @@ export default function ProductPage() {
             </SwiperSlide>
           </Swiper>
 
-          <div className="swapBtn">
-            <button
-              className="swapButton"
-              type="button"
-              onClick={handleSwapRequest}
-            >
-              Proposer un SWAP
-            </button>
-          </div>
-
-          {auth.isLogged === true && auth.user.user_id === product.user_id && (
+          {auth.isLogged === true && auth.user.user_id === product.user_id ? (
             <div className="swapBtn">
               <button
                 style={{
@@ -129,11 +119,22 @@ export default function ProductPage() {
                 Supprimer ce produit
               </button>
             </div>
+          ) : (
+            <div className="swapBtn">
+              <button
+                className="swapButton"
+                type="button"
+                onClick={handleSwapRequest}
+              >
+                Proposer un SWAP
+              </button>
+            </div>
           )}
 
           <div className="swapProposition">
             {openSwapRequest && (
               <SwapProposition
+                dataUserReceiver={product}
                 closeProposition={closeSwapRequest}
                 setBlur={setBlur}
               />
@@ -193,42 +194,43 @@ export default function ProductPage() {
               <h4 className="details">Échange souhaité</h4>
               <p>{product.swap_request}</p>
             </div>
-
-            <div className="swapBtnMobile">
-              <button
-                className="swapButton"
-                type="button"
-                onClick={handleSwapRequest}
-              >
-                Proposer un SWAP
-              </button>
-            </div>
-
-            <div className="swapBtnMobile">
-              <button
-                style={{
-                  backgroundColor: "#E50000",
-                  transition: "background-color 0.3s ease",
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.backgroundColor = "darkred";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.backgroundColor = "#E50000 ";
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.backgroundColor = "darkred";
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.backgroundColor = "#E50000";
-                }}
-                className="swapButton"
-                type="button"
-                onClick={handleDeleteProduct}
-              >
-                Supprimer ce produit
-              </button>
-            </div>
+            {auth.isLogged === true && auth.user.user_id === product.user_id ? (
+              <div className="swapBtnMobile">
+                <button
+                  style={{
+                    backgroundColor: "#E50000",
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000 ";
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.backgroundColor = "darkred";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.backgroundColor = "#E50000";
+                  }}
+                  className="swapButton"
+                  type="button"
+                  onClick={handleDeleteProduct}
+                >
+                  Supprimer ce produit
+                </button>
+              </div>
+            ) : (
+              <div className="swapBtnMobile">
+                <button
+                  className="swapButton"
+                  type="button"
+                  onClick={handleSwapRequest}
+                >
+                  Proposer un SWAP
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

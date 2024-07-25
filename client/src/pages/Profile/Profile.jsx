@@ -197,6 +197,9 @@ export default function Profile() {
   //           Pas de produit pour le moment...
   //         </div>
   //       ) : (
+
+        
+
   //         <div className="latestProductContainerForProfilePage">
   //           {dataProduct.map((product) => (
   //             <div key={product.item_id} className="blocProductForProfilePage">
@@ -298,10 +301,12 @@ export default function Profile() {
           </div>
         ) : (
           <div>
-            <h3 className="numberOfItems">
-              {dataProduct.length}{" "}
-              {dataProduct.length === 1 ? "article" : "articles"}
-            </h3>
+  
+              <h3 className="numberOfItems">
+                {dataProduct.length}{" "}
+                {dataProduct.length === 1 ? "article" : "articles"}
+              </h3>
+          <div>
             <div className="latestProductContainerForProfilePage">
               {dataProduct.map((product) => (
                 <div
@@ -338,15 +343,25 @@ export default function Profile() {
               ))}
             </div>
           </div>
+          </div>
         );
-      case "Evaluations":
-        return <div>Evaluations section content</div>;
-      case "Propositions":
-        return <div>Propositions section content</div>;
+     case "Evaluations":
+        return (
+          <div
+            style={{
+              fontSize: "24px",
+              textAlign: "center",
+              margin: "20px 0",
+              marginBottom: "2rem",
+              fontFamily: "Helvetica, Arial, sans-serif",
+            }}
+          >
+            {" "}
+            Pas d'évaluation pour le moment ! 
+          </div>
+        );
       case "Validations":
-        return user.is_admin === 1 ? (
-          <div>Validations section content</div>
-        ) : null;
+        return user.is_admin === 1 ? <div>Annonce à valider</div> : null;
       default:
         return null;
     }
@@ -622,6 +637,7 @@ export default function Profile() {
 
             <p className="requestAddAProduct">Echange souhaité&nbsp;:</p>
             <textarea
+             placeholder="Ajoutez les échanges souhaités"
               type="text"
               value={productRequest}
               onChange={handleRequestChange}
