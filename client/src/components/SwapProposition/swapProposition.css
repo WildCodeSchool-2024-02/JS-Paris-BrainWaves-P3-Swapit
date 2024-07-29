@@ -1,0 +1,239 @@
+.proposition {
+  width: fit-content;
+  padding: 20px 20px 40px 20px;
+  position: fixed;
+  z-index: 1001;
+  background-color: var(--grey);
+  border-radius: 25px;
+  top: 40px;
+  margin-inline: 3rem;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+.pProduct {
+  width: 100%;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 10px;
+}
+
+.nameBox {
+  font-family: var(--font);
+  font-size: medium;
+}
+.content {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.propositionProducts {
+  width: 90%;
+  position: relative;
+  left: 12px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  overflow-x: scroll;
+}
+
+.propositionProducts::-webkit-scrollbar {
+  display: none;
+}
+
+.productImgContainer {
+  width: 100%;
+  height: 12rem;
+}
+
+.mainImgProposition {
+  cursor: pointer;
+  width: 100%;
+  height: -webkit-fill-available;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.btnProposition {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  top: 40px;
+}
+
+.btnClose {
+  background-color: var(--main-blue);
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+  border-radius: 25px;
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: medium;
+  margin-top: 20px;
+  position: relative;
+  bottom: 40px;
+  transition: background-color 0.3s ease 0s;
+}
+
+.btnClose:hover {
+  background-color: var(--hover-blue);
+}
+
+.btnSend {
+  background-color: var(--main-blue);
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+  border-radius: 25px;
+  font-family: var(--font);
+  font-weight: bold;
+  margin-top: 30px;
+  position: relative;
+  bottom: 45px;
+  font-size: medium;
+  transition: background-color 0.3s ease 0s;
+}
+
+.btnSend:hover {
+  background-color: var(--hover-blue);
+}
+
+.blurEffect {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(41, 41, 41, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+body.active {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+  .proposition {
+    width: 50%;
+    max-height: fit-content;
+    padding: 20px 0px 0px 35px;
+    position: fixed;
+    z-index: 1001;
+    background-color: var(--grey);
+    border-radius: 25px;
+    top: 70px;
+    left: 25%;
+  }
+
+  .propositionProducts {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    scrollbar-width: thin;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .productImgContainer {
+    position: relative;
+    right: 10px;
+    width: 100%;
+    height: 20rem;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    top: 20px;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0px;
+  }
+
+  .nameBox {
+    font-size: medium;
+  }
+
+  .pProduct {
+    width: 22rem;
+  }
+
+  .btnProposition {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    right: 20px;
+    bottom: 10px;
+    top: 20px;
+  }
+
+  .btnClose {
+    background-color: var(--main-blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 30px 40px 40px 40px;
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .btnClose:hover {
+    background-color: var(--hover-blue);
+  }
+
+  .btnSend {
+    background-color: var(--main-blue);
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin: 30px 40px 40px 40px;
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: medium;
+    bottom: 40px;
+  }
+
+  .btnSend:hover {
+    background-color: var(--hover-blue);
+  }
+
+  .blurEffect {
+    width: 100%;
+    height: 116%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(41, 41, 41, 0.5);
+    backdrop-filter: blur(5px);
+  }
+}

@@ -1,0 +1,159 @@
+.containerNavBar {
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  font-family: (Arial, Helvetica, sans-serif);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 0px;
+}
+
+.logo {
+  width: 12vh;
+  cursor: pointer;
+  position: relative;
+  left: 37px;
+}
+
+.user {
+  width: 3.5vh;
+}
+
+.instruction-presentation {
+  display: none;
+}
+.instruction {
+  display: none;
+  color: black;
+  text-decoration: none;
+}
+
+.presentation {
+  display: none;
+}
+
+.searchBarMobile {
+  display: block;
+}
+
+.searchBarDesktop {
+  display: none;
+}
+
+.userButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.buttonLogout {
+  display: none;
+}
+
+.popoverContainer {
+  display: none;
+}
+
+.userButton img {
+  display: block;
+}
+.pictureProfileConnected {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+}
+@media only screen and (min-width: 769px) {
+  .logo {
+    width: 14vh;
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+  }
+  .userButton {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .containerNavBar {
+    padding-bottom: 2vh;
+    padding-left: 1vh;
+    display: flex;
+    align-items: center;
+    padding-block: 3vh;
+  }
+
+  .instruction {
+    display: inline;
+    justify-content: space-between;
+    margin-right: 2vh;
+  }
+
+  .instructionPresentation {
+    display: flex;
+    align-self: center;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    right: 65px;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .presentation {
+    display: inline;
+    align-self: center;
+    color: #00c3e3;
+    cursor: pointer;
+  }
+
+  .import {
+    display: none;
+  }
+
+  .searchBarMobile {
+    display: none;
+  }
+
+  .searchBarDesktop {
+    display: inline;
+  }
+
+  .pictureProfileConnected {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+  }
+
+  .popoverContainer {
+    display: block;
+    border-radius: 40px;
+  }
+  .buttonLogout {
+    cursor: pointer;
+    display: inline-block;
+    color: black;
+    position: relative;
+    bottom: 5px;
+    padding-top: 6px;
+  }
+  .buttonProfil {
+    cursor: pointer;
+    color: black;
+    position: relative;
+    top: 5px;
+  }
+
+  .buttonLogout:hover {
+    color: red;
+  }
+
+  .buttonProfil:hover {
+    color: var(--main-blue);
+  }
+}

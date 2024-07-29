@@ -1,0 +1,171 @@
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.allInstruction {
+  margin-top: 30px;
+  margin-bottom: -20px;
+  display: flex;
+  justify-content: center;
+}
+
+.swiperInstruction {
+  width: 80vw;
+  height: 100%;
+  padding: 60px;
+  margin-block: 50px;
+}
+
+.slideInstruction {
+  background-position: center;
+  background-size: cover;
+  height: 40vh;
+  border: 2px solid;
+  border-radius: 20px;
+}
+
+.imagesSlide {
+  width: 12rem;
+  height: 8rem;
+  border-radius: 25px;
+  object-fit: cover;
+  margin-top: 4rem;
+}
+
+#how {
+  font-family: var(--font);
+  font-weight: 900;
+  font-style: normal;
+  font-size: 22px;
+  margin-left: 12px;
+}
+
+.upText {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+.downTextImg {
+  display: flex;
+  font-family: var(--font);
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+.downText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 8rem;
+  width: 22rem;
+  font-family: var(--font);
+  margin-top: 3rem;
+}
+
+.question {
+  font-family: var(--font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.response {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.color {
+  color: #00c3e3;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--main-blue);
+}
+
+.swiper-pagination-bullet {
+  background: var(--main-blue);
+}
+
+@media screen and (max-width: 744px) {
+  .img {
+    margin-bottom: 20px;
+  }
+
+  .downTextImg {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 0;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .slideInstruction {
+    width: auto;
+    height: auto;
+  }
+
+  .upText {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+
+  .response {
+    font-size: 0.8rem;
+  }
+
+  .downText {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .swiperInstruction {
+    width: 37vh;
+    height: auto;
+    margin: 3rem;
+    padding: 0;
+  }
+
+  .imgStep {
+    width: auto;
+    margin: 2% 0;
+    border: none;
+  }
+
+  #how {
+    font-size: 1.5rem;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, -22px);
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: var(--swiper-navigation-sides-offset, -38px);
+    left: auto;
+  }
+
+  .swiper-button-prev {
+    left: var(--swiper-navigation-sides-offset, -38px);
+    right: auto;
+  }
+}
+
+@media screen and (min-width: 744px) and (max-width: 1124px) {
+  .swiperInstruction {
+    margin-bottom: 2rem;
+  }
+}

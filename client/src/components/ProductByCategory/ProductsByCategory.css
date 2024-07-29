@@ -1,0 +1,172 @@
+.blocProductByCategory {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.imgContainerByCategory {
+  position: relative;
+  width: 80%;
+  height: 45vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.productPictureByCategory {
+  display: block;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgContainerForAllProducts {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.pictureProductForAllProducts {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.descByCategory {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.productNameByCategory {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.conditionProductByCategory {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.pseudoByCategory {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.blocProfileByCategory {
+  display: flex;
+  width: 80%;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.imageProfileContainerByCategory {
+  position: relative;
+  width: 7vh;
+  height: 7vh;
+  overflow: hidden;
+}
+
+.pictureProfileByCategory {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.linkProdCategory {
+  color: inherit;
+}
+
+@media only screen and (min-width: 769px) {
+  .blocProductByCategory {
+    display: inline-block;
+    flex-direction: column;
+    width: 330px;
+    height: 430px;
+    margin-bottom: 11%;
+    margin-top: 7vh;
+    white-space: normal;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .imgContainerByCategory {
+    position: relative;
+    width: 100%;
+    height: 62vh;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .pictureProductByCategory {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .productNameByCategory {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+  }
+
+  .conditionProductByCategory {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .pseudoByCategory {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    height: 100%;
+  }
+
+  .blocProfileByCategory {
+    display: flex;
+    gap: 2vh;
+    align-items: flex-start;
+    align-content: center;
+  }
+
+  .imageProfileContainerByCategory {
+    position: relative;
+    bottom: 5px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .pictureProfileByCategory {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .linkProdCategory {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+  }
+}

@@ -1,0 +1,850 @@
+.screenReaders {
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+#buttonStar {
+  margin: 0 5px;
+  font-size: 2rem;
+}
+#buttonModif {
+  background-color: #00c3e3;
+  padding: 9px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  width: 12rem;
+  height: 3.5rem;
+  margin: 3% 0 0.5rem;
+  transition: background-color 0.3s ease 0s;
+}
+
+#btn {
+  color: var(--main-blue);
+}
+
+#buttonModif:hover,
+.Custom-button:hover {
+  background-color: #00c3e3;
+}
+.validationAddAProduct {
+  background-color: #00c3e3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px 0 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  transition: background-color 0.3s ease 0s;
+}
+
+.validationAddAProduct:hover {
+  background-color: #0093aa;
+}
+
+.Subscribe {
+  margin-bottom: 10px;
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 10px 30px;
+  position: relative;
+  right: 10px;
+}
+.profileImgContainer {
+  width: 120px;
+  height: 120px;
+}
+.profileImg {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+  position: relative;
+  top: 45px;
+  right: 10px;
+}
+.profileHeader {
+  display: flex;
+  justify-content: center;
+  margin: 2vh;
+  gap: 40px;
+}
+
+.profileBar {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+.rate-value-full::before,
+.rate-value-half::before,
+.rate-value-empty::before,
+.Cate-value-empty::before {
+  content: "★";
+  color: gold;
+}
+.Cate-value-empty::before {
+  color: lightgray;
+}
+.blocAddProduct {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 1px solid black;
+  width: 75vw;
+  margin: 10vh 10vw;
+  padding: 3vh 5vw;
+  border-radius: 1.5rem;
+}
+.addAProduct {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  font-size: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+}
+.titleAddProduct,
+.descriptionAddAProduct,
+.conditionAddAProduct,
+.locationAddAProduct,
+.categoryAddAProduct,
+.requestAddAProduct {
+  margin: 2vh 1vw;
+}
+.inputGroupAddProduct,
+.inputLocation,
+.inputCategory,
+.texteAreaDescription,
+.texteAreaCondition,
+.texteAreaRequest {
+  width: 100%;
+  margin-bottom: 2vh;
+}
+.inputTitleProd {
+  width: 55vw;
+  font-style: italic;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.inputTitleProd::placeholder,
+.inputCategory {
+  color: rgb(163, 163, 163);
+  font-weight: 100;
+}
+.photoPreview {
+  cursor: pointer;
+  font-size: 4rem;
+  color: black;
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 2vh;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background-image: linear-gradient(
+      45deg,
+      rgb(226, 226, 226) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(226, 226, 226) 75%
+    ),
+    linear-gradient(
+      45deg,
+      rgb(226, 226, 226) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(226, 226, 226) 75%
+    );
+  background-size: 50px 50px;
+  background-position:
+    0 0,
+    25px 25px;
+}
+.buttonZone {
+  display: flex;
+  justify-content: center;
+}
+.buttonZoneAdValidation {
+  display: flex;
+  justify-content: space-between;
+}
+#buttonModif:hover {
+  background-color: var(--hover-blue);
+}
+
+/* VITRINE  */
+
+.blocProductForProfilePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+.imgContainerForProfilePage {
+  position: relative;
+  width: 800%;
+  height: 45vh;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.pictureProductForProfilePage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.categoryProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.productNameForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.conditionProductForProfilePage {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+.blocProfilePage {
+  display: flex;
+  margin-bottom: 3vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+.latestProductContainerForProfilePage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4vh;
+  margin: 0 auto 0vh auto;
+  padding: 0 5vh;
+}
+
+.numberOfItems {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.profileAdministrator {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+/* Modal Library*/
+.modalProfile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalcontentProfile {
+  background-color: white;
+  padding: 20px;
+  border-radius: 22px;
+  width: 75%;
+  height: 490px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 60px;
+  cursor: pointer;
+  color: black;
+}
+
+#confirmationprofileBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmationBtn {
+  display: flex;
+  width: 12rem;
+  padding: 0.4rem;
+  background-color: #00c3e3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+.saveBtn:hover {
+  background-color: #00c3e3;
+}
+
+/* Modal Form Library*/
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 22px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #a0dae4;
+}
+
+.profileAdministrator {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+.productAdValidation {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border: 1px solid black;
+  width: 75vw;
+  margin: auto;
+  margin-top: 3rem;
+  padding: 3vh 5vw;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.addAProduct {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.pseudoAdValidation,
+.titleAdValidation,
+.categoryAdValidation,
+.descriptionAdValidation {
+  margin-bottom: 2vh;
+}
+.contentTitleAdValidation,
+.contentPseudoAdValidation,
+.contentCategoryAdValidation,
+.contentConditionAdValidation {
+  font-weight: 300;
+}
+.contentDescriptionAdValidation {
+  font-weight: 300;
+  margin-bottom: 2vh;
+}
+.containerPhotoAdValidation {
+  position: relative;
+  height: 55vh;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3vh;
+}
+.photoAdValidation {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.validationAdProduct {
+  background-color: #00c3e3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px 0 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.refusalAdProduct {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px 0 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#btn {
+  color: var(--main-blue);
+}
+
+@media only screen and (min-width: 769px) {
+  .adValidation {
+    font-size: 24px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .contentTitleAdValidation,
+  .contentPseudoAdValidation,
+  .contentCategoryAdValidation,
+  .contentConditionAdValidation {
+    font-weight: 400;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .contentDescriptionAdValidation {
+    font-weight: 400;
+    font-size: large;
+    margin-bottom: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .photoAdValidation {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 18px;
+    object-fit: cover;
+  }
+  .Larger {
+    font-size: 1.5rem;
+  }
+  #buttonStar {
+    font-size: 2rem;
+  }
+  .profileImgContainer {
+    width: 200px;
+    height: 200px;
+  }
+  .profileDetails {
+    width: 22rem;
+  }
+  .profileImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+    top: 0px;
+  }
+  .profileHeader {
+    margin: 2rem;
+    gap: 40px;
+    display: flex;
+    align-items: center;
+  }
+  #buttonModif {
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 16rem;
+    height: 3.7rem;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
+  }
+
+  /* VITRINE  */
+  .latestProductContainerForProfilePage {
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
+    display: grid;
+    padding: 0 4vh;
+  }
+  .blocProfilePage {
+    position: relative;
+
+    display: flex;
+    margin-bottom: 5vh;
+    gap: 1vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blocProductForProfilePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .pictureProductForProfilePage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .productInformationForProfilePage {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .productNameForProfilePage {
+    margin-bottom: 0vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .conditionProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+  .imgContainerForProfilePage {
+    margin-top: 100px;
+    position: relative;
+    width: 65%;
+    height: 60vh;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .categoryProductForProfilePage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    margin-bottom: 1vh;
+  }
+
+  .numberOfItems {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+
+  .blocAddProduct {
+    width: 35vw;
+    margin: 10vh 20vw;
+    padding: 2rem 2rem;
+    padding-bottom: 1%;
+    margin: auto;
+    margin-bottom: 15%;
+    margin-top: 10%;
+  }
+
+  .titleAddProduct,
+  .descriptionAddAProduct,
+  .conditionAddAProduct,
+  .locationAddAProduct,
+  .categoryAddAProduct,
+  .addAPhoto {
+    font-size: large;
+  }
+  .inputTitleProd {
+    width: 20vw;
+    height: 9vh;
+    font-size: medium;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 2%;
+  }
+
+  .inputTitleProd::placeholder {
+    font-size: medium;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+  }
+
+  .inputTitleProd:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+  .texteAreaDescription {
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    padding: 4%;
+  }
+
+  .texteAreaDescription::placeholder {
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .texteAreaDescription:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+  .texteAreaCondition {
+    width: 18vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 3%;
+  }
+
+  .texteAreaCondition::placeholder {
+    font-size: medium;
+    font-style: italic;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+    display: flex;
+  }
+  .texteAreaCondition:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+  .inputLocation {
+    width: 18vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    border: solid thin rgb(118, 118, 118);
+    padding: 2%;
+  }
+
+  .inputLocation::placeholder {
+    font-size: medium;
+    font-style: italic;
+    color: rgb(124, 124, 124);
+    padding-left: 7px;
+  }
+
+  .inputLocation:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  .texteAreaRequest {
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    padding: 4%;
+    margin-bottom: 0px;
+  }
+
+  .texteAreaRequest::placeholder {
+    font-size: medium;
+    font-style: italic;
+  }
+
+  .texteAreaRequest:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  .requestAddAProduct {
+    font-size: large;
+  }
+
+  .inputCategory {
+    width: 22vw;
+    height: 9vh;
+    border-radius: 20px;
+    font-weight: 100;
+    font-size: large;
+    color: rgb(124, 124, 124);
+    font-size: medium;
+    font-style: italic;
+    padding: 7px;
+  }
+  .inputCategory:focus {
+    outline: none;
+    border: solid thin #00c3e3;
+    box-shadow: inset gray 0px 0px 4px -1px;
+  }
+
+  /* Modal Library*/
+  .modalProfile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 41, 41, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .modalcontentProfile {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: 22px;
+    width: 550px;
+    height: 785px;
+    box-shadow: 1px 1px 1px 1px rgba(54, 54, 54, 0.2);
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 60px;
+    cursor: pointer;
+    color: black;
+  }
+
+  #confirmationprofileBtn {
+    margin-top: 25px;
+  }
+
+  .confirmationBtn {
+    display: flex;
+    width: 16rem;
+    padding: 0.7rem;
+    background-color: #00c3e3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .saveBtn:hover {
+    background-color: #00c3e3;
+  }
+
+  /* Modal Form Library*/
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  form input {
+    width: 22rem;
+    padding: 8px;
+    margin-bottom: 30px;
+    border: 2px solid #ccc;
+    border-radius: 22px;
+  }
+
+  #profileForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input::placeholder {
+    color: #a0dae4;
+  }
+
+  .productAdValidation {
+    width: 35vw;
+    margin: auto;
+    margin-bottom: 60px;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buttonZoneAdValidation {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+  }
+
+  .validationAdProduct {
+    width: 70%;
+  }
+  .validationAdProduct:hover {
+    background-color: var(--hover-blue);
+  }
+
+  .refusalAdProduct {
+    width: 70%;
+  }
+
+  .refusalAdProduct:hover {
+    background-color: rgb(213, 0, 0);
+  }
+
+  /* Modal Swap */
+  #modalSwap {
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+  }
+  #modalBox {
+    border: solid thick black;
+  }
+  .modalContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .textSwap {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--main-blue);
+  }
+}

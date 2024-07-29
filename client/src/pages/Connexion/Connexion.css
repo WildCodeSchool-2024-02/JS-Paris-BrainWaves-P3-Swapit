@@ -1,0 +1,116 @@
+/* MOBILE  FIRST */
+
+.sectionFormConnect {
+  background-color: #f7f7f7;
+  margin: auto auto;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
+  font-family: Helvetica, sans-serif;
+}
+
+.formConnect {
+  background-color: #ffffff;
+  padding: 2rem;
+  padding-top: 3rem;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgb(163 159 159);
+  width: 100%;
+  max-width: 19rem;
+  text-align: center;
+}
+
+.titleConnect {
+  margin-bottom: 0.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
+.messageConnect {
+  margin-bottom: 1.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-around;
+}
+.formConnect > div {
+  margin-bottom: 35px;
+}
+
+.inputFormConnect {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #a4a4a4;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-style: italic;
+}
+.inputFormConnect:focus {
+  outline: none;
+  border: solid thin #00c3e3;
+  box-shadow: inset gray 0px 0px 4px -1px;
+}
+.inputFormConnect::placeholder {
+  color: rgb(169, 169, 169);
+}
+
+.buttonSubmitConnect {
+  width: 60%;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: #00c3e3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease 0s;
+}
+
+.buttonSubmitConnect:hover {
+  background-color: #0093aa;
+}
+
+.messageRegister {
+  margin-top: 1rem;
+  font-size: 16px;
+}
+
+.createAccount {
+  font-weight: bold;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .sectionFormConnect {
+    background-color: #f7f7f7;
+    margin: auto auto;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    font-family: Helvetica, sans-serif;
+  }
+  .formConnect {
+    background-color: #ffffff;
+    padding: 3rem;
+    padding-top: 4rem;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 50%;
+    text-align: center;
+  }
+
+  .up {
+    display: none;
+  }
+}

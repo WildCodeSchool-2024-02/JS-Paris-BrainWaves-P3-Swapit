@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+hr {
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: system-ui, sans-serif;
+}
+
+.containerFooter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #f7f7f7;
+  height: auto;
+  width: 100%;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  flex-wrap: nowrap;
+  padding-inline: 5px;
+  padding-bottom: 10px;
+  padding-top: 2vh;
+}
+
+.wave {
+  margin-bottom: -16px;
+}
+
+.column1 {
+  margin: auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.avisP1 {
+  font-size: smaller;
+}
+.avisP2 {
+  font-size: xx-small;
+  margin-bottom: 10px;
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+  border-image: linear-gradient(
+      transparent 10%,
+      rgb(163, 163, 163) 30% 90%,
+      transparent 0%
+    )
+    0 1 0 1 / 1px;
+}
+
+.column3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 0%;
+}
+
+.column1,
+.column2,
+.column3 {
+  padding: 10px;
+}
+
+.avis {
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 4vh;
+}
+
+.avisP1 {
+  font-weight: bold;
+}
+
+.avisP2 {
+  font-size: 10px;
+  margin-bottom: 2vh;
+  font-style: italic;
+}
+
+.pictos {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: 2fr 2fr;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+  padding-left: 10px;
+  margin-top: 2vh;
+}
+.we {
+  width: 7vh;
+  margin-bottom: 4vh;
+}
+
+.gh {
+  width: 12vh;
+  margin-bottom: 4vh;
+}
+
+.tr {
+  width: 12vh;
+}
+
+.git {
+  width: 5vh;
+  filter: drop-shadow(3px 3px 3px rgb(172, 172, 172));
+  cursor: pointer;
+}
+
+.info {
+  width: 25vw;
+  margin-top: 5vh;
+}
+
+.insta {
+  width: 5vh;
+  filter: drop-shadow(3px 3px 3px rgb(172, 172, 172));
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.facebook {
+  width: 2.5vh;
+  filter: drop-shadow(3px 3px 3px rgb(172, 172, 172));
+  width: 2.8vh;
+  position: relative;
+  left: 6px;
+  cursor: pointer;
+}
+
+.linkedin {
+  width: 5vh;
+  filter: drop-shadow(3px 3px 3px rgb(172, 172, 172));
+  position: relative;
+  left: 3px;
+  cursor: pointer;
+}
+
+.thanks {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 3vh;
+  color: black;
+  font-style: italic;
+}
+
+.swapitTag {
+  display: flex;
+  font-size: xx-small;
+  padding: 0px;
+  margin: 10px 0px 5px 11px;
+  color: rgb(94, 94, 94);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 601px) {
+  .wave {
+    margin-bottom: -132px;
+  }
+
+  .containerFooter {
+    font-size: 20px;
+    padding-bottom: 1vh;
+    margin-top: 15vh;
+  }
+  .column1,
+  .column2,
+  .column3 {
+    padding: 5px;
+  }
+
+  .column1 {
+    padding-right: 13%;
+  }
+
+  .column2 {
+    border-image: linear-gradient(
+        transparent 10%,
+        rgb(163, 163, 163) 30% 90%,
+        transparent 0%
+      )
+      0 1 0 1 / 2px;
+    gap: 20px;
+  }
+
+  .column3 {
+    width: 80%;
+    padding-left: 20%;
+  }
+
+  .avis {
+    font-size: 15px;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+  }
+  .avisP1 {
+    margin-top: 2px;
+    font-size: 65%;
+    color: black;
+  }
+  .avisP2 {
+    font-size: 66%;
+    margin-bottom: 0px;
+    color: black;
+  }
+
+  .avis2 {
+    margin-top: 20px;
+  }
+
+  .info {
+    width: 70%;
+    margin-top: 6vh;
+  }
+
+  .thanks {
+    font-size: 18px;
+    margin-top: 10vh;
+    margin-left: 20px;
+  }
+
+  .swapitTag {
+    font-size: small;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 10%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .containerFooter {
+    font-size: 15px;
+    padding: 0px 10px 0px 10px;
+  }
+  .wave {
+    display: none;
+    margin-bottom: -40px;
+  }
+
+  .column1,
+  .column2,
+  .column3 {
+    padding-top: 20px;
+  }
+
+  .avis {
+    font-size: 20px;
+    margin-bottom: 9vh;
+  }
+
+  .avisP2 {
+    font-size: larger;
+    margin-bottom: 7vh;
+  }
+  .avisP1 {
+    font-size: medium;
+  }
+
+  .we {
+    width: 10vh;
+    margin-bottom: 5vh;
+  }
+
+  .gh {
+    width: 29vh;
+    margin-bottom: 5vh;
+  }
+
+  .tr {
+    width: 30vh;
+  }
+  .pictos {
+    display: flex;
+    gap: 3%;
+    justify-content: space-around;
+  }
+  .git {
+    width: 9vh;
+    height: 9vh;
+  }
+
+  .insta {
+    width: 9vh;
+    height: 9vh;
+  }
+
+  .facebook {
+    width: 6vh;
+    height: 9vh;
+  }
+
+  .linkedin {
+    width: 9vh;
+    height: 9vh;
+  }
+
+  .thanks {
+    font-size: 24px;
+  }
+  .swapitTag {
+    font-size: medium;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 8%;
+    margin-bottom: 5%;
+  }
+}

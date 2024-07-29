@@ -1,67 +1,157 @@
-// Import access to database tables
 const tables = require("../../database/tables");
 
-// The B of BREAD - Browse (Read All) operation
 const browse = async (req, res, next) => {
   try {
-    // Fetch all items from the database
     const items = await tables.item.readAll();
 
-    // Respond with the items in JSON format
     res.json(items);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
-// The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
-    // Fetch a specific item from the database based on the provided ID
     const item = await tables.item.read(req.params.id);
 
-    // If the item is not found, respond with HTTP 404 (Not Found)
-    // Otherwise, respond with the item in JSON format
     if (item == null) {
       res.sendStatus(404);
     } else {
       res.json(item);
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
-// The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
-
-// The A of BREAD - Add (Create) operation
-const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const item = req.body;
-
+const edit = async (req, res, next) => {
   try {
-    // Insert the item into the database
-    const insertId = await tables.item.create(item);
+    const { id } = req.params;
+    const itemData = req.body;
+    const [result] = await tables.item.update(itemData, id);
+    if (result.affectedRows > 0) res.sendStatus(204);
+    else res.sendStatus(404);
+  } catch (error) {
+    next(error);
+  }
+};
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+const add = async (req, res, next) => {
+  try {
+    if (req.file) {
+      const uploadDir = `${process.env.APP_HOST}/upload/${req.file.filename}`;
+      req.body.image_url = uploadDir;
+    }
+
+    const itemData = req.body;
+    const result = await tables.item.create(itemData);
+
+    res.status(201).json(result);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
-// The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const [result] = await tables.item.delete(id);
+    if (result.affectedRows > 0) res.sendStatus(204);
+    else res.sendStatus(404);
+  } catch (e) {
+    next(e);
+  }
+};
+const getUserByItem = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readUserByItem(req.params.id);
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
-// Ready to export the controller functions
+const getItemApproved = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemApproved();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getItemUnapproved = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemUnapproved();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getItemByDate = async (req, res, next) => {
+  try {
+    const [result] = await tables.item.readItemOrderByDate();
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: "Item not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const swapProposition = async (req, res, next) => {
+  try {
+
+    const [result] = await tables.item.swap(req.auth.id);
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: " not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const swapReception = async (req, res, next) => {
+  try {
+
+    const [result] = await tables.item.reception(req.auth.id);
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).json({ message: " not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
+  getUserByItem,
+  getItemApproved,
+  getItemByDate,
+  getItemUnapproved,
+  swapProposition,
+  swapReception ,
 };

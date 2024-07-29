@@ -2,22 +2,45 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+const {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+  getItemApproved,
+  getUserByItem,
+  getItemByDate,
+  getItemUnapproved,
+  swapProposition,
+  swapReception,
+} = require("../../../controllers/itemActions");
+const { isAuth } = require("../../../services/auth");
+const fileUpload = require("../../../services/fileUpload");
 
-// Import item-related actions
-const { browse, read, add } = require("../../../controllers/itemActions");
+router.get("/all", getItemApproved);
 
-// Route to get a list of items
+router.get("/unapproved", getItemUnapproved);
+
+
+router.get("/latest", getItemByDate);
+
 router.get("/", browse);
 
-// Route to get a specific item by ID
+router.get("/swap", isAuth, swapProposition)
+
+router.get("/reception", isAuth, swapReception)
+
 router.get("/:id", read);
 
-// Route to add a new item
-router.post("/", add);
+router.get("/:id/user", getUserByItem);
 
-/* ************************************************************************* */
+router.post("/", isAuth, fileUpload.single(`image_url`), add);
+
+router.put("/:id", edit);
+
+router.delete("/:id", isAuth, destroy);
+
+
 
 module.exports = router;

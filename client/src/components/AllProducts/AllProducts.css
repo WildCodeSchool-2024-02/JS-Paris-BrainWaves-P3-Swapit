@@ -1,0 +1,168 @@
+.blocProductForAllProducts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.imgContainerForAllProducts {
+  position: relative;
+  width: 80%;
+  height: 45vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.pictureProductForAllProducts {
+  display: block;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoryProductForAllProducts {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5vh;
+}
+
+.productNameForAllProducts {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.productInformationForAllProducts {
+  display: flex;
+  width: 80%;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.conditionProductForAllProducts {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.pseudoForAllProducts {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.blocProfile {
+  width: 80%;
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.pictureProfileContainer {
+  position: relative;
+  width: 7vh;
+  height: 7vh;
+  overflow: hidden;
+}
+
+.pictureProfile {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 769px) {
+  .blocProductForAllProducts {
+    display: inline-block;
+    flex-direction: column;
+    width: 330px;
+    height: 430px;
+    margin-bottom: 11%;
+    margin-top: 7vh;
+    white-space: normal;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 130px;
+  }
+
+  .productInformationForAllProducts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .imgContainerForAllProducts {
+    position: relative;
+    width: 100%;
+    height: 62vh;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .pictureProductForAllProducts {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .categoryProductForAllProducts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1vh;
+  }
+
+  .productNameForAllProducts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+  }
+
+  .conditionProductForAllProducts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .pseudoForAllProducts {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    height: 100%;
+  }
+
+  .blocProfile {
+    display: flex;
+    gap: 2vh;
+    align-items: flex-start;
+    align-content: center;
+  }
+
+  .pictureProfileContainer {
+    position: relative;
+    bottom: 5px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .pictureProfile {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

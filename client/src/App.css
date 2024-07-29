@@ -1,165 +1,108 @@
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #eee;
+/*RESET CSS*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
 }
 
-.container {
-  height: 100vh;
-  background-image: url("./assets/images/background.webp");
-  background-size: cover;
-  background-position: top;
-  position: relative;
+p {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 30px;
 }
 
-.logo {
-  font-size: 20px;
-  margin-top: 16px;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #eee;
-  display: flex;
-  gap: 5px;
-  justify-content: end;
-  margin-top: auto;
-  font-size: 15px;
-}
-
-.navbar a:hover {
-  scale: 110%;
-}
-
-.text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.block-primary {
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.block-primary-main {
-  font-size: 50px;
-  font-weight: 400;
-  letter-spacing: 5px;
-  animation: blink 12s infinite;
-}
-
-.block-primary-sub {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 7px;
+  max-width: 100%;
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 10px 20px;
-  display: inline-block;
-  border-radius: 100px;
-  transition: all 0.2s;
-  position: relative;
+#root,
+#__next {
+  isolation: isolate;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+/*RESET CSS*/
+
+/*CSS GLOBAL*/
+
+:root {
+  /*COLORS*/
+  --main-blue: #00c3e3;
+  --second-blue: #a0dae4;
+  --hover-blue: #00a4be;
+  --grey: #f7f7f7;
+
+  /*FONTS*/
+  --font: "Arial, Helvetica", sans-serif;
+
+  /*SIZES*/
+  --base-font-size: 1rem;
 }
 
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+h1 {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 4rem;
+  overflow-wrap: break-word;
 }
 
-.btn-white {
-  background-color: #fff;
-  color: #777;
-  font-size: 14px;
+h2 {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 2rem;
+  overflow-wrap: break-word;
 }
 
-footer {
-  position: absolute;
-  top: 85%;
-  left: 75%;
+p {
+  font-family: var(--font);
+  overflow-wrap: break-word;
 }
 
-.wcs {
-  text-decoration: none;
-  color: #ff1493ad;
+.blue-text {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--main-blue);
 }
 
-.wcs:hover {
-  border-bottom: solid 1px #ff1493ad;
+.button {
+  background-color: var(--main-blue);
+  padding: 15px 30px 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0px 2px 0px 2px rgb(214, 214, 214);
+  border: none;
 }
 
-@media screen and (max-width: 760px) {
-  .logo {
-    display: none;
-  }
-
-  .container {
-    justify-content: center;
-  }
-
-  footer {
-    position: absolute;
-    top: 85%;
-    left: 20%;
-  }
+.button:hover {
+  border: 1px solid var(--main-blue);
+  background-color: white;
+  color: var(--main-blue);
 }
 
-@media screen and (min-width: 761px) and (max-width: 960px) {
-  footer {
-    position: absolute;
-    top: 85%;
-    left: 60%;
-  }
-}
-
-@keyframes blink {
-  20%,
-  24%,
-  55% {
-    color: #111;
-    text-shadow: none;
-  }
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    text-shadow:
-      0 0 5px #ff1493ad,
-      0 0 15px #eee,
-      0 0 20px #ff1493ad,
-      0 0 40px #a00ac9,
-      0 0 60px #ff0000,
-      0 0 10px #970dc5,
-      0 0 98px #ff0000;
-    color: #fff;
-  }
-}
+/*CSS GLOBAL*/

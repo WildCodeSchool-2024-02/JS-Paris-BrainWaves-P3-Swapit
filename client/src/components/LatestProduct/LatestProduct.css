@@ -1,0 +1,156 @@
+.blocProductByLatestProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.imgContainerByLatestProduct {
+  position: relative;
+  width: 80%;
+  height: 45vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.pictureProductByLatestProduct {
+  display: block;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+.descByLatestProduct {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.productNameByLatestProduct {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.conditionProductByLatestProduct {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+}
+
+.pseudoByLatestProduct {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.locationByLatestProduct {
+  font-size: 1.2rem;
+}
+
+.blocProfileByLatestProduct {
+  width: 80%;
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 1vh;
+  flex-wrap: wrap;
+}
+
+.pictureProfileContainerByLatestProduct {
+  position: relative;
+  width: 7vh;
+  height: 7vh;
+  overflow: hidden;
+}
+
+.pictureProfileByLatestProduct {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 769px) {
+  .blocProductByLatestProduct {
+    display: inline-block;
+    flex-direction: column;
+    width: 330px;
+    height: 430px;
+    margin-bottom: 11%;
+    margin-top: 7vh;
+    white-space: normal;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 130px;
+  }
+
+  .imgContainerByLatestProduct {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .pictureProductByLatestProduct {
+    display: block;
+    width: 100%;
+    height: 62vh;
+    object-fit: cover;
+  }
+
+  .productNameByLatestProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+  }
+
+  .conditionProductByLatestProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    margin-bottom: 1vh;
+  }
+
+  .locationByLatestProduct {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .pseudoByLatestProduct {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    height: 100%;
+  }
+
+  .blocProfileByLatestProduct {
+    display: flex;
+    gap: 2vh;
+    align-items: flex-start;
+    align-content: center;
+  }
+
+  .pictureProfileContainerByLatestProduct {
+    position: relative;
+    bottom: 5px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .pictureProfileByLatestProduct {
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
